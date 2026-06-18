@@ -20,7 +20,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:'Outfit',sans-serif}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;border-bottom:0.5px solid transparent;transition:all 0.4s;background:transparent}
 nav.scrolled{background:rgba(250,248,244,0.96);border-bottom-color:var(--border);backdrop-filter:blur(8px)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:0.08em;color:var(--ink)}
@@ -35,11 +34,9 @@ nav.scrolled{background:rgba(250,248,244,0.96);border-bottom-color:var(--border)
 .mobile-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--ink);letter-spacing:0.02em}
-.mobile-menu .m-cta{font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.9rem 2.5rem;border:0.5px solid var(--ink);color:var(--ink);background:none;margin-top:1rem;font-family:'Outfit',sans-serif}
 
-/* HERO */
 .hero{height:100vh;min-height:600px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:6rem 3rem 5rem 4rem;border-right:0.5px solid var(--border);position:relative}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:6rem 3rem 5rem 4rem;position:relative}
 .hero-eyebrow{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem}
 .hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.8rem);font-weight:300;line-height:1.08;letter-spacing:-0.01em;margin-bottom:2.5rem}
 .hero-headline em{font-style:italic;color:var(--accent)}
@@ -52,57 +49,93 @@ nav.scrolled{background:rgba(250,248,244,0.96);border-bottom-color:var(--border)
 .hero-bottom{position:absolute;bottom:2rem;left:4rem}
 .hero-tag{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-mid);display:flex;align-items:center;gap:0.6rem}
 .hero-tag::before{content:'';width:24px;height:0.5px;background:var(--accent)}
-.hero-right{position:relative;overflow:hidden;background:var(--surface);display:flex;align-items:center;justify-content:center;border-left:0.5px solid var(--border)}
-.hero-svg{opacity:0.06}
-.hero-stat{position:absolute;bottom:3rem;right:3rem;text-align:right}
-.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--ink);line-height:1}
-.hero-stat-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-mid);margin-top:0.4rem}
 
-/* MARQUEE */
+/* MAP SECTION */
+.hero-right{
+  position:relative;
+  overflow:hidden;
+  background:var(--cream);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:80px;
+}
+.hero-map-wrap{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 20px 40px 0;
+}
+.hero-map-wrap svg{
+  width:100%;
+  height:100%;
+  max-height:calc(100vh - 120px);
+  object-fit:contain;
+  display:block;
+}
+/* left fade so map bleeds nicely into left column */
+.hero-right::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right, var(--cream) 0%, rgba(250,248,244,0.5) 5%, rgba(250,248,244,0) 18%);
+  pointer-events:none;
+  z-index:1;
+}
+
 .marquee-strip{border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:1rem 0;overflow:hidden;background:var(--surface)}
 .marquee-inner{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
 .marquee-inner span{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-mid);padding:0 3rem}
 .marquee-inner .dot{color:var(--accent);padding:0}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* SECTION UTILS */
 .section-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
 .section-label::before{content:'';width:32px;height:0.5px;background:var(--accent)}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.12;letter-spacing:-0.01em;margin-bottom:1.5rem}
 .section-title em{font-style:italic;color:var(--accent)}
 hr.divider{border:none;border-top:0.5px solid var(--border)}
 
-/* ABOUT */
 .about{padding:7rem 4rem}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
 .about-text p{font-size:1rem;line-height:1.9;color:var(--warm-mid);margin-bottom:1.5rem;font-weight:300}
 .about-text p strong{color:var(--ink);font-weight:400}
 .about-pillars{display:grid;gap:1.5rem}
-.pillar{padding:1.5rem;border:0.5px solid var(--border);display:flex;gap:1.2rem;align-items:flex-start;transition:border-color 0.2s}
+
+.pillar{padding:1.5rem;border:0.5px solid var(--border);display:flex;gap:1.2rem;align-items:flex-start;transition:border-color 0.2s;position:relative;overflow:hidden}
 .pillar:hover{border-color:var(--accent)}
 .pillar-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:2rem}
-.pillar-text h4{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);margin-bottom:0.4rem;font-weight:400}
+.pillar-text h4{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);margin-bottom:0.4rem;font-weight:400;display:flex;align-items:center;gap:0.6rem}
+.pillar-icon{flex-shrink:0;opacity:0.55}
 .pillar-text p{font-size:0.88rem;line-height:1.7;color:var(--warm-mid)}
 
-/* SERVICES */
-.services{background:var(--ink);color:var(--cream);padding:7rem 4rem}
-.services .section-label{color:var(--accent-light)}
-.services .section-label::before{background:var(--accent-light)}
-.services .section-title{color:var(--cream)}
-.services .section-title em{color:var(--accent-light)}
-.services-intro{font-size:1rem;line-height:1.9;color:rgba(250,248,244,0.6);max-width:55ch;margin-bottom:4rem;font-weight:300}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);border:0.5px solid rgba(255,255,255,0.1)}
-.service-card{padding:2.5rem 2rem;border-right:0.5px solid rgba(255,255,255,0.1);border-bottom:0.5px solid rgba(255,255,255,0.1);transition:background 0.3s}
-.service-card:hover{background:rgba(255,255,255,0.05)}
-.service-card:nth-child(3n){border-right:none}
-.service-card:nth-child(4),.service-card:nth-child(5){border-bottom:none}
-.service-icon{width:36px;height:36px;border:0.5px solid rgba(74,96,152,0.4);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
-.service-icon svg{width:16px;height:16px;stroke:var(--accent-light);fill:none;stroke-width:1}
-.service-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;line-height:1.3;margin-bottom:0.8rem;color:var(--cream)}
-.service-card p{font-size:0.85rem;line-height:1.8;color:rgba(250,248,244,0.5);font-weight:300}
-.service-tag{display:inline-block;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-light);margin-top:1.2rem;border-top:0.5px solid rgba(74,96,152,0.3);padding-top:0.8rem;width:100%}
+.services-pill-section{padding:7rem 4rem}
+.services-pill-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;padding-bottom:2rem;border-bottom:0.5px solid var(--border);gap:2rem;flex-wrap:wrap}
+.services-pill-header-right p{font-size:0.88rem;line-height:1.8;color:var(--warm-mid);max-width:38ch;text-align:right;font-weight:300}
+.pill-cards-list{display:flex;flex-direction:column;gap:0.75rem;max-width:760px}
+.pill-row{display:flex;align-items:flex-start;position:relative}
+.pill-num-circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:#fff;margin-right:-26px;margin-top:6px;box-shadow:0 2px 12px rgba(0,0,0,0.12)}
+.pill-card{display:flex;align-items:stretch;border-radius:6px;overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;flex:1;padding-left:34px}
+.pill-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.09)}
+.pill-row:nth-child(1) .pill-num-circle{background:#C2A98A}
+.pill-row:nth-child(2) .pill-num-circle{background:#B89A78}
+.pill-row:nth-child(3) .pill-num-circle{background:#AC8C68}
+.pill-row:nth-child(4) .pill-num-circle{background:#9E7C58}
+.pill-row:nth-child(5) .pill-num-circle{background:#8F6E4A}
+.pill-row:nth-child(1) .pill-card{background:#F1E7DA}
+.pill-row:nth-child(2) .pill-card{background:#ECDFCD}
+.pill-row:nth-child(3) .pill-card{background:#E5D5BE}
+.pill-row:nth-child(4) .pill-card{background:#DDC8AE}
+.pill-row:nth-child(5) .pill-card{background:#D4BC9D}
+.pill-card-body{padding:0.55rem 0.8rem 0.55rem 0.3rem;flex:1}
+.pill-card-for{font-size:0.63rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(94,68,38,0.65);margin-bottom:0.2rem}
+.pill-card-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:#3A2A18;line-height:1.2;margin-bottom:0.25rem}
+.pill-card-desc{font-size:0.75rem;line-height:1.5;color:rgba(58,42,24,0.62);font-weight:300}
+.pill-card-themes{display:flex;flex-wrap:wrap;gap:0.28rem;margin-top:0.45rem}
+.pill-card-theme{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.15rem 0.5rem;border:0.5px solid rgba(94,68,38,0.25);color:rgba(58,42,24,0.55);border-radius:20px}
+.pill-card-arrow{font-size:1rem;color:rgba(94,68,38,0.45);padding:0 1.2rem;flex-shrink:0;align-self:center}
 
-/* WHY AFRICA */
 .why-africa{background:var(--surface);padding:7rem 4rem}
 .why-grid{display:grid;grid-template-columns:5fr 7fr;gap:6rem;align-items:center}
 .why-left p{font-size:1rem;line-height:1.9;color:var(--warm-mid);margin-bottom:1.5rem;font-weight:300}
@@ -113,49 +146,26 @@ hr.divider{border:none;border-top:0.5px solid var(--border)}
 .why-point h4{font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);margin-bottom:0.4rem;font-weight:400}
 .why-point p{font-size:0.88rem;line-height:1.7;color:var(--warm-mid)}
 
-/* PROGRAMMES */
-.programmes{padding:7rem 4rem}
-.prog-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;padding-bottom:2rem;border-bottom:0.5px solid var(--border);gap:2rem;flex-wrap:wrap}
-.prog-header-right p{font-size:0.88rem;line-height:1.8;color:var(--warm-mid);max-width:38ch;text-align:right;font-weight:300}
-.prog-grid{border:0.5px solid var(--border)}
-.prog-row{display:grid;grid-template-columns:3rem 1fr 3fr auto;gap:2rem;padding:2rem 2.5rem;border-bottom:0.5px solid var(--border);align-items:start;transition:background 0.2s;cursor:pointer}
-.prog-row:last-child{border-bottom:none}
-.prog-row:hover{background:var(--surface)}
-.prog-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--border);line-height:1;margin-top:0.2rem;transition:color 0.2s}
-.prog-row:hover .prog-num{color:var(--accent)}
-.prog-for{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:400}
-.prog-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;margin-top:0.3rem;line-height:1.3}
-.prog-desc{font-size:0.88rem;line-height:1.8;color:var(--warm-mid);font-weight:300;margin-top:0.2rem}
-.prog-themes{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.8rem}
-.prog-theme{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border:0.5px solid var(--border);color:var(--warm-mid)}
-.prog-arrow{width:32px;height:32px;border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;margin-top:0.2rem;flex-shrink:0;transition:all 0.2s}
-.prog-row:hover .prog-arrow{border-color:var(--accent);background:var(--accent)}
-.prog-arrow svg{width:12px;height:12px;stroke:var(--warm-mid);fill:none;stroke-width:1.5;transition:stroke 0.2s}
-.prog-row:hover .prog-arrow svg{stroke:var(--cream)}
-
-/* HOW WE WORK */
 .how-we-work{background:var(--ink);padding:7rem 4rem;color:var(--cream)}
 .how-we-work .section-label{color:var(--accent-light)}
 .how-we-work .section-label::before{background:var(--accent-light)}
 .how-we-work .section-title{color:var(--cream)}
 .how-we-work .section-title em{color:var(--accent-light)}
-.how-intro{font-size:1rem;line-height:1.9;color:rgba(250,248,244,0.6);max-width:60ch;margin-bottom:5rem;font-weight:300}
+.how-we-work-header{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap;margin-bottom:5rem}
+.how-we-work-header-left{flex:1;min-width:280px}
+.how-we-work-skyline{flex-shrink:0;width:400px;opacity:0.9}
+.how-we-work-skyline svg{width:100%;height:auto;display:block}
+.how-intro{font-size:1rem;line-height:1.9;color:rgba(250,248,244,0.6);max-width:60ch;margin-bottom:0;font-weight:300}
 .how-steps{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid rgba(255,255,255,0.1);margin-bottom:5rem}
 .how-step{padding:2.5rem 2rem;border-right:0.5px solid rgba(255,255,255,0.1)}
 .how-step:last-child{border-right:none}
-.step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(74,96,152,0.2);line-height:1;margin-bottom:1.5rem}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:rgba(74,96,152,0.35);line-height:1;margin-bottom:1.5rem}
 .step-icon{width:40px;height:40px;border:0.5px solid rgba(74,96,152,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
 .step-icon svg{width:16px;height:16px;stroke:var(--accent-light);fill:none;stroke-width:1}
 .how-step h3{font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);margin-bottom:1rem;font-weight:400}
 .how-step p{font-size:0.85rem;line-height:1.8;color:rgba(250,248,244,0.5);font-weight:300}
 .how-bottom{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding-top:4rem;border-top:0.5px solid rgba(255,255,255,0.1)}
-.how-assurance h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--cream);margin-bottom:1rem}
-.how-assurance p{font-size:0.9rem;line-height:1.9;color:rgba(250,248,244,0.55);font-weight:300;margin-bottom:1rem}
-.how-checklist{list-style:none;display:grid;gap:0.8rem}
-.how-checklist li{display:flex;align-items:flex-start;gap:1rem;font-size:0.88rem;line-height:1.6;color:rgba(250,248,244,0.55)}
-.check-mark{color:var(--accent-light);font-size:0.9rem;flex-shrink:0;margin-top:1px}
 
-/* CONTACT */
 .contact{padding:7rem 4rem;background:var(--surface)}
 .contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:6rem;align-items:start}
 .contact-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem}
@@ -186,7 +196,6 @@ textarea{resize:vertical;min-height:120px;line-height:1.7}
 .form-success h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:1rem}
 .form-success p{font-size:0.9rem;line-height:1.8;color:var(--warm-mid)}
 
-/* FOOTER */
 footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;padding-bottom:3rem;border-bottom:0.5px solid rgba(255,255,255,0.1)}
 .footer-brand h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;margin-bottom:1rem}
@@ -199,7 +208,6 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-bottom p{font-size:0.75rem;letter-spacing:0.08em;color:rgba(250,248,244,0.3)}
 
-/* PROGRAMME DETAIL PANEL */
 .prog-detail{position:fixed;inset:0;z-index:300;display:flex;opacity:0;pointer-events:none;transition:opacity 0.4s}
 .prog-detail.open{opacity:1;pointer-events:all}
 .prog-detail-backdrop{position:absolute;inset:0;background:rgba(26,24,20,0.7)}
@@ -226,30 +234,24 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 .detail-cta{width:100%;padding:1rem;background:var(--ink);color:var(--cream);border:none;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;font-family:'Outfit',sans-serif;transition:background 0.2s;margin-top:1rem;cursor:pointer}
 .detail-cta:hover{background:var(--accent)}
 
-/* FADE IN */
 .fade{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease}
 .fade.visible{opacity:1;transform:none}
 
-/* MOBILE */
 @media(max-width:900px){
   nav{padding:1.2rem 1.5rem}
   .nav-links,.nav-cta{display:none}
   .nav-hamburger{display:flex}
   .hero{grid-template-columns:1fr;height:auto}
-  .hero-left{padding:8rem 1.5rem 4rem;border-right:none;border-bottom:0.5px solid var(--border)}
-  .hero-right{height:260px;background:var(--surface)}
+  .hero-left{padding:8rem 1.5rem 4rem;border-bottom:0.5px solid var(--border)}
+  .hero-right{height:360px;padding-top:0}
+  .hero-map-wrap{padding:20px}
   .hero-bottom{left:1.5rem}
-  .about,.programmes,.contact,.why-africa,.how-we-work{padding:5rem 1.5rem}
-  .services{padding:5rem 1.5rem}
+  .about,.services-pill-section,.contact,.why-africa,.how-we-work{padding:5rem 1.5rem}
   .about-grid,.why-grid,.contact-grid,.how-bottom{grid-template-columns:1fr;gap:3rem}
-  .prog-header{flex-direction:column}
-  .prog-header-right p{text-align:left}
-  .prog-row{grid-template-columns:2rem 1fr;gap:1rem;padding:1.5rem}
-  .prog-row .prog-desc,.prog-arrow{display:none}
-  .services-grid{grid-template-columns:1fr}
-  .service-card{border-right:none!important}
-  .service-card:nth-child(4),.service-card:nth-child(5){border-bottom:0.5px solid rgba(255,255,255,0.1)!important}
-  .service-card:last-child{border-bottom:none!important}
+  .services-pill-header{flex-direction:column}
+  .services-pill-header-right p{text-align:left}
+  .how-we-work-header{flex-direction:column;align-items:flex-start;margin-bottom:3rem}
+  .how-we-work-skyline{width:260px}
   .how-steps{grid-template-columns:1fr 1fr}
   .how-step:nth-child(2){border-right:none}
   .how-step:nth-child(3){border-right:0.5px solid rgba(255,255,255,0.1)}
@@ -270,7 +272,6 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 </head>
 <body>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#services" onclick="closeMobile()">What We Offer</a>
@@ -279,7 +280,6 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
 
-<!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">Archer<span>Africa</span></div>
   <ul class="nav-links">
@@ -289,9 +289,9 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
     <li><a href="#how-we-work">How We Work</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">International Academic Experiences</div>
@@ -299,33 +299,288 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
     <p class="hero-sub">Archer Africa partners with universities to design immersive international learning experiences — turning global education into lived experience.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Partner With Us</button>
-      <button class="btn-ghost" onclick="document.getElementById('programmes').scrollIntoView({behavior:'smooth'})">Explore Programmes →</button>
+      <button class="btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Programmes →</button>
     </div>
-    <div class="hero-bottom">
-      <div class="hero-tag">Africa · Europe · UK · USA</div>
-    </div>
+    <div class="hero-bottom"><div class="hero-tag">Africa · Europe · UK · USA</div></div>
   </div>
+
+  <!-- INLINE SVG WORLD MAP -->
   <div class="hero-right">
-    <svg class="hero-svg" viewBox="0 0 400 500" width="280" xmlns="http://www.w3.org/2000/svg">
-      <path d="M200 60C140 70 110 100 108 140c-2 35 12 55 22 80 15 35 8 55 0 90-10 40 5 80 35 110 20 20 35 30 35 30s15-10 35-30c30-30 45-70 35-110-8-35-15-55 0-90 10-25 24-45 22-80C290 100 260 70 200 60z" fill="#2C3E6B"/>
-      <circle cx="168" cy="130" r="3" fill="#2C3E6B"/>
-      <circle cx="220" cy="155" r="2" fill="#2C3E6B"/>
-      <circle cx="185" cy="200" r="2" fill="#2C3E6B"/>
-      <circle cx="210" cy="280" r="2.5" fill="#2C3E6B"/>
-      <circle cx="175" cy="340" r="2" fill="#2C3E6B"/>
-      <line x1="168" y1="130" x2="220" y2="155" stroke="#2C3E6B" stroke-width="0.5" opacity="0.4"/>
-      <line x1="220" y1="155" x2="185" y2="200" stroke="#2C3E6B" stroke-width="0.5" opacity="0.4"/>
-      <line x1="185" y1="200" x2="210" y2="280" stroke="#2C3E6B" stroke-width="0.5" opacity="0.4"/>
-      <line x1="210" y1="280" x2="175" y2="340" stroke="#2C3E6B" stroke-width="0.5" opacity="0.4"/>
-    </svg>
-    <div class="hero-stat">
-      <div class="hero-stat-num">4</div>
-      <div class="hero-stat-label">Continents Connected</div>
+    <div class="hero-map-wrap">
+      <svg viewBox="0 0 520 440" xmlns="http://www.w3.org/2000/svg" aria-label="World map highlighting Africa, Europe, UK and USA">
+        <defs>
+          <style>
+            .land { fill: none; stroke: #C8BEB2; stroke-width: 0.6; }
+            .land-fill { fill: #EDE8E1; stroke: #C8BEB2; stroke-width: 0.6; }
+            .land-hi { fill: #D6CBB8; stroke: #B8A898; stroke-width: 0.8; }
+            .land-hi-africa { fill: #2C3E6B; stroke: #1e2d52; stroke-width: 0.8; }
+            .dot { fill: #2C3E6B; }
+            .dot-outline { fill: none; stroke: #2C3E6B; stroke-width: 1.2; }
+            .dot-ring { fill: none; stroke: #2C3E6B; stroke-width: 0.7; opacity: 0.35; }
+            .connector { stroke: #2C3E6B; stroke-width: 0.7; stroke-dasharray: 3 3; fill: none; opacity: 0.5; }
+            .label { font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; fill: #6B5E4E; }
+            .label-hi { font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; fill: #2C3E6B; }
+            .graticule { stroke: #E8E2DA; stroke-width: 0.3; fill: none; }
+          </style>
+        </defs>
+
+        <!-- subtle graticule lines -->
+        <!-- horizontals -->
+        <line class="graticule" x1="0" y1="80" x2="520" y2="80"/>
+        <line class="graticule" x1="0" y1="160" x2="520" y2="160"/>
+        <line class="graticule" x1="0" y1="240" x2="520" y2="240"/>
+        <line class="graticule" x1="0" y1="320" x2="520" y2="320"/>
+        <line class="graticule" x1="0" y1="400" x2="520" y2="400"/>
+        <!-- verticals -->
+        <line class="graticule" x1="65" y1="0" x2="65" y2="440"/>
+        <line class="graticule" x1="130" y1="0" x2="130" y2="440"/>
+        <line class="graticule" x1="195" y1="0" x2="195" y2="440"/>
+        <line class="graticule" x1="260" y1="0" x2="260" y2="440"/>
+        <line class="graticule" x1="325" y1="0" x2="325" y2="440"/>
+        <line class="graticule" x1="390" y1="0" x2="390" y2="440"/>
+        <line class="graticule" x1="455" y1="0" x2="455" y2="440"/>
+
+        <!-- ============================================================
+             NORTH AMERICA
+        ============================================================ -->
+        <path class="land-hi" d="
+          M 52,42
+          L 58,38 L 66,36 L 78,34 L 90,33 L 100,35
+          L 108,38 L 112,42 L 116,40 L 122,36 L 128,34
+          L 134,36 L 136,42 L 132,48 L 126,52 L 120,56
+          L 116,62 L 114,70 L 118,76 L 122,82 L 118,90
+          L 112,96 L 108,104 L 106,112 L 108,120 L 112,126
+          L 116,132 L 114,140 L 108,148 L 100,154 L 92,158
+          L 84,162 L 80,168 L 82,174 L 80,180 L 74,184
+          L 68,182 L 62,178 L 56,172 L 52,164 L 48,156
+          L 44,146 L 42,136 L 40,124 L 38,112 L 36,100
+          L 34,88 L 36,76 L 40,66 L 46,54 Z
+        "/>
+        <!-- Greenland -->
+        <path class="land-fill" d="
+          M 148,18 L 156,16 L 162,18 L 166,24 L 164,30
+          L 158,34 L 152,32 L 148,26 Z
+        "/>
+        <!-- Central America nub -->
+        <path class="land-fill" d="
+          M 82,174 L 84,180 L 80,186 L 76,184 L 74,178 Z
+        "/>
+
+        <!-- ============================================================
+             SOUTH AMERICA
+        ============================================================ -->
+        <path class="land-fill" d="
+          M 96,194
+          L 106,190 L 116,192 L 124,198 L 128,206
+          L 126,216 L 122,226 L 118,236 L 116,248
+          L 118,260 L 122,272 L 124,284 L 120,296
+          L 114,306 L 106,314 L 98,318 L 90,316
+          L 84,308 L 80,298 L 78,286 L 76,274
+          L 74,262 L 74,250 L 76,238 L 80,226
+          L 84,216 L 88,206 L 92,198 Z
+        "/>
+
+        <!-- ============================================================
+             EUROPE (highlighted)
+        ============================================================ -->
+        <path class="land-hi" d="
+          M 228,42
+          L 236,38 L 244,36 L 250,38 L 254,44
+          L 256,52 L 252,58 L 246,62 L 240,64
+          L 234,62 L 228,58 L 224,52 L 224,46 Z
+        "/>
+        <!-- Iberian peninsula -->
+        <path class="land-hi" d="
+          M 220,72
+          L 228,68 L 236,70 L 240,76 L 238,84
+          L 230,88 L 222,86 L 218,80 Z
+        "/>
+        <!-- France / Central Europe blob -->
+        <path class="land-hi" d="
+          M 232,58
+          L 244,56 L 258,58 L 268,62 L 272,70
+          L 270,80 L 264,86 L 254,88 L 244,86
+          L 236,82 L 232,74 L 230,66 Z
+        "/>
+        <!-- Scandinavia -->
+        <path class="land-hi" d="
+          M 256,22
+          L 264,18 L 272,20 L 276,28 L 272,36
+          L 264,40 L 256,38 L 252,30 Z
+        "/>
+        <!-- Italy -->
+        <path class="land-hi" d="
+          M 252,86 L 256,92 L 254,100 L 250,104 L 246,100 L 246,92 Z
+        "/>
+        <!-- UK highlight -->
+        <path class="land-hi" d="
+          M 218,46
+          L 224,42 L 228,46 L 226,54 L 220,58 L 216,54 Z
+        "/>
+        <!-- Ireland -->
+        <path class="land-fill" d="M 212,50 L 216,48 L 218,52 L 214,56 Z"/>
+        <!-- Eastern Europe -->
+        <path class="land-hi" d="
+          M 270,56
+          L 282,52 L 294,54 L 300,62 L 296,72
+          L 284,76 L 272,72 L 268,64 Z
+        "/>
+
+        <!-- ============================================================
+             AFRICA (primary highlight — deep accent blue)
+        ============================================================ -->
+        <path class="land-hi-africa" d="
+          M 244,108
+          L 256,104 L 270,104 L 282,108 L 292,116
+          L 298,128 L 300,142 L 298,158 L 292,172
+          L 284,186 L 278,200 L 274,216 L 272,232
+          L 270,248 L 268,262 L 264,274 L 258,284
+          L 250,290 L 242,292 L 234,288 L 228,280
+          L 224,268 L 222,254 L 222,240 L 224,226
+          L 226,212 L 226,198 L 224,184 L 220,170
+          L 218,156 L 218,142 L 220,128 L 226,118
+          L 234,110 Z
+        "/>
+        <!-- Madagascar -->
+        <path class="land-hi-africa" d="
+          M 304,210 L 308,206 L 312,210 L 312,224 L 308,230 L 304,226 Z
+        "/>
+
+        <!-- ============================================================
+             MIDDLE EAST / ARABIA
+        ============================================================ -->
+        <path class="land-fill" d="
+          M 296,108
+          L 308,104 L 320,108 L 326,118 L 322,130
+          L 314,136 L 304,132 L 298,122 Z
+        "/>
+
+        <!-- ============================================================
+             RUSSIA / CENTRAL ASIA (simplified top band)
+        ============================================================ -->
+        <path class="land-fill" d="
+          M 282,28
+          L 310,22 L 340,20 L 370,22 L 396,26
+          L 420,32 L 440,36 L 450,44 L 446,54
+          L 430,58 L 410,56 L 388,52 L 364,48
+          L 340,46 L 316,48 L 298,50 L 288,46
+          L 282,38 Z
+        "/>
+
+        <!-- ============================================================
+             SOUTH ASIA (India)
+        ============================================================ -->
+        <path class="land-fill" d="
+          M 340,100
+          L 352,96 L 364,100 L 370,112 L 368,126
+          L 360,136 L 350,140 L 340,136 L 334,124
+          L 332,112 Z
+        "/>
+
+        <!-- ============================================================
+             SOUTHEAST ASIA / EAST ASIA (simplified)
+        ============================================================ -->
+        <path class="land-fill" d="
+          M 374,68
+          L 390,62 L 408,60 L 426,64 L 440,72
+          L 448,84 L 446,96 L 436,104 L 420,108
+          L 404,106 L 390,100 L 378,92 L 372,80 Z
+        "/>
+        <!-- Japan -->
+        <path class="land-fill" d="
+          M 450,68 L 456,64 L 460,70 L 456,78 L 450,76 Z
+        "/>
+        <!-- Indonesia islands (small) -->
+        <path class="land-fill" d="M 396,130 L 404,128 L 408,132 L 402,136 Z"/>
+        <path class="land-fill" d="M 414,126 L 422,124 L 426,128 L 420,132 Z"/>
+        <path class="land-fill" d="M 432,120 L 440,118 L 444,124 L 436,126 Z"/>
+
+        <!-- ============================================================
+             AUSTRALIA
+        ============================================================ -->
+        <path class="land-fill" d="
+          M 420,220
+          L 436,214 L 452,216 L 464,224 L 468,238
+          L 466,254 L 458,264 L 446,268 L 432,266
+          L 420,258 L 414,244 L 414,230 Z
+        "/>
+        <!-- NZ -->
+        <path class="land-fill" d="M 476,256 L 480,252 L 484,258 L 480,264 Z"/>
+
+        <!-- ============================================================
+             HIGHLIGHTED LOCATION DOTS WITH RINGS
+             Africa: Johannesburg, Nairobi, Lagos, Cairo
+             Europe: London, Berlin/Paris
+             USA: New York
+        ============================================================ -->
+
+        <!-- AFRICA dots (white on dark fill) -->
+        <!-- Johannesburg -->
+        <circle cx="258" cy="268" r="5" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+        <circle cx="258" cy="268" r="2.2" fill="#ffffff"/>
+        <circle cx="258" cy="268" r="9" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.4"/>
+        <!-- Nairobi -->
+        <circle cx="282" cy="210" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+        <circle cx="282" cy="210" r="1.8" fill="#ffffff"/>
+        <circle cx="282" cy="210" r="7" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+        <!-- Lagos -->
+        <circle cx="240" cy="186" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+        <circle cx="240" cy="186" r="1.8" fill="#ffffff"/>
+        <!-- Cairo -->
+        <circle cx="270" cy="134" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+        <circle cx="270" cy="134" r="1.8" fill="#ffffff"/>
+
+        <!-- UK / London dot -->
+        <circle cx="220" cy="52" r="4.5" fill="none" stroke="#2C3E6B" stroke-width="1.2"/>
+        <circle cx="220" cy="52" r="2" fill="#2C3E6B"/>
+        <circle cx="220" cy="52" r="8" fill="none" stroke="#2C3E6B" stroke-width="0.6" opacity="0.35"/>
+
+        <!-- Europe / Paris dot -->
+        <circle cx="244" cy="70" r="4" fill="none" stroke="#2C3E6B" stroke-width="1"/>
+        <circle cx="244" cy="70" r="1.8" fill="#2C3E6B"/>
+
+        <!-- USA / New York dot -->
+        <circle cx="88" cy="90" r="4.5" fill="none" stroke="#2C3E6B" stroke-width="1.2"/>
+        <circle cx="88" cy="90" r="2" fill="#2C3E6B"/>
+        <circle cx="88" cy="90" r="8" fill="none" stroke="#2C3E6B" stroke-width="0.6" opacity="0.35"/>
+
+        <!-- ============================================================
+             CONNECTOR ARCS between highlighted locations
+        ============================================================ -->
+        <!-- USA → UK -->
+        <path class="connector" d="M 93,86 Q 156,52 215,54"/>
+        <!-- UK → Africa (Johannesburg) -->
+        <path class="connector" d="M 222,56 Q 240,140 256,263"/>
+        <!-- Europe → Africa -->
+        <path class="connector" d="M 246,74 Q 254,140 264,264"/>
+
+        <!-- ============================================================
+             REGION LABELS
+        ============================================================ -->
+        <!-- Africa label -->
+        <text class="label-hi" x="250" y="230" text-anchor="middle">Africa</text>
+
+        <!-- Europe label -->
+        <text class="label-hi" x="254" y="78" text-anchor="middle">Europe</text>
+
+        <!-- UK label -->
+        <text class="label-hi" x="207" y="50" text-anchor="end">UK</text>
+
+        <!-- USA label -->
+        <text class="label-hi" x="68" y="110" text-anchor="middle">USA</text>
+
+        <!-- City labels -->
+        <text class="label" x="265" y="275" text-anchor="start">Johannesburg</text>
+        <text class="label" x="287" y="209" text-anchor="start">Nairobi</text>
+        <text class="label" x="228" y="183" text-anchor="end">Lagos</text>
+        <text class="label" x="276" y="131" text-anchor="start">Cairo</text>
+        <text class="label" x="225" y="49" text-anchor="start">London</text>
+
+      </svg>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-strip">
   <div class="marquee-inner">
     <span>Study Tours</span><span class="dot">·</span><span>Executive Education</span><span class="dot">·</span><span>Online Learning Immersions</span><span class="dot">·</span><span>Institutional Partnerships</span><span class="dot">·</span><span>African Innovation Ecosystems</span><span class="dot">·</span><span>Global Classroom</span><span class="dot">·</span>
@@ -341,58 +596,112 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
       <h2 class="section-title">Where internationalisation becomes <em>real</em></h2>
       <p>Archer Africa curates programmes rooted in African innovation ecosystems, connecting participants with entrepreneurs, researchers, policymakers and cultural leaders. We partner with universities, graduate schools, and executive education programmes to design and deliver immersive study experiences.</p>
       <p>At a time when higher education is increasingly global, many programmes remain <strong>theoretical or inaccessible</strong> to students studying remotely. Archer Africa bridges this gap.</p>
-      <p>We create learning journeys that allow students, whether on-campus, evening, executive education, or online, to experience global learning firsthand</p>
+      <p>We create learning journeys that allow students, whether on-campus, evening, executive education, or online, to experience global learning firsthand.</p>
     </div>
     <div class="about-pillars">
-      <div class="pillar"><div class="pillar-num">01</div><div class="pillar-text"><h4>Real-World Contexts</h4><p>Bring academic ideas into living environments where complex challenges and solutions unfold in real time.</p></div></div>
-      <div class="pillar"><div class="pillar-num">02</div><div class="pillar-text"><h4>Connect Online Learners</h4><p>Bring distance and hybrid students into the life of their institution through shared immersive experience.</p></div></div>
-      <div class="pillar"><div class="pillar-num">03</div><div class="pillar-text"><h4>Deepen Partnerships</h4><p>Move beyond formal agreements toward active global collaborations between institutions.</p></div></div>
-      <div class="pillar"><div class="pillar-num">04</div><div class="pillar-text"><h4>Build Global Networks</h4><p>Students form lasting professional networks across borders, institutions, and industries.</p></div></div>
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-text">
+          <h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 4 10 14.5 14.5 0 0 0-4 10 14.5 14.5 0 0 0-4-10 14.5 14.5 0 0 0 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Real-World Contexts</h4>
+          <p>Bring academic ideas into living environments where complex challenges and solutions unfold in real time.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-text">
+          <h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 11h6"/></svg>Connect Online Learners</h4>
+          <p>Bring distance and hybrid students into the life of their institution through shared immersive experience.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-text">
+          <h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Deepen Partnerships</h4>
+          <p>Move beyond formal agreements toward active global collaborations between institutions.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <div class="pillar-text">
+          <h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Build Global Networks</h4>
+          <p>Students form lasting professional networks across borders, institutions, and industries.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- SERVICES -->
-<section class="programmes fade" id="services">
-  <div class="prog-header">
-    <div class="prog-header-left">
+<!-- WHAT WE OFFER -->
+<section class="services-pill-section fade" id="services">
+  <div class="services-pill-header">
+    <div class="services-pill-header-left">
       <div class="section-label">What We Offer</div>
       <h2 class="section-title">Experiences tailored to<br>your <em>institution's ambitions</em></h2>
     </div>
-    <div class="prog-header-right"><p>Every programme is co-designed with partner universities and aligned to specific academic goals and internationalisation strategies.</p></div>
+    <div class="services-pill-header-right"><p>Every programme is co-designed with partner universities and aligned to specific academic goals and internationalisation strategies.</p></div>
   </div>
-  <div class="prog-grid">
-    <div class="prog-row" onclick="openDetail(0)">
-      <div class="prog-num">01</div>
-      <div><div class="prog-for">MBA · Graduate · Executive</div><div class="prog-name">Global Innovation Immersion</div></div>
-      <div><p class="prog-desc">Students engage with African startup ecosystems, venture builders, research institutions, and innovation hubs — meeting entrepreneurs, investors, and technology leaders.</p><div class="prog-themes"><span class="prog-theme">Entrepreneurship</span><span class="prog-theme">Fintech</span><span class="prog-theme">Social Innovation</span><span class="prog-theme">Emerging Markets</span></div></div>
-      <div class="prog-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  <div class="pill-cards-list">
+    <div class="pill-row">
+      <div class="pill-num-circle">1</div>
+      <div class="pill-card" onclick="openDetail(0)">
+        <div class="pill-card-body">
+          <div class="pill-card-for">MBA · Graduate · Executive</div>
+          <div class="pill-card-name">Global Innovation Immersion</div>
+          <div class="pill-card-desc">Students engage with African startup ecosystems, venture builders, and innovation hubs — meeting entrepreneurs, investors, and technology leaders.</div>
+          <div class="pill-card-themes"><span class="pill-card-theme">Entrepreneurship</span><span class="pill-card-theme">Fintech</span><span class="pill-card-theme">Social Innovation</span><span class="pill-card-theme">Emerging Markets</span></div>
+        </div>
+        <div class="pill-card-arrow">→</div>
+      </div>
     </div>
-    <div class="prog-row" onclick="openDetail(1)">
-      <div class="prog-num">02</div>
-      <div><div class="prog-for">Policy · Urban · Sustainability</div><div class="prog-name">Cities, Climate & Urban Africa</div></div>
-      <div><p class="prog-desc">Students explore how African cities respond to climate change, urbanisation, and infrastructure challenges through field visits and expert conversations.</p><div class="prog-themes"><span class="prog-theme">Climate Adaptation</span><span class="prog-theme">Urban Innovation</span><span class="prog-theme">Sustainable Development</span></div></div>
-      <div class="prog-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="pill-row">
+      <div class="pill-num-circle">2</div>
+      <div class="pill-card" onclick="openDetail(1)">
+        <div class="pill-card-body">
+          <div class="pill-card-for">Policy · Urban · Sustainability</div>
+          <div class="pill-card-name">Cities, Climate &amp; Urban Africa</div>
+          <div class="pill-card-desc">Students explore how African cities respond to climate change, urbanisation, and infrastructure challenges through field visits and expert conversations.</div>
+          <div class="pill-card-themes"><span class="pill-card-theme">Climate Adaptation</span><span class="pill-card-theme">Urban Innovation</span><span class="pill-card-theme">Sustainable Development</span></div>
+        </div>
+        <div class="pill-card-arrow">→</div>
+      </div>
     </div>
-    <div class="prog-row" onclick="openDetail(2)">
-      <div class="prog-num">03</div>
-      <div><div class="prog-for">Economics · International Relations</div><div class="prog-name">Africa in the Global Economy</div></div>
-      <div><p class="prog-desc">Students engage with policymakers, economists, and industry leaders to understand Africa's evolving role in global trade, finance, and development.</p><div class="prog-themes"><span class="prog-theme">Regional Trade</span><span class="prog-theme">Economic Transformation</span><span class="prog-theme">Global Partnerships</span></div></div>
-      <div class="prog-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="pill-row">
+      <div class="pill-num-circle">3</div>
+      <div class="pill-card" onclick="openDetail(2)">
+        <div class="pill-card-body">
+          <div class="pill-card-for">Economics · International Relations</div>
+          <div class="pill-card-name">Africa in the Global Economy</div>
+          <div class="pill-card-desc">Students engage with policymakers, economists, and industry leaders to understand Africa's evolving role in global trade, finance, and development.</div>
+          <div class="pill-card-themes"><span class="pill-card-theme">Regional Trade</span><span class="pill-card-theme">Economic Transformation</span><span class="pill-card-theme">Global Partnerships</span></div>
+        </div>
+        <div class="pill-card-arrow">→</div>
+      </div>
     </div>
-    <div class="prog-row" onclick="openDetail(3)">
-      <div class="prog-num">04</div>
-      <div><div class="prog-for">Executive MBA · Executive Education</div><div class="prog-name">Leadership in Emerging Markets</div></div>
-      <div><p class="prog-desc">Senior professionals engage with business leaders and policy innovators navigating rapidly changing economic and regulatory environments across the continent.</p><div class="prog-themes"><span class="prog-theme">Leadership in Complexity</span><span class="prog-theme">Cross-Cultural Strategy</span><span class="prog-theme">Innovation</span></div></div>
-      <div class="prog-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="pill-row">
+      <div class="pill-num-circle">4</div>
+      <div class="pill-card" onclick="openDetail(3)">
+        <div class="pill-card-body">
+          <div class="pill-card-for">Executive MBA · Executive Education</div>
+          <div class="pill-card-name">Leadership in Emerging Markets</div>
+          <div class="pill-card-desc">Senior professionals engage with business leaders and policy innovators navigating rapidly changing economic and regulatory environments across the continent.</div>
+          <div class="pill-card-themes"><span class="pill-card-theme">Leadership in Complexity</span><span class="pill-card-theme">Cross-Cultural Strategy</span><span class="pill-card-theme">Innovation</span></div>
+        </div>
+        <div class="pill-card-arrow">→</div>
+      </div>
     </div>
-    <div class="prog-row" onclick="openDetail(4)">
-      <div class="prog-num">05</div>
-      <div><div class="prog-for">Online · Hybrid · Distance</div><div class="prog-name">Global Classroom</div></div>
-      <div><p class="prog-desc">Students who typically interact only virtually come together for a powerful shared immersive experience, building professional networks and deepening institutional connection.</p><div class="prog-themes"><span class="prog-theme">Cohort Cohesion</span><span class="prog-theme">Network Building</span><span class="prog-theme">Institutional Engagement</span></div></div>
-      <div class="prog-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="pill-row">
+      <div class="pill-num-circle">5</div>
+      <div class="pill-card" onclick="openDetail(4)">
+        <div class="pill-card-body">
+          <div class="pill-card-for">Online · Hybrid · Distance</div>
+          <div class="pill-card-name">Global Classroom</div>
+          <div class="pill-card-desc">Students who typically interact only virtually come together for a powerful shared immersive experience, building professional networks and deepening institutional connection.</div>
+          <div class="pill-card-themes"><span class="pill-card-theme">Cohort Cohesion</span><span class="pill-card-theme">Network Building</span><span class="pill-card-theme">Institutional Engagement</span></div>
+        </div>
+        <div class="pill-card-arrow">→</div>
+      </div>
     </div>
   </div>
 </section>
@@ -418,35 +727,69 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 
 <hr class="divider">
 
-<!-- PROGRAMMES -->
-
 <!-- HOW WE WORK -->
 <section class="how-we-work fade" id="how-we-work">
-  <div class="section-label">How We Work With Universities</div>
-  <h2 class="section-title">A partnership built on<br><em>co-design and clarity</em></h2>
-  <p class="how-intro">We know that universities need confidence before committing to international programmes. Our process is designed to be transparent, collaborative, and strategically aligned from the very first conversation.</p>
+  <div class="how-we-work-header">
+    <div class="how-we-work-header-left">
+      <div class="section-label">How We Work With Universities</div>
+      <h2 class="section-title">A partnership built on<br><em>co-design and clarity</em></h2>
+      <p class="how-intro">We know that universities need confidence before committing to international programmes. Our process is designed to be transparent, collaborative, and strategically aligned from the very first conversation.</p>
+    </div>
+    <div class="how-we-work-skyline">
+      <svg viewBox="0 -70 300 250" xmlns="http://www.w3.org/2000/svg">
+        <g opacity="0.18" transform="translate(0,120) scale(1,-1) translate(0,-120)">
+          <rect x="20" y="60" width="26" height="60" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="50" y="20" width="22" height="100" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="76" y="65" width="20" height="55" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="100" y="-20" width="18" height="140" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="122" y="35" width="24" height="85" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="150" y="-45" width="16" height="165" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="170" y="40" width="22" height="80" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="196" y="0" width="20" height="120" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="220" y="55" width="18" height="65" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="242" y="15" width="24" height="105" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+          <rect x="270" y="62" width="16" height="58" fill="#4A6098" transform="translate(0,120) scale(1,-1)"/>
+        </g>
+        <g fill="none" stroke="var(--accent-light)" stroke-width="1.4">
+          <rect x="20" y="60" width="26" height="60"/>
+          <rect x="50" y="20" width="22" height="100"/>
+          <rect x="76" y="65" width="20" height="55"/>
+          <rect x="100" y="-20" width="18" height="140"/>
+          <rect x="122" y="35" width="24" height="85"/>
+          <rect x="150" y="-45" width="16" height="165"/>
+          <rect x="170" y="40" width="22" height="80"/>
+          <rect x="196" y="0" width="20" height="120"/>
+          <rect x="220" y="55" width="18" height="65"/>
+          <rect x="242" y="15" width="24" height="105"/>
+          <rect x="270" y="62" width="16" height="58"/>
+          <line x1="158" y1="-45" x2="158" y2="-68"/>
+        </g>
+        <line x1="10" y1="120" x2="290" y2="120" stroke="var(--accent-light)" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
   <div class="how-steps">
     <div class="how-step">
       <div class="step-num">01</div>
-      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
       <h3>Discovery Conversation</h3>
       <p>We begin with a strategic conversation to understand your institution's internationalisation goals, student profile, programme structure, and timeline.</p>
     </div>
     <div class="how-step">
       <div class="step-num">02</div>
-      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
       <h3>Programme Co-Design</h3>
       <p>We develop a tailored programme proposal — including academic framing, itinerary, partner organisations, and learning outcomes — in close collaboration with your team.</p>
     </div>
     <div class="how-step">
       <div class="step-num">03</div>
-      <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
       <h3>Logistics and Delivery</h3>
       <p>We manage all operational elements — travel, accommodation, venue partnerships, speaker coordination, and on-the-ground facilitation — so your team can focus on the academic experience.</p>
     </div>
     <div class="how-step">
       <div class="step-num">04</div>
-      <div class="step-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <h3>Evaluation and Growth</h3>
       <p>After each programme, we conduct structured evaluation and work with you to deepen the partnership — building toward longer-term institutional collaboration.</p>
     </div>
@@ -461,12 +804,12 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
       <h2>Start a <em>conversation</em> about your institution</h2>
       <p>Whether you have a specific programme in mind or are exploring what international learning could look like for your students, we would love to hear from you.</p>
       <div class="contact-detail">
-        <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
         <div class="contact-detail-text"><span>Email</span><p>design@archerafrica.com</p></div>
       </div>
       <div class="contact-detail">
-        <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div class="contact-detail-text"><span>Based In</span><p>Johannesburg, Ghana</p></div>
+        <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="contact-detail-text"><span>Based In</span><p>Johannesburg, South Africa</p></div>
       </div>
     </div>
     <div>
@@ -495,7 +838,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
         <p class="form-note">We typically respond within two business days.</p>
       </div>
       <div class="form-success" id="formSuccess">
-        <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg></div>
         <h3>Thank you for reaching out</h3>
         <p>We've received your enquiry and will be in touch within two business days to continue the conversation.</p>
       </div>
@@ -506,17 +849,14 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
-    <div class="footer-brand">
-      <h3>Archer Africa</h3>
-      <p>International academic experiences rooted in Africa and connected to the world.</p>
-    </div>
+    <div class="footer-brand"><h3>Archer Africa</h3><p>International academic experiences rooted in Africa and connected to the world.</p></div>
     <div class="footer-col"><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#why-africa">Why Africa</a></li><li><a href="#how-we-work">How We Work</a></li></ul></div>
-    <div class="footer-col"><h4>Programmes</h4><ul><li><a href="#programmes">Study Tours</a></li><li><a href="#programmes">Executive Education</a></li><li><a href="#programmes">Online Learners</a></li><li><a href="#programmes">Institutional</a></li></ul></div>
+    <div class="footer-col"><h4>Programmes</h4><ul><li><a href="#services">Study Tours</a></li><li><a href="#services">Executive Education</a></li><li><a href="#services">Online Learners</a></li><li><a href="#services">Institutional</a></li></ul></div>
     <div class="footer-col"><h4>Partner</h4><ul><li><a href="#contact">Work With Us</a></li><li><a href="#contact">Contact</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p>© 2025 Archer Africa. All rights reserved.</p>
-    <p>Johannesburg, Ghana</p>
+    <p>Johannesburg, South Africa</p>
   </div>
 </footer>
 
@@ -525,9 +865,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <div class="prog-detail-backdrop" onclick="closeDetail()"></div>
   <div class="prog-detail-panel">
     <div class="prog-detail-inner">
-      <div class="prog-detail-close">
-        <button class="close-btn" onclick="closeDetail()"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-      </div>
+      <div class="prog-detail-close"><button class="close-btn" onclick="closeDetail()"><svg viewBox="0 0 24 24" fill="none" stroke="var(--warm-mid)" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div id="detailContent"></div>
     </div>
   </div>
@@ -562,23 +900,12 @@ function openDetail(i){
   document.getElementById('progDetail').classList.add('open');
   document.body.style.overflow='hidden';
 }
-
-function closeDetail(){
-  document.getElementById('progDetail').classList.remove('open');
-  document.body.style.overflow='';
-}
-
-function submitForm(){
-  document.getElementById('contactForm').style.display='none';
-  document.getElementById('formSuccess').classList.add('show');
-}
-
+function closeDetail(){document.getElementById('progDetail').classList.remove('open');document.body.style.overflow='';}
+function submitForm(){document.getElementById('contactForm').style.display='none';document.getElementById('formSuccess').classList.add('show');}
 const nav=document.getElementById('navbar');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
-
 const fades=document.querySelectorAll('.fade');
 fades.forEach(f=>new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:0.08}).observe(f));
-
 let menuOpen=false;
 function toggleMobile(){menuOpen=!menuOpen;document.getElementById('mobileMenu').classList.toggle('open',menuOpen);}
 function closeMobile(){menuOpen=false;document.getElementById('mobileMenu').classList.remove('open');}
