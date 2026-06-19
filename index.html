@@ -120,6 +120,9 @@ hr.divider{border:none;border-top:0.5px solid var(--border)}
 .why-point h4{font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);margin-bottom:0.4rem;font-weight:400}
 .why-point p{font-size:0.88rem;line-height:1.7;color:var(--warm-mid)}
 
+/* ── Work With Us: combined How We Work (dark) + Contact (surface) ── */
+#work-with-us{display:flex;flex-direction:column}
+
 .how-we-work{background:var(--ink);padding:7rem 4rem;color:var(--cream)}
 .how-we-work .section-label{color:var(--accent-light)}
 .how-we-work .section-label::before{background:var(--accent-light)}
@@ -130,7 +133,7 @@ hr.divider{border:none;border-top:0.5px solid var(--border)}
 .how-we-work-skyline{flex-shrink:0;width:420px;opacity:0.95}
 .how-we-work-skyline svg{width:100%;height:auto;display:block}
 .how-intro{font-size:1rem;line-height:1.9;color:rgba(250,248,244,0.6);max-width:60ch;margin-bottom:0;font-weight:300}
-.how-steps{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid rgba(255,255,255,0.1);margin-bottom:5rem}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid rgba(255,255,255,0.1);margin-bottom:0}
 .how-step{padding:2.5rem 2rem;border-right:0.5px solid rgba(255,255,255,0.1)}
 .how-step:last-child{border-right:none}
 .step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:rgba(74,96,152,0.35);line-height:1;margin-bottom:1.5rem}
@@ -138,7 +141,6 @@ hr.divider{border:none;border-top:0.5px solid var(--border)}
 .step-icon svg{width:16px;height:16px;stroke:var(--accent-light);fill:none;stroke-width:1}
 .how-step h3{font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);margin-bottom:1rem;font-weight:400}
 .how-step p{font-size:0.85rem;line-height:1.8;color:rgba(250,248,244,0.5);font-weight:300}
-.how-bottom{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding-top:4rem;border-top:0.5px solid rgba(255,255,255,0.1)}
 
 .contact{padding:7rem 4rem;background:var(--surface)}
 .contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:6rem;align-items:start}
@@ -221,7 +223,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   .hero-map-wrap{padding:20px}
   .hero-bottom{left:1.5rem}
   .about,.services-pill-section,.contact,.why-africa,.how-we-work{padding:5rem 1.5rem}
-  .about-grid,.why-grid,.contact-grid,.how-bottom{grid-template-columns:1fr;gap:3rem}
+  .about-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
   .services-pill-header{flex-direction:column}
   .services-pill-header-right p{text-align:left}
   .how-we-work-header{flex-direction:column;align-items:flex-start;margin-bottom:3rem}
@@ -251,8 +253,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#services" onclick="closeMobile()">What We Offer</a>
   <a href="#why-africa" onclick="closeMobile()">Why Africa</a>
-  <a href="#how-we-work" onclick="closeMobile()">How We Work</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#work-with-us" onclick="closeMobile()">Work With Us</a>
 </div>
 
 <nav id="navbar">
@@ -261,8 +262,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
     <li><a href="#about">About</a></li>
     <li><a href="#services">What We Offer</a></li>
     <li><a href="#why-africa">Why Africa</a></li>
-    <li><a href="#how-we-work">How We Work</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#work-with-us">Work With Us</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
 </nav>
@@ -273,7 +273,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
     <h1 class="hero-headline">Living ecosystems<br>of <em>global</em><br>learning.</h1>
     <p class="hero-sub">Archer Africa partners with universities to design immersive international learning experiences — turning global education into lived experience.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Partner With Us</button>
+      <button class="btn-primary" onclick="document.getElementById('work-with-us').scrollIntoView({behavior:'smooth'})">Partner With Us</button>
       <button class="btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Programmes →</button>
     </div>
     <div class="hero-bottom"><div class="hero-tag">Africa · Europe · UK · USA</div></div>
@@ -294,7 +294,6 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
       .lbl-af { font-family: 'Outfit', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; fill: #ffffff; }
     </style>
   </defs>
-
   <line class="grat" x1="0" y1="75"  x2="540" y2="75"/>
   <line class="grat" x1="0" y1="150" x2="540" y2="150"/>
   <line class="grat" x1="0" y1="225" x2="540" y2="225"/>
@@ -307,7 +306,6 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <line class="grat" x1="335" y1="0" x2="335" y2="460"/>
   <line class="grat" x1="402" y1="0" x2="402" y2="460"/>
   <line class="grat" x1="469" y1="0" x2="469" y2="460"/>
-
   <path class="land" d="M18,38 L30,32 L42,34 L48,42 L44,50 L32,52 L20,48 Z"/>
   <path class="land" d="M52,35 L62,30 L76,28 L92,27 L106,28 L118,31 L130,33 L140,30 L150,27 L160,30 L164,38 L158,44 L148,48 L136,46 L124,44 L114,48 L108,56 L110,66 L106,72 L96,72 L84,68 L72,62 L60,56 L52,48 L48,40 Z"/>
   <path class="land" d="M150,15 L162,12 L172,14 L176,22 L172,32 L162,36 L152,34 L148,24 Z"/>
@@ -318,10 +316,8 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <path class="land" d="M96,156 L110,154 L116,158 L112,164 L98,164 Z"/>
   <path class="land" d="M118,164 L122,162 L124,166 L120,168 Z"/>
   <path class="land" d="M126,168 L130,166 L132,170 L128,172 Z"/>
-
   <path class="land" d="M94,192 L108,188 L122,190 L134,198 L140,210 L138,224 L134,238 L130,252 L128,268 L130,284 L134,298 L132,314 L124,324 L112,330 L100,328 L88,318 L82,304 L78,290 L76,274 L74,260 L76,246 L78,232 L82,220 L88,208 Z"/>
   <path class="land" d="M102,192 L116,186 L126,192 L120,198 L106,196 Z"/>
-
   <path class="land-hi" d="M200,90 L214,86 L226,88 L232,98 L230,110 L220,116 L208,116 L200,108 L198,98 Z"/>
   <path class="land-hi" d="M218,72 L232,68 L248,68 L262,72 L270,82 L270,94 L264,104 L252,110 L238,110 L226,106 L216,98 L214,86 L216,78 Z"/>
   <path class="land-hi" d="M244,22 L256,18 L268,20 L276,28 L274,40 L264,46 L252,46 L242,40 L240,30 Z"/>
@@ -334,22 +330,17 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <path class="land-hi" d="M248,130 L256,128 L260,134 L256,138 L248,136 Z"/>
   <path class="land-hi" d="M278,108 L288,104 L294,112 L290,120 L280,118 Z"/>
   <path class="land-hi" d="M280,126 L292,124 L296,128 L290,132 L280,130 Z"/>
-
   <path class="land-africa" d="M 226,118 L 242,114 L 258,112 L 272,114 L 284,120 L 294,130 L 300,144 L 302,160 L 300,176 L 296,190 L 290,204 L 286,216 L 282,228 L 278,240 L 272,252 L 266,264 L 258,276 L 250,288 L 242,298 L 234,304 L 224,304 L 214,298 L 206,288 L 202,276 L 200,262 L 200,248 L 202,234 L 206,220 L 210,206 L 212,192 L 210,178 L 206,164 L 204,150 L 204,136 L 208,124 L 216,118 Z"/>
   <path class="land-africa" d="M 296,154 L 314,148 L 322,158 L 316,172 L 300,176 Z"/>
   <path class="land-africa" d="M308,218 L316,212 L322,218 L322,234 L318,242 L312,238 L308,228 Z"/>
   <path class="land" d="M192,126 L198,124 L200,128 L196,130 Z"/>
-
   <path class="land" d="M298,120 L318,114 L334,116 L342,128 L338,142 L328,150 L314,150 L302,142 L296,130 Z"/>
   <path class="land" d="M296,90 L318,84 L336,86 L344,96 L340,106 L318,108 L296,106 Z"/>
   <path class="land" d="M342,104 L360,100 L372,108 L370,122 L358,128 L344,122 Z"/>
-
   <path class="land" d="M278,28 L314,22 L354,18 L394,20 L428,24 L456,30 L476,38 L486,48 L476,56 L452,60 L424,58 L396,54 L368,50 L342,48 L316,50 L296,54 L280,56 L272,48 L270,36 Z"/>
   <path class="land" d="M476,38 L490,32 L498,40 L492,52 L478,50 Z"/>
-
   <path class="land" d="M342,102 L360,98 L374,102 L382,116 L378,132 L368,142 L356,148 L342,144 L334,132 L332,116 Z"/>
   <path class="land" d="M356,152 L364,148 L368,156 L364,162 L356,160 Z"/>
-
   <path class="land" d="M378,70 L400,62 L424,60 L448,64 L464,74 L468,88 L464,102 L450,110 L432,114 L412,112 L394,106 L382,96 L376,82 Z"/>
   <path class="land" d="M450,74 L460,70 L466,78 L462,88 L452,86 Z"/>
   <path class="land" d="M462,64 L474,58 L482,64 L480,76 L468,80 L460,72 Z"/>
@@ -359,12 +350,10 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <path class="land" d="M436,150 L452,146 L458,152 L450,158 L434,156 Z"/>
   <path class="land" d="M460,102 L468,98 L476,106 L472,114 L462,112 Z"/>
   <path class="land" d="M396,136 L412,130 L418,138 L412,146 L396,142 Z"/>
-
   <path class="land" d="M416,230 L436,222 L458,222 L474,230 L482,246 L484,262 L480,276 L468,284 L452,288 L434,286 L418,276 L412,260 L412,244 Z"/>
   <path class="land" d="M446,290 L456,288 L460,296 L454,302 L446,298 Z"/>
   <path class="land" d="M490,258 L498,252 L504,260 L500,270 L490,268 Z"/>
   <path class="land" d="M492,272 L502,266 L508,276 L502,286 L492,280 Z"/>
-
   <circle cx="244" cy="286" r="7" fill="none" stroke="#ffffff" stroke-width="1.4"/>
   <circle cx="244" cy="286" r="3" fill="#ffffff"/>
   <circle cx="244" cy="286" r="12" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.7"/>
@@ -384,11 +373,9 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <circle cx="94" cy="104" r="6" fill="none" stroke="#2C3E6B" stroke-width="1.4"/>
   <circle cx="94" cy="104" r="2.6" fill="#2C3E6B"/>
   <circle cx="94" cy="104" r="11" fill="none" stroke="rgba(44,62,107,0.32)" stroke-width="0.7"/>
-
   <path class="conn" d="M100,100 Q154,58 208,58"/>
   <path class="conn" d="M216,62 Q232,158 242,280"/>
   <path class="conn" d="M238,86 Q252,112 266,138"/>
-
   <text class="lbl-af" x="252" y="250" text-anchor="middle">Africa</text>
   <text class="lbl-hi" x="240" y="76" text-anchor="middle">Europe</text>
   <text class="lbl-hi" x="200" y="54" text-anchor="end">UK</text>
@@ -399,7 +386,6 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <text class="lbl" x="276" y="140" text-anchor="start">Cairo</text>
   <text class="lbl" x="222" y="53" text-anchor="start">London</text>
 </svg>
-
     </div>
   </div>
 </section>
@@ -412,112 +398,21 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 </div>
 
 <section class="about fade" id="about">
-
   <svg class="shoe-prints-bg" viewBox="0 0 240 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
     <g fill="#2C3E6B" opacity="0.042">
-      <g transform="translate(150,35) rotate(-8)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(82,105) rotate(10) scale(-1,1)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(148,178) rotate(-7)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(80,248) rotate(9) scale(-1,1)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(152,320) rotate(-9)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(78,392) rotate(11) scale(-1,1)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(150,462) rotate(-6)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(82,534) rotate(8) scale(-1,1)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(148,606) rotate(-10)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(80,678) rotate(7) scale(-1,1)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
-      <g transform="translate(152,750) rotate(-8)">
-        <ellipse cx="0" cy="4" rx="10" ry="16"/>
-        <ellipse cx="-3" cy="-12" rx="6.5" ry="8"/>
-        <ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/>
-        <ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/>
-        <ellipse cx="2" cy="-22" rx="3" ry="2.2"/>
-        <ellipse cx="7" cy="-20" rx="2.6" ry="2"/>
-        <ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/>
-      </g>
+      <g transform="translate(150,35) rotate(-8)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(82,105) rotate(10) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(148,178) rotate(-7)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(80,248) rotate(9) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(152,320) rotate(-9)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(78,392) rotate(11) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(150,462) rotate(-6)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(82,534) rotate(8) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(148,606) rotate(-10)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(80,678) rotate(7) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
+      <g transform="translate(152,750) rotate(-8)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
     </g>
   </svg>
-
-
   <div class="about-grid">
     <div class="about-text">
       <div class="section-label">About Archer Africa</div>
@@ -527,34 +422,10 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
       <p>We create learning journeys that allow students, whether on-campus, evening, executive education, or online, to experience global learning firsthand.</p>
     </div>
     <div class="about-pillars">
-      <div class="pillar">
-        <div class="pillar-num">01</div>
-        <div class="pillar-text">
-          <h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 4 10 14.5 14.5 0 0 0-4 10 14.5 14.5 0 0 0-4-10 14.5 14.5 0 0 0 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Real-World Contexts</h4>
-          <p>Bring academic ideas into living environments where complex challenges and solutions unfold in real time.</p>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">02</div>
-        <div class="pillar-text">
-          <h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 11h6"/></svg>Connect Online Learners</h4>
-          <p>Bring distance and hybrid students into the life of their institution through shared immersive experience.</p>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">03</div>
-        <div class="pillar-text">
-          <h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Deepen Partnerships</h4>
-          <p>Move beyond formal agreements toward active global collaborations between institutions.</p>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">04</div>
-        <div class="pillar-text">
-          <h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Build Global Networks</h4>
-          <p>Students form lasting professional networks across borders, institutions, and industries.</p>
-        </div>
-      </div>
+      <div class="pillar"><div class="pillar-num">01</div><div class="pillar-text"><h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 4 10 14.5 14.5 0 0 0-4 10 14.5 14.5 0 0 0-4-10 14.5 14.5 0 0 0 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Real-World Contexts</h4><p>Bring academic ideas into living environments where complex challenges and solutions unfold in real time.</p></div></div>
+      <div class="pillar"><div class="pillar-num">02</div><div class="pillar-text"><h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 11h6"/></svg>Connect Online Learners</h4><p>Bring distance and hybrid students into the life of their institution through shared immersive experience.</p></div></div>
+      <div class="pillar"><div class="pillar-num">03</div><div class="pillar-text"><h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Deepen Partnerships</h4><p>Move beyond formal agreements toward active global collaborations between institutions.</p></div></div>
+      <div class="pillar"><div class="pillar-num">04</div><div class="pillar-text"><h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Build Global Networks</h4><p>Students form lasting professional networks across borders, institutions, and industries.</p></div></div>
     </div>
   </div>
 </section>
@@ -570,66 +441,11 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
     <div class="services-pill-header-right"><p>Every programme is co-designed with partner universities and aligned to specific academic goals and internationalisation strategies.</p></div>
   </div>
   <div class="pill-cards-list">
-    <div class="pill-row">
-      <div class="pill-num-circle">1</div>
-      <div class="pill-card" onclick="openDetail(0)">
-        <div class="pill-card-body">
-          <div class="pill-card-for">MBA · Graduate · Executive</div>
-          <div class="pill-card-name">Global Innovation Immersion</div>
-          <div class="pill-card-desc">Students engage with African startup ecosystems, venture builders, and innovation hubs — meeting entrepreneurs, investors, and technology leaders.</div>
-          <div class="pill-card-themes"><span class="pill-card-theme">Entrepreneurship</span><span class="pill-card-theme">Fintech</span><span class="pill-card-theme">Social Innovation</span><span class="pill-card-theme">Emerging Markets</span></div>
-        </div>
-        <div class="pill-card-arrow">→</div>
-      </div>
-    </div>
-    <div class="pill-row">
-      <div class="pill-num-circle">2</div>
-      <div class="pill-card" onclick="openDetail(1)">
-        <div class="pill-card-body">
-          <div class="pill-card-for">Policy · Urban · Sustainability</div>
-          <div class="pill-card-name">Cities, Climate &amp; Urban Africa</div>
-          <div class="pill-card-desc">Students explore how African cities respond to climate change, urbanisation, and infrastructure challenges through field visits and expert conversations.</div>
-          <div class="pill-card-themes"><span class="pill-card-theme">Climate Adaptation</span><span class="pill-card-theme">Urban Innovation</span><span class="pill-card-theme">Sustainable Development</span></div>
-        </div>
-        <div class="pill-card-arrow">→</div>
-      </div>
-    </div>
-    <div class="pill-row">
-      <div class="pill-num-circle">3</div>
-      <div class="pill-card" onclick="openDetail(2)">
-        <div class="pill-card-body">
-          <div class="pill-card-for">Economics · International Relations</div>
-          <div class="pill-card-name">Africa in the Global Economy</div>
-          <div class="pill-card-desc">Students engage with policymakers, economists, and industry leaders to understand Africa's evolving role in global trade, finance, and development.</div>
-          <div class="pill-card-themes"><span class="pill-card-theme">Regional Trade</span><span class="pill-card-theme">Economic Transformation</span><span class="pill-card-theme">Global Partnerships</span></div>
-        </div>
-        <div class="pill-card-arrow">→</div>
-      </div>
-    </div>
-    <div class="pill-row">
-      <div class="pill-num-circle">4</div>
-      <div class="pill-card" onclick="openDetail(3)">
-        <div class="pill-card-body">
-          <div class="pill-card-for">Executive MBA · Executive Education</div>
-          <div class="pill-card-name">Leadership in Emerging Markets</div>
-          <div class="pill-card-desc">Senior professionals engage with business leaders and policy innovators navigating rapidly changing economic and regulatory environments across the continent.</div>
-          <div class="pill-card-themes"><span class="pill-card-theme">Leadership in Complexity</span><span class="pill-card-theme">Cross-Cultural Strategy</span><span class="pill-card-theme">Innovation</span></div>
-        </div>
-        <div class="pill-card-arrow">→</div>
-      </div>
-    </div>
-    <div class="pill-row">
-      <div class="pill-num-circle">5</div>
-      <div class="pill-card" onclick="openDetail(4)">
-        <div class="pill-card-body">
-          <div class="pill-card-for">Online · Hybrid · Distance</div>
-          <div class="pill-card-name">Global Classroom</div>
-          <div class="pill-card-desc">Students who typically interact only virtually come together for a powerful shared immersive experience, building professional networks and deepening institutional connection.</div>
-          <div class="pill-card-themes"><span class="pill-card-theme">Cohort Cohesion</span><span class="pill-card-theme">Network Building</span><span class="pill-card-theme">Institutional Engagement</span></div>
-        </div>
-        <div class="pill-card-arrow">→</div>
-      </div>
-    </div>
+    <div class="pill-row"><div class="pill-num-circle">1</div><div class="pill-card" onclick="openDetail(0)"><div class="pill-card-body"><div class="pill-card-for">MBA · Graduate · Executive</div><div class="pill-card-name">Global Innovation Immersion</div><div class="pill-card-desc">Students engage with African startup ecosystems, venture builders, and innovation hubs — meeting entrepreneurs, investors, and technology leaders.</div><div class="pill-card-themes"><span class="pill-card-theme">Entrepreneurship</span><span class="pill-card-theme">Fintech</span><span class="pill-card-theme">Social Innovation</span><span class="pill-card-theme">Emerging Markets</span></div></div><div class="pill-card-arrow">→</div></div></div>
+    <div class="pill-row"><div class="pill-num-circle">2</div><div class="pill-card" onclick="openDetail(1)"><div class="pill-card-body"><div class="pill-card-for">Policy · Urban · Sustainability</div><div class="pill-card-name">Cities, Climate &amp; Urban Africa</div><div class="pill-card-desc">Students explore how African cities respond to climate change, urbanisation, and infrastructure challenges through field visits and expert conversations.</div><div class="pill-card-themes"><span class="pill-card-theme">Climate Adaptation</span><span class="pill-card-theme">Urban Innovation</span><span class="pill-card-theme">Sustainable Development</span></div></div><div class="pill-card-arrow">→</div></div></div>
+    <div class="pill-row"><div class="pill-num-circle">3</div><div class="pill-card" onclick="openDetail(2)"><div class="pill-card-body"><div class="pill-card-for">Economics · International Relations</div><div class="pill-card-name">Africa in the Global Economy</div><div class="pill-card-desc">Students engage with policymakers, economists, and industry leaders to understand Africa's evolving role in global trade, finance, and development.</div><div class="pill-card-themes"><span class="pill-card-theme">Regional Trade</span><span class="pill-card-theme">Economic Transformation</span><span class="pill-card-theme">Global Partnerships</span></div></div><div class="pill-card-arrow">→</div></div></div>
+    <div class="pill-row"><div class="pill-num-circle">4</div><div class="pill-card" onclick="openDetail(3)"><div class="pill-card-body"><div class="pill-card-for">Executive MBA · Executive Education</div><div class="pill-card-name">Leadership in Emerging Markets</div><div class="pill-card-desc">Senior professionals engage with business leaders and policy innovators navigating rapidly changing economic and regulatory environments across the continent.</div><div class="pill-card-themes"><span class="pill-card-theme">Leadership in Complexity</span><span class="pill-card-theme">Cross-Cultural Strategy</span><span class="pill-card-theme">Innovation</span></div></div><div class="pill-card-arrow">→</div></div></div>
+    <div class="pill-row"><div class="pill-num-circle">5</div><div class="pill-card" onclick="openDetail(4)"><div class="pill-card-body"><div class="pill-card-for">Online · Hybrid · Distance</div><div class="pill-card-name">Global Classroom</div><div class="pill-card-desc">Students who typically interact only virtually come together for a powerful shared immersive experience, building professional networks and deepening institutional connection.</div><div class="pill-card-themes"><span class="pill-card-theme">Cohort Cohesion</span><span class="pill-card-theme">Network Building</span><span class="pill-card-theme">Institutional Engagement</span></div></div><div class="pill-card-arrow">→</div></div></div>
   </div>
 </section>
 
@@ -637,19 +453,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <div class="why-grid">
     <div class="why-left">
       <div class="section-label">Why Africa</div>
-      <h2 class="section-title">Where global ideas meet <em>lived realities</em><span class="title-bulb"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M15 5C10.86 5 7.5 8.36 7.5 12.5c0 2.72 1.4 5.12 3.5 6.52V21.5c0 .28.22.5.5.5h7c.28 0 .5-.22.5-.5v-2.48C20.6 17.62 22 15.22 22 12.5 22 8.36 18.64 5 15 5Z" fill="#2C3E6B" fill-opacity="0.11" stroke="#2C3E6B" stroke-width="1.15" stroke-linejoin="round"/>
-  <line x1="11.5" y1="22" x2="18.5" y2="22" stroke="#2C3E6B" stroke-width="1.1" stroke-linecap="round"/>
-  <line x1="12.2" y1="24" x2="17.8" y2="24" stroke="#2C3E6B" stroke-width="1.1" stroke-linecap="round"/>
-  <line x1="13" y1="26" x2="17" y2="26" stroke="#2C3E6B" stroke-width="0.9" stroke-linecap="round"/>
-  <line x1="15" y1="1.5" x2="15" y2="3.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
-  <line x1="6.2" y1="4.2" x2="7.6" y2="5.6" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
-  <line x1="23.8" y1="4.2" x2="22.4" y2="5.6" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
-  <line x1="2.5" y1="12.5" x2="4.5" y2="12.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
-  <line x1="25.5" y1="12.5" x2="27.5" y2="12.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
-  <path d="M13.5 17.5c0-1.2.5-2.2 1.2-3 .4-.46.9-.96 1.2-1.5.3-.54.26-1.2-.12-1.9" stroke="#2C3E6B" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.5"/>
-</svg>
-</span></h2>
+      <h2 class="section-title">Where global ideas meet <em>lived realities</em><span class="title-bulb"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 5C10.86 5 7.5 8.36 7.5 12.5c0 2.72 1.4 5.12 3.5 6.52V21.5c0 .28.22.5.5.5h7c.28 0 .5-.22.5-.5v-2.48C20.6 17.62 22 15.22 22 12.5 22 8.36 18.64 5 15 5Z" fill="#2C3E6B" fill-opacity="0.11" stroke="#2C3E6B" stroke-width="1.15" stroke-linejoin="round"/><line x1="11.5" y1="22" x2="18.5" y2="22" stroke="#2C3E6B" stroke-width="1.1" stroke-linecap="round"/><line x1="12.2" y1="24" x2="17.8" y2="24" stroke="#2C3E6B" stroke-width="1.1" stroke-linecap="round"/><line x1="13" y1="26" x2="17" y2="26" stroke="#2C3E6B" stroke-width="0.9" stroke-linecap="round"/><line x1="15" y1="1.5" x2="15" y2="3.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><line x1="6.2" y1="4.2" x2="7.6" y2="5.6" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><line x1="23.8" y1="4.2" x2="22.4" y2="5.6" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><line x1="2.5" y1="12.5" x2="4.5" y2="12.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><line x1="25.5" y1="12.5" x2="27.5" y2="12.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><path d="M13.5 17.5c0-1.2.5-2.2 1.2-3 .4-.46.9-.96 1.2-1.5.3-.54.26-1.2-.12-1.9" stroke="#2C3E6B" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.5"/></svg></span></h2>
       <p>Africa is one of the most dynamic regions shaping the future of the global economy, innovation, and leadership. Rapidly growing cities, entrepreneurial ecosystems, and cultural movements are redefining conversations about technology, sustainability, and development.</p>
       <p>Yet despite its importance, many students studying in Europe and North America have limited opportunities to engage meaningfully with African contexts during their academic journeys.</p>
       <blockquote>"Africa is not simply a destination. It is a place where students encounter the complexity and creativity that define our interconnected world."</blockquote>
@@ -665,106 +469,50 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 
 <hr class="divider">
 
-<section class="how-we-work fade" id="how-we-work">
-  <div class="how-we-work-header">
-    <div class="how-we-work-header-left">
-      <div class="section-label">How We Work With Universities</div>
-      <h2 class="section-title">A partnership built on<br><em>co-design and clarity</em></h2>
-      <p class="how-intro">We know that universities need confidence before committing to international programmes. Our process is designed to be transparent, collaborative, and strategically aligned from the very first conversation.</p>
-    </div>
-    <div class="how-we-work-skyline">
-<svg viewBox="0 0 420 195" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs>
-    <style>
-      .sb { fill: rgba(74,96,152,0.13); stroke: #4A6098; stroke-width: 0.9; stroke-linejoin: round; }
-      .sw { fill: rgba(180,200,255,0.45); }
-      .sd { stroke: rgba(74,96,152,0.4); stroke-width: 0.45; fill: none; }
-      .sg { stroke: #4A6098; stroke-width: 0.9; fill: none; }
-    </style>
-  </defs>
+<!-- ── Work With Us: How We Work (dark) + Contact (surface) ── -->
+<div id="work-with-us">
 
+  <section class="how-we-work fade">
+    <div class="how-we-work-header">
+      <div class="how-we-work-header-left">
+        <div class="section-label">How We Work With Universities</div>
+        <h2 class="section-title">A partnership built on<br><em>co-design and clarity</em></h2>
+        <p class="how-intro">We know that universities need confidence before committing to international programmes. Our process is designed to be transparent, collaborative, and strategically aligned from the very first conversation.</p>
+      </div>
+      <div class="how-we-work-skyline">
+<svg viewBox="0 0 420 195" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs><style>.sb{fill:rgba(74,96,152,0.13);stroke:#4A6098;stroke-width:0.9;stroke-linejoin:round}.sw{fill:rgba(180,200,255,0.45)}.sd{stroke:rgba(74,96,152,0.4);stroke-width:0.45;fill:none}.sg{stroke:#4A6098;stroke-width:0.9;fill:none}</style></defs>
   <line x1="0" y1="166" x2="420" y2="166" stroke="#4A6098" stroke-width="1.1"/>
   <rect x="0" y="166" width="420" height="7" fill="rgba(74,96,152,0.06)"/>
   <line x1="0" y1="170" x2="420" y2="170" stroke="rgba(74,96,152,0.25)" stroke-width="0.45" stroke-dasharray="14 9"/>
-
-  <rect class="sb" x="6" y="124" width="40" height="42"/>
-  <rect class="sb" x="4" y="118" width="44" height="7"/>
-  <rect class="sb" x="8" y="113" width="9" height="6"/><rect class="sb" x="21" y="113" width="9" height="6"/><rect class="sb" x="34" y="113" width="9" height="6"/>
+  <rect class="sb" x="6" y="124" width="40" height="42"/><rect class="sb" x="4" y="118" width="44" height="7"/><rect class="sb" x="8" y="113" width="9" height="6"/><rect class="sb" x="21" y="113" width="9" height="6"/><rect class="sb" x="34" y="113" width="9" height="6"/>
   <rect class="sw" x="10" y="128" width="6" height="5"/><rect class="sw" x="19" y="128" width="6" height="5"/><rect class="sw" x="28" y="128" width="6" height="5"/><rect class="sw" x="37" y="128" width="5" height="5"/>
   <rect class="sw" x="10" y="137" width="6" height="5"/><rect class="sw" x="19" y="137" width="6" height="5"/><rect class="sw" x="28" y="137" width="6" height="5"/><rect class="sw" x="37" y="137" width="5" height="5"/>
   <rect class="sw" x="10" y="146" width="6" height="5"/><rect class="sw" x="19" y="146" width="6" height="5"/><rect class="sw" x="28" y="146" width="6" height="5"/><rect class="sw" x="37" y="146" width="5" height="5"/>
   <rect class="sw" x="10" y="155" width="6" height="5"/><rect class="sw" x="19" y="155" width="6" height="5"/><rect class="sw" x="28" y="155" width="6" height="5"/><rect class="sw" x="37" y="155" width="5" height="5"/>
-
-  <rect class="sb" x="48" y="86" width="34" height="80"/>
-  <rect class="sb" x="54" y="68" width="22" height="20"/>
-  <rect class="sb" x="58" y="54" width="14" height="16"/>
-  <rect class="sb" x="62" y="42" width="6" height="14"/>
-  <line class="sg" x1="65" y1="42" x2="65" y2="26"/>
-  <circle cx="65" cy="25" r="2.2" fill="rgba(74,96,152,0.45)" stroke="#4A6098" stroke-width="0.8"/>
+  <rect class="sb" x="48" y="86" width="34" height="80"/><rect class="sb" x="54" y="68" width="22" height="20"/><rect class="sb" x="58" y="54" width="14" height="16"/><rect class="sb" x="62" y="42" width="6" height="14"/>
+  <line class="sg" x1="65" y1="42" x2="65" y2="26"/><circle cx="65" cy="25" r="2.2" fill="rgba(74,96,152,0.45)" stroke="#4A6098" stroke-width="0.8"/>
   <line class="sd" x1="62" y1="86" x2="62" y2="166"/><line class="sd" x1="69" y1="86" x2="69" y2="166"/><line class="sd" x1="76" y1="86" x2="76" y2="166"/>
-  <line class="sd" x1="48" y1="96" x2="82" y2="96"/><line class="sd" x1="48" y1="106" x2="82" y2="106"/><line class="sd" x1="48" y1="116" x2="82" y2="116"/>
-  <line class="sd" x1="48" y1="126" x2="82" y2="126"/><line class="sd" x1="48" y1="136" x2="82" y2="136"/>
-  <line class="sd" x1="48" y1="146" x2="82" y2="146"/><line class="sd" x1="48" y1="156" x2="82" y2="156"/>
-  <rect class="sw" x="50" y="88" width="10" height="7"/><rect class="sw" x="72" y="88" width="9" height="7"/>
-  <rect class="sw" x="50" y="108" width="10" height="7"/><rect class="sw" x="63" y="108" width="5" height="7"/><rect class="sw" x="72" y="108" width="9" height="7"/>
-  <rect class="sw" x="50" y="128" width="10" height="7"/><rect class="sw" x="72" y="128" width="9" height="7"/>
-  <rect class="sw" x="63" y="148" width="5" height="7"/>
-  <rect class="sw" x="56" y="70" width="5" height="4"/><rect class="sw" x="64" y="70" width="5" height="4"/>
-  <rect class="sw" x="60" y="56" width="4" height="4"/>
-
+  <line class="sd" x1="48" y1="96" x2="82" y2="96"/><line class="sd" x1="48" y1="106" x2="82" y2="106"/><line class="sd" x1="48" y1="116" x2="82" y2="116"/><line class="sd" x1="48" y1="126" x2="82" y2="126"/><line class="sd" x1="48" y1="136" x2="82" y2="136"/><line class="sd" x1="48" y1="146" x2="82" y2="146"/><line class="sd" x1="48" y1="156" x2="82" y2="156"/>
+  <rect class="sw" x="50" y="88" width="10" height="7"/><rect class="sw" x="72" y="88" width="9" height="7"/><rect class="sw" x="50" y="108" width="10" height="7"/><rect class="sw" x="63" y="108" width="5" height="7"/><rect class="sw" x="72" y="108" width="9" height="7"/><rect class="sw" x="50" y="128" width="10" height="7"/><rect class="sw" x="72" y="128" width="9" height="7"/><rect class="sw" x="63" y="148" width="5" height="7"/><rect class="sw" x="56" y="70" width="5" height="4"/><rect class="sw" x="64" y="70" width="5" height="4"/><rect class="sw" x="60" y="56" width="4" height="4"/>
   <rect class="sb" x="84" y="24" width="52" height="142"/>
-  <line class="sd" x1="97" y1="24" x2="97" y2="166"/>
-  <line class="sd" x1="110" y1="24" x2="110" y2="166"/>
-  <line class="sd" x1="123" y1="24" x2="123" y2="166"/>
-  <line class="sd" x1="84" y1="38" x2="136" y2="38"/>
-  <line class="sd" x1="84" y1="52" x2="136" y2="52"/>
-  <line class="sd" x1="84" y1="66" x2="136" y2="66"/>
-  <line class="sd" x1="84" y1="80" x2="136" y2="80"/>
-  <line class="sd" x1="84" y1="94" x2="136" y2="94"/>
-  <line class="sd" x1="84" y1="108" x2="136" y2="108"/>
-  <line class="sd" x1="84" y1="122" x2="136" y2="122"/>
-  <line class="sd" x1="84" y1="136" x2="136" y2="136"/>
-  <line class="sd" x1="84" y1="150" x2="136" y2="150"/>
-  <rect class="sw" x="86" y="26" width="9" height="10"/><rect class="sw" x="112" y="26" width="9" height="10"/>
-  <rect class="sw" x="86" y="54" width="9" height="10"/><rect class="sw" x="99" y="54" width="9" height="10"/>
-  <rect class="sw" x="112" y="68" width="9" height="10"/><rect class="sw" x="86" y="68" width="9" height="10"/>
-  <rect class="sw" x="99" y="82" width="9" height="10"/>
-  <rect class="sw" x="112" y="96" width="9" height="10"/><rect class="sw" x="86" y="96" width="9" height="10"/>
-  <rect class="sw" x="99" y="110" width="9" height="10"/><rect class="sw" x="112" y="110" width="9" height="10"/>
-  <rect class="sw" x="86" y="124" width="9" height="10"/>
-  <rect class="sw" x="112" y="138" width="9" height="10"/><rect class="sw" x="99" y="138" width="9" height="10"/>
-  <rect class="sw" x="86" y="152" width="9" height="10"/>
-  <rect class="sb" x="82" y="20" width="56" height="5"/>
-  <rect class="sb" x="90" y="12" width="8" height="9"/>
-  <rect class="sb" x="102" y="10" width="6" height="11"/>
+  <line class="sd" x1="97" y1="24" x2="97" y2="166"/><line class="sd" x1="110" y1="24" x2="110" y2="166"/><line class="sd" x1="123" y1="24" x2="123" y2="166"/>
+  <line class="sd" x1="84" y1="38" x2="136" y2="38"/><line class="sd" x1="84" y1="52" x2="136" y2="52"/><line class="sd" x1="84" y1="66" x2="136" y2="66"/><line class="sd" x1="84" y1="80" x2="136" y2="80"/><line class="sd" x1="84" y1="94" x2="136" y2="94"/><line class="sd" x1="84" y1="108" x2="136" y2="108"/><line class="sd" x1="84" y1="122" x2="136" y2="122"/><line class="sd" x1="84" y1="136" x2="136" y2="136"/><line class="sd" x1="84" y1="150" x2="136" y2="150"/>
+  <rect class="sw" x="86" y="26" width="9" height="10"/><rect class="sw" x="112" y="26" width="9" height="10"/><rect class="sw" x="86" y="54" width="9" height="10"/><rect class="sw" x="99" y="54" width="9" height="10"/><rect class="sw" x="112" y="68" width="9" height="10"/><rect class="sw" x="86" y="68" width="9" height="10"/><rect class="sw" x="99" y="82" width="9" height="10"/><rect class="sw" x="112" y="96" width="9" height="10"/><rect class="sw" x="86" y="96" width="9" height="10"/><rect class="sw" x="99" y="110" width="9" height="10"/><rect class="sw" x="112" y="110" width="9" height="10"/><rect class="sw" x="86" y="124" width="9" height="10"/><rect class="sw" x="112" y="138" width="9" height="10"/><rect class="sw" x="99" y="138" width="9" height="10"/><rect class="sw" x="86" y="152" width="9" height="10"/>
+  <rect class="sb" x="82" y="20" width="56" height="5"/><rect class="sb" x="90" y="12" width="8" height="9"/><rect class="sb" x="102" y="10" width="6" height="11"/>
   <line class="sg" x1="105" y1="10" x2="105" y2="2"/>
-
   <rect class="sb" x="138" y="68" width="48" height="98"/>
-  <line class="sd" x1="148" y1="68" x2="148" y2="164"/>
-  <line class="sd" x1="162" y1="68" x2="162" y2="164"/>
-  <line class="sd" x1="176" y1="68" x2="176" y2="164"/>
-  <rect class="sb" x="136" y="62" width="52" height="7"/>
-  <polygon class="sb" points="136,62 188,62 162,44"/>
-  <circle class="sb" cx="162" cy="56" r="5"/>
-  <rect class="sw" x="142" y="76" width="9" height="12"/>
-  <path d="M142,76 Q146.5,72 151,76" fill="rgba(180,200,255,0.45)" stroke="none"/>
-  <rect class="sw" x="155" y="76" width="9" height="12"/>
-  <path d="M155,76 Q159.5,72 164,76" fill="rgba(180,200,255,0.45)" stroke="none"/>
-  <rect class="sw" x="168" y="76" width="9" height="12"/>
-  <path d="M168,76 Q172.5,72 177,76" fill="rgba(180,200,255,0.45)" stroke="none"/>
+  <line class="sd" x1="148" y1="68" x2="148" y2="164"/><line class="sd" x1="162" y1="68" x2="162" y2="164"/><line class="sd" x1="176" y1="68" x2="176" y2="164"/>
+  <rect class="sb" x="136" y="62" width="52" height="7"/><polygon class="sb" points="136,62 188,62 162,44"/><circle class="sb" cx="162" cy="56" r="5"/>
+  <rect class="sw" x="142" y="76" width="9" height="12"/><rect class="sw" x="155" y="76" width="9" height="12"/><rect class="sw" x="168" y="76" width="9" height="12"/>
   <rect class="sw" x="142" y="96" width="9" height="8"/><rect class="sw" x="155" y="96" width="9" height="8"/><rect class="sw" x="168" y="96" width="9" height="8"/>
   <rect class="sw" x="142" y="110" width="9" height="8"/><rect class="sw" x="155" y="110" width="9" height="8"/><rect class="sw" x="168" y="110" width="9" height="8"/>
   <rect class="sw" x="142" y="124" width="9" height="8"/><rect class="sw" x="155" y="124" width="9" height="8"/><rect class="sw" x="168" y="124" width="9" height="8"/>
   <rect class="sw" x="142" y="138" width="9" height="8"/><rect class="sw" x="155" y="138" width="9" height="8"/><rect class="sw" x="168" y="138" width="9" height="8"/>
   <rect class="sw" x="155" y="150" width="16" height="14"/>
-  <path d="M155,150 Q163,144 171,150" fill="rgba(180,200,255,0.45)" stroke="none"/>
-
-  <rect class="sb" x="188" y="50" width="30" height="116"/>
-  <rect class="sb" x="193" y="34" width="20" height="18"/>
-  <rect class="sb" x="198" y="22" width="10" height="14"/>
+  <rect class="sb" x="188" y="50" width="30" height="116"/><rect class="sb" x="193" y="34" width="20" height="18"/><rect class="sb" x="198" y="22" width="10" height="14"/>
   <polygon class="sb" points="196,22 203,4 210,22"/>
-  <line class="sd" x1="188" y1="50" x2="218" y2="50"/>
-  <line class="sd" x1="193" y1="34" x2="213" y2="34"/>
+  <line class="sd" x1="188" y1="50" x2="218" y2="50"/><line class="sd" x1="193" y1="34" x2="213" y2="34"/>
   <rect class="sw" x="191" y="56" width="5" height="4"/><rect class="sw" x="199" y="56" width="5" height="4"/><rect class="sw" x="207" y="56" width="5" height="4"/>
   <rect class="sw" x="191" y="64" width="5" height="4"/><rect class="sw" x="199" y="64" width="5" height="4"/><rect class="sw" x="207" y="64" width="5" height="4"/>
   <rect class="sw" x="191" y="72" width="5" height="4"/><rect class="sw" x="199" y="72" width="5" height="4"/>
@@ -778,18 +526,9 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <rect class="sw" x="207" y="136" width="5" height="4"/><rect class="sw" x="191" y="136" width="5" height="4"/>
   <rect class="sw" x="199" y="144" width="5" height="4"/>
   <rect class="sw" x="191" y="152" width="5" height="4"/><rect class="sw" x="207" y="152" width="5" height="4"/>
-  <rect class="sw" x="195" y="38" width="5" height="3"/><rect class="sw" x="203" y="38" width="5" height="3"/>
-  <rect class="sw" x="199" y="26" width="4" height="3"/>
-
+  <rect class="sw" x="195" y="38" width="5" height="3"/><rect class="sw" x="203" y="38" width="5" height="3"/><rect class="sw" x="199" y="26" width="4" height="3"/>
   <rect class="sb" x="220" y="54" width="50" height="112"/>
-  <line class="sd" x1="220" y1="66" x2="270" y2="66"/>
-  <line class="sd" x1="220" y1="78" x2="270" y2="78"/>
-  <line class="sd" x1="220" y1="90" x2="270" y2="90"/>
-  <line class="sd" x1="220" y1="102" x2="270" y2="102"/>
-  <line class="sd" x1="220" y1="114" x2="270" y2="114"/>
-  <line class="sd" x1="220" y1="126" x2="270" y2="126"/>
-  <line class="sd" x1="220" y1="138" x2="270" y2="138"/>
-  <line class="sd" x1="220" y1="150" x2="270" y2="150"/>
+  <line class="sd" x1="220" y1="66" x2="270" y2="66"/><line class="sd" x1="220" y1="78" x2="270" y2="78"/><line class="sd" x1="220" y1="90" x2="270" y2="90"/><line class="sd" x1="220" y1="102" x2="270" y2="102"/><line class="sd" x1="220" y1="114" x2="270" y2="114"/><line class="sd" x1="220" y1="126" x2="270" y2="126"/><line class="sd" x1="220" y1="138" x2="270" y2="138"/><line class="sd" x1="220" y1="150" x2="270" y2="150"/>
   <rect class="sw" x="223" y="57" width="7" height="7"/><rect class="sw" x="234" y="57" width="7" height="7"/><rect class="sw" x="245" y="57" width="7" height="7"/><rect class="sw" x="256" y="57" width="7" height="7"/>
   <rect class="sw" x="223" y="69" width="7" height="7"/><rect class="sw" x="234" y="69" width="7" height="7"/><rect class="sw" x="245" y="69" width="7" height="7"/><rect class="sw" x="256" y="69" width="7" height="7"/>
   <rect class="sw" x="223" y="81" width="7" height="7"/><rect class="sw" x="234" y="81" width="7" height="7"/><rect class="sw" x="245" y="81" width="7" height="7"/><rect class="sw" x="256" y="81" width="7" height="7"/>
@@ -799,20 +538,10 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <rect class="sw" x="223" y="129" width="7" height="7"/><rect class="sw" x="234" y="129" width="7" height="7"/><rect class="sw" x="245" y="129" width="7" height="7"/><rect class="sw" x="256" y="129" width="7" height="7"/>
   <rect class="sw" x="223" y="141" width="7" height="7"/><rect class="sw" x="234" y="141" width="7" height="7"/><rect class="sw" x="245" y="141" width="7" height="7"/><rect class="sw" x="256" y="141" width="7" height="7"/>
   <rect class="sw" x="223" y="153" width="7" height="7"/><rect class="sw" x="234" y="153" width="7" height="7"/><rect class="sw" x="245" y="153" width="7" height="7"/><rect class="sw" x="256" y="153" width="7" height="7"/>
-  <rect class="sb" x="218" y="50" width="54" height="5"/>
-  <rect class="sb" x="226" y="44" width="12" height="7"/>
-  <rect class="sb" x="244" y="42" width="8" height="9"/>
-  <line class="sg" x1="248" y1="42" x2="248" y2="34"/>
-  <rect class="sb" x="258" y="46" width="6" height="5"/>
-
+  <rect class="sb" x="218" y="50" width="54" height="5"/><rect class="sb" x="226" y="44" width="12" height="7"/><rect class="sb" x="244" y="42" width="8" height="9"/>
+  <line class="sg" x1="248" y1="42" x2="248" y2="34"/><rect class="sb" x="258" y="46" width="6" height="5"/>
   <rect class="sb" x="272" y="82" width="24" height="84"/>
-  <line class="sd" x1="282" y1="82" x2="282" y2="166"/>
-  <line class="sd" x1="272" y1="94" x2="296" y2="94"/>
-  <line class="sd" x1="272" y1="106" x2="296" y2="106"/>
-  <line class="sd" x1="272" y1="118" x2="296" y2="118"/>
-  <line class="sd" x1="272" y1="130" x2="296" y2="130"/>
-  <line class="sd" x1="272" y1="142" x2="296" y2="142"/>
-  <line class="sd" x1="272" y1="154" x2="296" y2="154"/>
+  <line class="sd" x1="282" y1="82" x2="282" y2="166"/><line class="sd" x1="272" y1="94" x2="296" y2="94"/><line class="sd" x1="272" y1="106" x2="296" y2="106"/><line class="sd" x1="272" y1="118" x2="296" y2="118"/><line class="sd" x1="272" y1="130" x2="296" y2="130"/><line class="sd" x1="272" y1="142" x2="296" y2="142"/><line class="sd" x1="272" y1="154" x2="296" y2="154"/>
   <rect class="sw" x="274" y="84" width="5" height="8"/><rect class="sw" x="284" y="84" width="5" height="8"/>
   <rect class="sw" x="274" y="96" width="5" height="8"/><rect class="sw" x="284" y="96" width="5" height="8"/>
   <rect class="sw" x="274" y="108" width="5" height="8"/><rect class="sw" x="284" y="108" width="5" height="8"/>
@@ -821,119 +550,110 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <rect class="sw" x="274" y="144" width="5" height="8"/><rect class="sw" x="284" y="144" width="5" height="8"/>
   <rect class="sw" x="274" y="156" width="5" height="8"/><rect class="sw" x="284" y="156" width="5" height="8"/>
   <rect class="sb" x="270" y="78" width="28" height="5"/>
-  <line class="sg" x1="284" y1="78" x2="284" y2="66"/>
-  <circle cx="284" cy="65" r="2" fill="rgba(74,96,152,0.4)" stroke="#4A6098" stroke-width="0.8"/>
-
-  <rect class="sb" x="298" y="110" width="42" height="56"/>
-  <rect class="sb" x="296" y="104" width="46" height="7"/>
-  <rect class="sb" x="302" y="98" width="10" height="7"/><rect class="sb" x="316" y="98" width="10" height="7"/><rect class="sb" x="330" y="98" width="8" height="7"/>
+  <line class="sg" x1="284" y1="78" x2="284" y2="66"/><circle cx="284" cy="65" r="2" fill="rgba(74,96,152,0.4)" stroke="#4A6098" stroke-width="0.8"/>
+  <rect class="sb" x="298" y="110" width="42" height="56"/><rect class="sb" x="296" y="104" width="46" height="7"/><rect class="sb" x="302" y="98" width="10" height="7"/><rect class="sb" x="316" y="98" width="10" height="7"/><rect class="sb" x="330" y="98" width="8" height="7"/>
   <rect class="sw" x="302" y="114" width="8" height="6"/><rect class="sw" x="313" y="114" width="8" height="6"/><rect class="sw" x="324" y="114" width="8" height="6"/><rect class="sw" x="333" y="114" width="5" height="6"/>
   <rect class="sw" x="302" y="124" width="8" height="6"/><rect class="sw" x="313" y="124" width="8" height="6"/><rect class="sw" x="324" y="124" width="8" height="6"/><rect class="sw" x="333" y="124" width="5" height="6"/>
   <rect class="sw" x="302" y="134" width="8" height="6"/><rect class="sw" x="313" y="134" width="8" height="6"/><rect class="sw" x="324" y="134" width="8" height="6"/><rect class="sw" x="333" y="134" width="5" height="6"/>
   <rect class="sw" x="302" y="144" width="8" height="6"/><rect class="sw" x="313" y="144" width="8" height="6"/><rect class="sw" x="324" y="144" width="8" height="6"/><rect class="sw" x="333" y="144" width="5" height="6"/>
   <rect class="sw" x="302" y="154" width="8" height="6"/><rect class="sw" x="313" y="154" width="8" height="6"/><rect class="sw" x="324" y="154" width="8" height="6"/>
-
-  <rect class="sb" x="342" y="100" width="34" height="66"/>
-  <rect class="sb" x="340" y="94" width="38" height="7"/>
-  <polygon class="sb" points="340,94 376,94 358,76"/>
+  <rect class="sb" x="342" y="100" width="34" height="66"/><rect class="sb" x="340" y="94" width="38" height="7"/><polygon class="sb" points="340,94 376,94 358,76"/>
   <rect class="sw" x="345" y="104" width="6" height="5"/><rect class="sw" x="355" y="104" width="6" height="5"/><rect class="sw" x="365" y="104" width="6" height="5"/>
   <rect class="sw" x="345" y="114" width="6" height="5"/><rect class="sw" x="355" y="114" width="6" height="5"/><rect class="sw" x="365" y="114" width="6" height="5"/>
   <rect class="sw" x="345" y="124" width="6" height="5"/><rect class="sw" x="355" y="124" width="6" height="5"/><rect class="sw" x="365" y="124" width="6" height="5"/>
   <rect class="sw" x="345" y="134" width="6" height="5"/><rect class="sw" x="355" y="134" width="6" height="5"/><rect class="sw" x="365" y="134" width="6" height="5"/>
   <rect class="sw" x="345" y="144" width="6" height="5"/><rect class="sw" x="355" y="144" width="6" height="5"/><rect class="sw" x="365" y="144" width="6" height="5"/>
   <rect class="sw" x="345" y="154" width="6" height="5"/><rect class="sw" x="355" y="154" width="6" height="5"/>
-
-  <rect class="sb" x="378" y="126" width="40" height="40"/>
-  <rect class="sb" x="376" y="120" width="44" height="7"/>
-  <rect class="sb" x="382" y="115" width="10" height="6"/><rect class="sb" x="396" y="115" width="10" height="6"/>
+  <rect class="sb" x="378" y="126" width="40" height="40"/><rect class="sb" x="376" y="120" width="44" height="7"/><rect class="sb" x="382" y="115" width="10" height="6"/><rect class="sb" x="396" y="115" width="10" height="6"/>
   <rect class="sw" x="381" y="130" width="7" height="5"/><rect class="sw" x="391" y="130" width="7" height="5"/><rect class="sw" x="401" y="130" width="7" height="5"/><rect class="sw" x="411" y="130" width="5" height="5"/>
   <rect class="sw" x="381" y="140" width="7" height="5"/><rect class="sw" x="391" y="140" width="7" height="5"/><rect class="sw" x="401" y="140" width="7" height="5"/><rect class="sw" x="411" y="140" width="5" height="5"/>
   <rect class="sw" x="381" y="150" width="7" height="5"/><rect class="sw" x="391" y="150" width="7" height="5"/><rect class="sw" x="401" y="150" width="7" height="5"/>
 </svg>
+      </div>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Discovery Conversation</h3>
+        <p>We begin with a strategic conversation to understand your institution's internationalisation goals, student profile, programme structure, and timeline.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h3>Programme Co-Design</h3>
+        <p>We develop a tailored programme proposal — including academic framing, itinerary, partner organisations, and learning outcomes — in close collaboration with your team.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Logistics and Delivery</h3>
+        <p>We manage all operational elements — travel, accommodation, venue partnerships, speaker coordination, and on-the-ground facilitation — so your team can focus on the academic experience.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">04</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Evaluation and Growth</h3>
+        <p>After each programme, we conduct structured evaluation and work with you to deepen the partnership — building toward longer-term institutional collaboration.</p>
+      </div>
+    </div>
+  </section>
 
+  <section class="contact fade" id="contact">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="section-label">Get In Touch</div>
+        <h2>Start a <em>conversation</em> about your institution</h2>
+        <p>Whether you have a specific programme in mind or are exploring what international learning could look like for your students, we would love to hear from you.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="contact-detail-text"><span>Email</span><p>design@archerafrica.com</p></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="contact-detail-text"><span>Based In</span><p>Johannesburg, South Africa</p></div>
+        </div>
+      </div>
+      <div>
+        <div id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+          </div>
+          <div class="form-group"><label>Institution</label><input type="text" placeholder="University of..."></div>
+          <div class="form-group"><label>Role</label><input type="text" placeholder="Director of International Partnerships"></div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="j.smith@university.edu"></div>
+          <div class="form-group"><label>Programme Interest</label>
+            <select>
+              <option value="">Select a programme type</option>
+              <option>International Study Experiences</option>
+              <option>Executive Education Immersions</option>
+              <option>Experiences for Online Learners</option>
+              <option>Institutional Partnership Experiences</option>
+              <option>Curated African Learning Contexts</option>
+              <option>Not sure yet — exploring options</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your institution, your students, and what you're looking to achieve through international learning..."></textarea></div>
+          <div class="form-check"><input type="checkbox" id="consent"><label for="consent">I'm happy for Archer Africa to contact me about relevant programmes and partnership opportunities.</label></div>
+          <button class="submit-btn" onclick="submitForm()">Send Enquiry</button>
+          <p class="form-note">We typically respond within two business days.</p>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>Thank you for reaching out</h3>
+          <p>We've received your enquiry and will be in touch within two business days to continue the conversation.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="how-steps">
-    <div class="how-step">
-      <div class="step-num">01</div>
-      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-      <h3>Discovery Conversation</h3>
-      <p>We begin with a strategic conversation to understand your institution's internationalisation goals, student profile, programme structure, and timeline.</p>
-    </div>
-    <div class="how-step">
-      <div class="step-num">02</div>
-      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-      <h3>Programme Co-Design</h3>
-      <p>We develop a tailored programme proposal — including academic framing, itinerary, partner organisations, and learning outcomes — in close collaboration with your team.</p>
-    </div>
-    <div class="how-step">
-      <div class="step-num">03</div>
-      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <h3>Logistics and Delivery</h3>
-      <p>We manage all operational elements — travel, accommodation, venue partnerships, speaker coordination, and on-the-ground facilitation — so your team can focus on the academic experience.</p>
-    </div>
-    <div class="how-step">
-      <div class="step-num">04</div>
-      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-      <h3>Evaluation and Growth</h3>
-      <p>After each programme, we conduct structured evaluation and work with you to deepen the partnership — building toward longer-term institutional collaboration.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="contact fade" id="contact">
-  <div class="contact-grid">
-    <div class="contact-left">
-      <div class="section-label">Get In Touch</div>
-      <h2>Start a <em>conversation</em> about your institution</h2>
-      <p>Whether you have a specific programme in mind or are exploring what international learning could look like for your students, we would love to hear from you.</p>
-      <div class="contact-detail">
-        <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-        <div class="contact-detail-text"><span>Email</span><p>design@archerafrica.com</p></div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div class="contact-detail-text"><span>Based In</span><p>Johannesburg, South Africa</p></div>
-      </div>
-    </div>
-    <div>
-      <div id="contactForm">
-        <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
-        </div>
-        <div class="form-group"><label>Institution</label><input type="text" placeholder="University of..."></div>
-        <div class="form-group"><label>Role</label><input type="text" placeholder="Director of International Partnerships"></div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="j.smith@university.edu"></div>
-        <div class="form-group"><label>Programme Interest</label>
-          <select>
-            <option value="">Select a programme type</option>
-            <option>International Study Experiences</option>
-            <option>Executive Education Immersions</option>
-            <option>Experiences for Online Learners</option>
-            <option>Institutional Partnership Experiences</option>
-            <option>Curated African Learning Contexts</option>
-            <option>Not sure yet — exploring options</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your institution, your students, and what you're looking to achieve through international learning..."></textarea></div>
-        <div class="form-check"><input type="checkbox" id="consent"><label for="consent">I'm happy for Archer Africa to contact me about relevant programmes and partnership opportunities.</label></div>
-        <button class="submit-btn" onclick="submitForm()">Send Enquiry</button>
-        <p class="form-note">We typically respond within two business days.</p>
-      </div>
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h3>Thank you for reaching out</h3>
-        <p>We've received your enquiry and will be in touch within two business days to continue the conversation.</p>
-      </div>
-    </div>
-  </div>
-</section>
+</div><!-- end #work-with-us -->
 
 <footer>
   <div class="footer-top">
     <div class="footer-brand"><h3>Archer Africa</h3><p>International academic experiences rooted in Africa and connected to the world.</p></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#why-africa">Why Africa</a></li><li><a href="#how-we-work">How We Work</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#why-africa">Why Africa</a></li><li><a href="#work-with-us">How We Work</a></li></ul></div>
     <div class="footer-col"><h4>Programmes</h4><ul><li><a href="#services">Study Tours</a></li><li><a href="#services">Executive Education</a></li><li><a href="#services">Online Learners</a></li><li><a href="#services">Institutional</a></li></ul></div>
     <div class="footer-col"><h4>Partner</h4><ul><li><a href="#contact">Work With Us</a></li><li><a href="#contact">Contact</a></li></ul></div>
   </div>
@@ -993,6 +713,5 @@ function toggleMobile(){menuOpen=!menuOpen;document.getElementById('mobileMenu')
 function closeMobile(){menuOpen=false;document.getElementById('mobileMenu').classList.remove('open');}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});
 </script>
-
 </body>
 </html>
