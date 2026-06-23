@@ -22,38 +22,63 @@ button{cursor:pointer;font-family:'Outfit',sans-serif}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;border-bottom:0.5px solid transparent;transition:all 0.4s;background:transparent}
 nav.scrolled{background:rgba(250,248,244,0.96);border-bottom-color:var(--border);backdrop-filter:blur(8px)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:0.08em;color:var(--ink)}
-.nav-logo span{color:var(--accent)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:0.08em;color:var(--cream)}
+.nav-logo span{color:rgba(250,248,244,0.6)}
+nav.scrolled .nav-logo{color:var(--ink)}
+nav.scrolled .nav-logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-mid);transition:color 0.2s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.6rem 1.4rem;border:0.5px solid var(--ink);color:var(--ink);background:none;transition:all 0.2s}
-.nav-cta:hover{background:var(--ink);color:var(--cream)}
+.nav-links a{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,244,0.85);transition:color 0.2s}
+.nav-links a:hover{color:var(--cream)}
+nav.scrolled .nav-links a{color:var(--warm-mid)}
+nav.scrolled .nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.6rem 1.4rem;border:0.5px solid rgba(250,248,244,0.8);color:var(--cream);background:none;transition:all 0.2s}
+.nav-cta:hover{background:var(--cream);color:var(--ink)}
+nav.scrolled .nav-cta{border-color:var(--ink);color:var(--ink)}
+nav.scrolled .nav-cta:hover{background:var(--ink);color:var(--cream)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
-.nav-hamburger span{display:block;width:22px;height:1px;background:var(--ink);transition:all 0.3s}
+.nav-hamburger span{display:block;width:22px;height:1px;background:var(--cream);transition:all 0.3s}
+nav.scrolled .nav-hamburger span{background:var(--ink)}
 .mobile-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--ink);letter-spacing:0.02em}
 
-.hero{height:100vh;min-height:600px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:6rem 3rem 5rem 4rem;position:relative}
-.hero-eyebrow{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem}
-.hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.8rem);font-weight:300;line-height:1.08;letter-spacing:-0.01em;margin-bottom:2.5rem}
-.hero-headline em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:0.95rem;line-height:1.8;color:var(--warm-mid);max-width:36ch;margin-bottom:3rem;font-weight:300}
-.hero-actions{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
-.btn-primary{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:var(--ink);color:var(--cream);border:none;transition:all 0.2s}
-.btn-primary:hover{background:var(--accent)}
-.btn-ghost{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-mid);display:flex;align-items:center;gap:0.5rem;background:none;border:none;transition:color 0.2s}
-.btn-ghost:hover{color:var(--ink)}
-.hero-bottom{position:absolute;bottom:2rem;left:4rem}
-.hero-tag{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-mid);display:flex;align-items:center;gap:0.6rem}
-.hero-tag::before{content:'';width:24px;height:0.5px;background:var(--accent)}
+/* ── HERO ── */
+.hero{height:98vh;min-height:600px;display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;z-index:0}
+.hero-slide.active{opacity:1}
+.hero-slide::after{content:'';position:absolute;inset:0;background:rgba(20,18,14,0.75)}
 
-.hero-right{position:relative;overflow:hidden;background:var(--cream);display:flex;align-items:center;justify-content:center;padding-top:80px}
-.hero-map-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:80px 20px 40px 0}
-.hero-map-wrap svg{width:100%;height:100%;max-height:calc(100vh - 120px);object-fit:contain;display:block}
-.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, var(--cream) 0%, rgba(250,248,244,0.5) 5%, rgba(250,248,244,0) 18%);pointer-events:none;z-index:1}
+/* ── HERO CONTENT — pushed further down with more bottom padding ── */
+.hero-left{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 2rem 3rem;   /* reduced from 7rem → 3rem to push content lower */
+  max-width:820px;
+  width:100%;
+}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,248,244,0.7);margin-bottom:1.1rem}
+.hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.8rem);font-weight:300;line-height:1.08;letter-spacing:-0.01em;margin-bottom:1.4rem;color:var(--cream)}
+.hero-headline em{font-style:italic;color:rgba(180,200,255,0.85)}
+.hero-sub{
+  font-size:0.95rem;
+  line-height:1.75;
+  color:rgba(250,248,244,0.85);
+  max-width:58ch;
+  margin:0 auto 2.8rem;
+  font-weight:300;
+}
+.hero-actions{display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.8rem}
+.btn-primary{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:var(--cream);color:var(--ink);border:none;transition:all 0.2s}
+.btn-primary:hover{background:var(--accent);color:var(--cream)}
+.btn-ghost{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,244,0.95);display:flex;align-items:center;gap:0.5rem;background:none;border:none;transition:color 0.2s}
+.btn-ghost:hover{color:var(--cream)}
+.hero-tag{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,244,0.85);display:flex;align-items:center;gap:0.6rem;justify-content:center}
+.hero-tag::before{content:'';width:24px;height:0.5px;background:rgba(250,248,244,0.3)}
+.hero-tag::after{content:'';width:24px;height:0.5px;background:rgba(250,248,244,0.3)}
 
 .marquee-strip{border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:1rem 0;overflow:hidden;background:var(--surface)}
 .marquee-inner{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
@@ -67,27 +92,78 @@ nav.scrolled{background:rgba(250,248,244,0.96);border-bottom-color:var(--border)
 .section-title em{font-style:italic;color:var(--accent)}
 hr.divider{border:none;border-top:0.5px solid var(--border)}
 
+/* ── About ── */
 .about{padding:7rem 4rem;position:relative;overflow:hidden}
-.shoe-prints-bg{position:absolute;right:0;top:0;height:100%;width:240px;pointer-events:none}
-
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;position:relative;z-index:1}
+.about-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
 .about-text p{font-size:1rem;line-height:1.9;color:var(--warm-mid);margin-bottom:1.5rem;font-weight:300}
 .about-text p strong{color:var(--ink);font-weight:400}
-.about-pillars{display:grid;gap:1.5rem}
+.read-more-link{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);border-bottom:0.5px solid var(--accent);padding-bottom:0.15rem;transition:color 0.2s,border-color 0.2s;margin-top:0.5rem}
+.read-more-link:hover{color:var(--ink);border-color:var(--ink)}
 
-.pillar{padding:1.5rem;border:0.5px solid var(--border);display:flex;gap:1.2rem;align-items:flex-start;transition:border-color 0.2s;position:relative;overflow:hidden}
-.pillar:hover{border-color:var(--accent)}
-.pillar-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:2rem}
-.pillar-text h4{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);margin-bottom:0.4rem;font-weight:400;display:flex;align-items:center;gap:0.6rem}
-.pillar-icon{flex-shrink:0;opacity:0.55}
-.pillar-text p{font-size:0.88rem;line-height:1.7;color:var(--warm-mid)}
-
+/* ── Why Africa ── */
+.why-africa{background:var(--surface);padding:7rem 4rem}
+.why-grid-trimmed{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.why-left p{font-size:1rem;line-height:1.9;color:var(--warm-mid);margin-bottom:1.5rem;font-weight:300}
+.why-left blockquote{border-left:2px solid var(--accent);padding-left:1.5rem;margin-top:2rem;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;font-style:italic;line-height:1.5;color:var(--ink)}
+.why-right-image{position:relative;overflow:hidden}
+.why-right-image img{width:100%;height:420px;object-fit:cover;display:block;filter:grayscale(18%)}
+.why-right-image::after{content:'';position:absolute;inset:0;border:0.5px solid var(--border);pointer-events:none}
+.why-img-caption{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-mid);margin-top:1rem}
 .title-bulb{display:inline-block;vertical-align:middle;margin-left:0.3em;position:relative;top:-0.08em}
 
+/* ── Services ── */
 .services-pill-section{padding:7rem 4rem}
-.services-pill-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;padding-bottom:2rem;border-bottom:0.5px solid var(--border);gap:2rem;flex-wrap:wrap}
-.services-pill-header-right p{font-size:0.88rem;line-height:1.8;color:var(--warm-mid);max-width:38ch;text-align:right;font-weight:300}
-.pill-cards-list{display:flex;flex-direction:column;gap:0.75rem;max-width:760px}
+.services-layout{display:grid;grid-template-columns:1fr 400px;gap:5rem;align-items:start;margin-top:4rem}
+
+/* ── Left-aligned split header ── */
+.services-pill-header{
+  margin-bottom:3rem;
+  padding-bottom:2rem;
+  border-bottom:0.5px solid var(--border);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:end;
+}
+.services-pill-header-left{}
+.services-pill-header-left .section-label{
+  justify-content:flex-start;
+}
+.services-pill-header-left .section-title{
+  margin-bottom:0;
+}
+.services-pill-header-right{
+  padding-bottom:0.25rem; /* visually aligns with bottom of title */
+}
+.services-pill-header-sub{
+  font-size:0.88rem;
+  line-height:1.8;
+  color:var(--warm-mid);
+  font-weight:300;
+  margin:0 0 1.5rem;
+}
+.services-header-stats{
+  display:flex;
+  gap:2.5rem;
+}
+.services-stat{}
+.services-stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;
+  font-weight:300;
+  color:var(--accent);
+  line-height:1;
+  margin-bottom:0.25rem;
+}
+.services-stat-label{
+  font-size:0.68rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--warm-mid);
+  font-weight:300;
+}
+
+.pill-cards-list{display:flex;flex-direction:column;gap:0.75rem}
 .pill-row{display:flex;align-items:flex-start;position:relative}
 .pill-num-circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:#fff;margin-right:-26px;margin-top:6px;box-shadow:0 2px 12px rgba(0,0,0,0.12)}
 .pill-card{display:flex;align-items:stretch;border-radius:6px;overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;flex:1;padding-left:34px}
@@ -95,34 +171,32 @@ hr.divider{border:none;border-top:0.5px solid var(--border)}
 .pill-row:nth-child(1) .pill-num-circle{background:#C2A98A}
 .pill-row:nth-child(2) .pill-num-circle{background:#B89A78}
 .pill-row:nth-child(3) .pill-num-circle{background:#AC8C68}
-.pill-row:nth-child(4) .pill-num-circle{background:#9E7C58}
-.pill-row:nth-child(5) .pill-num-circle{background:#8F6E4A}
+.pill-row:nth-child(4) .pill-num-circle{background:#C8A882}
+.pill-row:nth-child(5) .pill-num-circle{background:#CEAF8C}
 .pill-row:nth-child(1) .pill-card{background:#F1E7DA}
 .pill-row:nth-child(2) .pill-card{background:#ECDFCD}
 .pill-row:nth-child(3) .pill-card{background:#E5D5BE}
-.pill-row:nth-child(4) .pill-card{background:#DDC8AE}
-.pill-row:nth-child(5) .pill-card{background:#D4BC9D}
+.pill-row:nth-child(4) .pill-card{background:#F0E8DA}
+.pill-row:nth-child(5) .pill-card{background:#F5EEE4}
 .pill-card-body{padding:0.55rem 0.8rem 0.55rem 0.3rem;flex:1}
 .pill-card-for{font-size:0.63rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(94,68,38,0.65);margin-bottom:0.2rem}
 .pill-card-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:#3A2A18;line-height:1.2;margin-bottom:0.25rem}
 .pill-card-desc{font-size:0.75rem;line-height:1.5;color:rgba(58,42,24,0.62);font-weight:300}
-.pill-card-themes{display:flex;flex-wrap:wrap;gap:0.28rem;margin-top:0.45rem}
+.pill-card-themes{display:flex;flex-wrap:wrap;gap:0.28rem;margin-top:0.45rem;max-height:0;overflow:hidden;opacity:0;transition:max-height 0.35s ease,opacity 0.3s ease}
+.pill-card:hover .pill-card-themes,.pill-card:focus .pill-card-themes{max-height:80px;opacity:1}
 .pill-card-theme{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.15rem 0.5rem;border:0.5px solid rgba(94,68,38,0.25);color:rgba(58,42,24,0.55);border-radius:20px}
 .pill-card-arrow{font-size:1rem;color:rgba(94,68,38,0.45);padding:0 1.2rem;flex-shrink:0;align-self:center}
 
-.why-africa{background:var(--surface);padding:7rem 4rem}
-.why-grid{display:grid;grid-template-columns:5fr 7fr;gap:6rem;align-items:center}
-.why-left p{font-size:1rem;line-height:1.9;color:var(--warm-mid);margin-bottom:1.5rem;font-weight:300}
-.why-left blockquote{border-left:2px solid var(--accent);padding-left:1.5rem;margin-top:2rem;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;font-style:italic;line-height:1.5;color:var(--ink)}
-.why-right{display:grid;gap:1px;background:var(--border)}
-.why-point{background:var(--cream);padding:1.8rem 2rem;display:flex;gap:1.5rem;align-items:flex-start}
-.why-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:7px}
-.why-point h4{font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);margin-bottom:0.4rem;font-weight:400}
-.why-point p{font-size:0.88rem;line-height:1.7;color:var(--warm-mid)}
+.services-right{position:sticky;top:8rem}
+.services-img-placeholder{width:100%;aspect-ratio:3/4;background:var(--surface);border:0.5px solid var(--border);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.services-img-placeholder img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(12%)}
+.services-img-placeholder-inner{text-align:center;padding:2rem}
+.services-img-placeholder-inner svg{width:36px;height:36px;stroke:var(--accent-light);fill:none;stroke-width:1;margin-bottom:1rem;opacity:0.5}
+.services-img-placeholder-inner p{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-mid);line-height:1.6;opacity:0.7}
+.services-img-caption{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-mid);margin-top:1rem}
 
-/* ── Work With Us: combined How We Work (dark) + Contact (surface) ── */
+/* ── How We Work ── */
 #work-with-us{display:flex;flex-direction:column}
-
 .how-we-work{background:var(--ink);padding:7rem 4rem;color:var(--cream)}
 .how-we-work .section-label{color:var(--accent-light)}
 .how-we-work .section-label::before{background:var(--accent-light)}
@@ -130,18 +204,19 @@ hr.divider{border:none;border-top:0.5px solid var(--border)}
 .how-we-work .section-title em{color:var(--accent-light)}
 .how-we-work-header{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap;margin-bottom:5rem}
 .how-we-work-header-left{flex:1;min-width:280px}
-.how-we-work-skyline{flex-shrink:0;width:420px;opacity:0.95}
+.how-we-work-skyline{flex-shrink:0;width:480px;opacity:0.95}
 .how-we-work-skyline svg{width:100%;height:auto;display:block}
 .how-intro{font-size:1rem;line-height:1.9;color:rgba(250,248,244,0.6);max-width:60ch;margin-bottom:0;font-weight:300}
 .how-steps{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid rgba(255,255,255,0.1);margin-bottom:0}
 .how-step{padding:2.5rem 2rem;border-right:0.5px solid rgba(255,255,255,0.1)}
 .how-step:last-child{border-right:none}
-.step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:rgba(74,96,152,0.35);line-height:1;margin-bottom:1.5rem}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:rgba(57, 90, 173, 0.5);line-height:1;margin-bottom:1.5rem}
 .step-icon{width:40px;height:40px;border:0.5px solid rgba(74,96,152,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
 .step-icon svg{width:16px;height:16px;stroke:var(--accent-light);fill:none;stroke-width:1}
 .how-step h3{font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);margin-bottom:1rem;font-weight:400}
 .how-step p{font-size:0.85rem;line-height:1.8;color:rgba(250,248,244,0.5);font-weight:300}
 
+/* ── Contact ── */
 .contact{padding:7rem 4rem;background:var(--surface)}
 .contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:6rem;align-items:start}
 .contact-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem}
@@ -184,6 +259,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-bottom p{font-size:0.75rem;letter-spacing:0.08em;color:rgba(250,248,244,0.3)}
 
+/* Programme detail panel */
 .prog-detail{position:fixed;inset:0;z-index:300;display:flex;opacity:0;pointer-events:none;transition:opacity 0.4s}
 .prog-detail.open{opacity:1;pointer-events:all}
 .prog-detail-backdrop{position:absolute;inset:0;background:rgba(26,24,20,0.7)}
@@ -213,21 +289,20 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
 .fade{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease}
 .fade.visible{opacity:1;transform:none}
 
+@media(max-width:1100px){
+  .services-layout{grid-template-columns:1fr;gap:3rem}
+  .services-right{position:static}
+  .services-img-placeholder{aspect-ratio:16/7}
+  .services-pill-header{grid-template-columns:1fr;gap:2rem}
+}
 @media(max-width:900px){
   nav{padding:1.2rem 1.5rem}
   .nav-links,.nav-cta{display:none}
   .nav-hamburger{display:flex}
-  .hero{grid-template-columns:1fr;height:auto}
-  .hero-left{padding:8rem 1.5rem 4rem;border-bottom:0.5px solid var(--border)}
-  .hero-right{height:360px;padding-top:0}
-  .hero-map-wrap{padding:20px}
-  .hero-bottom{left:1.5rem}
   .about,.services-pill-section,.contact,.why-africa,.how-we-work{padding:5rem 1.5rem}
-  .about-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
-  .services-pill-header{flex-direction:column}
-  .services-pill-header-right p{text-align:left}
+  .why-grid-trimmed,.contact-grid{grid-template-columns:1fr;gap:3rem}
   .how-we-work-header{flex-direction:column;align-items:flex-start;margin-bottom:3rem}
-  .how-we-work-skyline{width:260px}
+  .how-we-work-skyline{width:100%}
   .how-steps{grid-template-columns:1fr 1fr}
   .how-step:nth-child(2){border-right:none}
   .how-step:nth-child(3){border-right:0.5px solid rgba(255,255,255,0.1)}
@@ -236,7 +311,10 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   .footer-top{grid-template-columns:1fr 1fr;gap:2.5rem}
   .footer-bottom{flex-direction:column;text-align:center}
   .prog-detail-inner{padding:2.5rem 1.5rem}
-  .shoe-prints-bg{display:none}
+  .why-right-image img{height:280px}
+  .hero-left{padding:0 1.5rem 3rem}
+  .services-pill-header{grid-template-columns:1fr}
+  .services-header-stats{gap:1.5rem}
 }
 @media(max-width:480px){
   .hero-headline{font-size:2.4rem}
@@ -267,126 +345,24 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   <button class="nav-hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
 </nav>
 
+<!-- ── HERO ── -->
 <section class="hero">
+  <div class="hero-slide active" style="background-image:url('images/pexels-karola-g-4498037.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/pexels-nadin-nandin-134952564-13440917.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/pexels-pixabay-159775.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/pexels-yankrukov-8199246.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/pexels-yankrukov-8199602.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/pexels-yankrukov-8617965.jpg')"></div>
+
   <div class="hero-left">
     <div class="hero-eyebrow">International Academic Experiences</div>
-    <h1 class="hero-headline">Living ecosystems<br>of <em>global</em><br>learning.</h1>
+    <h1 class="hero-headline">Living ecosystems of <em>global</em> learning.</h1>
     <p class="hero-sub">Archer Africa partners with universities to design immersive international learning experiences — turning global education into lived experience.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('work-with-us').scrollIntoView({behavior:'smooth'})">Partner With Us</button>
       <button class="btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Programmes →</button>
     </div>
-    <div class="hero-bottom"><div class="hero-tag">Africa · Europe · UK · USA</div></div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-map-wrap">
-<svg viewBox="0 0 540 460" xmlns="http://www.w3.org/2000/svg" aria-label="World map highlighting Africa, Europe, UK and USA">
-  <defs>
-    <style>
-      .land { fill: #E4DDD4; stroke: #C8BEB2; stroke-width: 0.45; stroke-linejoin: round; stroke-linecap: round; }
-      .land-hi { fill: #D2C9BC; stroke: #B5ADA4; stroke-width: 0.6; stroke-linejoin: round; }
-      .land-africa { fill: #2C3E6B; stroke: #1e2d52; stroke-width: 0.6; stroke-linejoin: round; }
-      .grat { stroke: #DDD8D0; stroke-width: 0.22; fill: none; }
-      .conn { stroke: #2C3E6B; stroke-width: 0.65; stroke-dasharray: 3 2.5; fill: none; opacity: 0.48; }
-      .lbl { font-family: 'Outfit', sans-serif; font-size: 7.5px; font-weight: 400; letter-spacing: 0.13em; text-transform: uppercase; fill: #6B5E4E; }
-      .lbl-hi { font-family: 'Outfit', sans-serif; font-size: 8.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; fill: #2C3E6B; }
-      .lbl-af { font-family: 'Outfit', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; fill: #ffffff; }
-    </style>
-  </defs>
-  <line class="grat" x1="0" y1="75"  x2="540" y2="75"/>
-  <line class="grat" x1="0" y1="150" x2="540" y2="150"/>
-  <line class="grat" x1="0" y1="225" x2="540" y2="225"/>
-  <line class="grat" x1="0" y1="300" x2="540" y2="300"/>
-  <line class="grat" x1="0" y1="375" x2="540" y2="375"/>
-  <line class="grat" x1="67"  y1="0" x2="67"  y2="460"/>
-  <line class="grat" x1="134" y1="0" x2="134" y2="460"/>
-  <line class="grat" x1="201" y1="0" x2="201" y2="460"/>
-  <line class="grat" x1="268" y1="0" x2="268" y2="460"/>
-  <line class="grat" x1="335" y1="0" x2="335" y2="460"/>
-  <line class="grat" x1="402" y1="0" x2="402" y2="460"/>
-  <line class="grat" x1="469" y1="0" x2="469" y2="460"/>
-  <path class="land" d="M18,38 L30,32 L42,34 L48,42 L44,50 L32,52 L20,48 Z"/>
-  <path class="land" d="M52,35 L62,30 L76,28 L92,27 L106,28 L118,31 L130,33 L140,30 L150,27 L160,30 L164,38 L158,44 L148,48 L136,46 L124,44 L114,48 L108,56 L110,66 L106,72 L96,72 L84,68 L72,62 L60,56 L52,48 L48,40 Z"/>
-  <path class="land" d="M150,15 L162,12 L172,14 L176,22 L172,32 L162,36 L152,34 L148,24 Z"/>
-  <path class="land-hi" d="M56,74 L70,70 L88,67 L108,66 L120,70 L124,80 L122,90 L118,100 L120,110 L122,120 L120,130 L114,138 L106,144 L94,148 L80,150 L68,148 L56,142 L48,134 L44,122 L42,110 L42,98 L46,86 Z"/>
-  <path class="land-hi" d="M104,146 L110,150 L108,162 L104,168 L98,164 L98,154 Z"/>
-  <path class="land" d="M48,150 L60,148 L72,150 L78,160 L76,172 L68,180 L60,180 L52,172 L46,160 Z"/>
-  <path class="land" d="M66,180 L74,178 L78,186 L74,194 L66,192 L62,184 Z"/>
-  <path class="land" d="M96,156 L110,154 L116,158 L112,164 L98,164 Z"/>
-  <path class="land" d="M118,164 L122,162 L124,166 L120,168 Z"/>
-  <path class="land" d="M126,168 L130,166 L132,170 L128,172 Z"/>
-  <path class="land" d="M94,192 L108,188 L122,190 L134,198 L140,210 L138,224 L134,238 L130,252 L128,268 L130,284 L134,298 L132,314 L124,324 L112,330 L100,328 L88,318 L82,304 L78,290 L76,274 L74,260 L76,246 L78,232 L82,220 L88,208 Z"/>
-  <path class="land" d="M102,192 L116,186 L126,192 L120,198 L106,196 Z"/>
-  <path class="land-hi" d="M200,90 L214,86 L226,88 L232,98 L230,110 L220,116 L208,116 L200,108 L198,98 Z"/>
-  <path class="land-hi" d="M218,72 L232,68 L248,68 L262,72 L270,82 L270,94 L264,104 L252,110 L238,110 L226,106 L216,98 L214,86 L216,78 Z"/>
-  <path class="land-hi" d="M244,22 L256,18 L268,20 L276,28 L274,40 L264,46 L252,46 L242,40 L240,30 Z"/>
-  <path class="land-hi" d="M234,24 L242,22 L244,30 L240,38 L236,44 L230,38 L228,28 Z"/>
-  <path class="land-hi" d="M208,48 L218,44 L226,48 L226,60 L220,66 L210,64 L204,56 L204,50 Z"/>
-  <path class="land-hi" d="M214,44 L220,42 L224,46 L218,50 Z"/>
-  <path class="land-hi" d="M200,54 L208,50 L212,58 L208,66 L200,62 L198,56 Z"/>
-  <path class="land-hi" d="M268,70 L282,64 L298,64 L310,70 L314,82 L310,94 L298,100 L282,102 L270,96 L264,84 L266,74 Z"/>
-  <path class="land-hi" d="M246,104 L256,100 L262,106 L262,120 L256,128 L248,122 L246,112 Z"/>
-  <path class="land-hi" d="M248,130 L256,128 L260,134 L256,138 L248,136 Z"/>
-  <path class="land-hi" d="M278,108 L288,104 L294,112 L290,120 L280,118 Z"/>
-  <path class="land-hi" d="M280,126 L292,124 L296,128 L290,132 L280,130 Z"/>
-  <path class="land-africa" d="M 226,118 L 242,114 L 258,112 L 272,114 L 284,120 L 294,130 L 300,144 L 302,160 L 300,176 L 296,190 L 290,204 L 286,216 L 282,228 L 278,240 L 272,252 L 266,264 L 258,276 L 250,288 L 242,298 L 234,304 L 224,304 L 214,298 L 206,288 L 202,276 L 200,262 L 200,248 L 202,234 L 206,220 L 210,206 L 212,192 L 210,178 L 206,164 L 204,150 L 204,136 L 208,124 L 216,118 Z"/>
-  <path class="land-africa" d="M 296,154 L 314,148 L 322,158 L 316,172 L 300,176 Z"/>
-  <path class="land-africa" d="M308,218 L316,212 L322,218 L322,234 L318,242 L312,238 L308,228 Z"/>
-  <path class="land" d="M192,126 L198,124 L200,128 L196,130 Z"/>
-  <path class="land" d="M298,120 L318,114 L334,116 L342,128 L338,142 L328,150 L314,150 L302,142 L296,130 Z"/>
-  <path class="land" d="M296,90 L318,84 L336,86 L344,96 L340,106 L318,108 L296,106 Z"/>
-  <path class="land" d="M342,104 L360,100 L372,108 L370,122 L358,128 L344,122 Z"/>
-  <path class="land" d="M278,28 L314,22 L354,18 L394,20 L428,24 L456,30 L476,38 L486,48 L476,56 L452,60 L424,58 L396,54 L368,50 L342,48 L316,50 L296,54 L280,56 L272,48 L270,36 Z"/>
-  <path class="land" d="M476,38 L490,32 L498,40 L492,52 L478,50 Z"/>
-  <path class="land" d="M342,102 L360,98 L374,102 L382,116 L378,132 L368,142 L356,148 L342,144 L334,132 L332,116 Z"/>
-  <path class="land" d="M356,152 L364,148 L368,156 L364,162 L356,160 Z"/>
-  <path class="land" d="M378,70 L400,62 L424,60 L448,64 L464,74 L468,88 L464,102 L450,110 L432,114 L412,112 L394,106 L382,96 L376,82 Z"/>
-  <path class="land" d="M450,74 L460,70 L466,78 L462,88 L452,86 Z"/>
-  <path class="land" d="M462,64 L474,58 L482,64 L480,76 L468,80 L460,72 Z"/>
-  <path class="land" d="M470,56 L480,52 L486,58 L482,64 L472,62 Z"/>
-  <path class="land" d="M416,134 L432,128 L446,132 L450,144 L438,150 L420,148 Z"/>
-  <path class="land" d="M452,126 L462,122 L468,130 L462,138 L452,134 Z"/>
-  <path class="land" d="M436,150 L452,146 L458,152 L450,158 L434,156 Z"/>
-  <path class="land" d="M460,102 L468,98 L476,106 L472,114 L462,112 Z"/>
-  <path class="land" d="M396,136 L412,130 L418,138 L412,146 L396,142 Z"/>
-  <path class="land" d="M416,230 L436,222 L458,222 L474,230 L482,246 L484,262 L480,276 L468,284 L452,288 L434,286 L418,276 L412,260 L412,244 Z"/>
-  <path class="land" d="M446,290 L456,288 L460,296 L454,302 L446,298 Z"/>
-  <path class="land" d="M490,258 L498,252 L504,260 L500,270 L490,268 Z"/>
-  <path class="land" d="M492,272 L502,266 L508,276 L502,286 L492,280 Z"/>
-  <circle cx="244" cy="286" r="7" fill="none" stroke="#ffffff" stroke-width="1.4"/>
-  <circle cx="244" cy="286" r="3" fill="#ffffff"/>
-  <circle cx="244" cy="286" r="12" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.7"/>
-  <circle cx="286" cy="210" r="5" fill="none" stroke="#ffffff" stroke-width="1.2"/>
-  <circle cx="286" cy="210" r="2.2" fill="#ffffff"/>
-  <circle cx="286" cy="210" r="9" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="0.6"/>
-  <circle cx="228" cy="188" r="4.5" fill="none" stroke="#ffffff" stroke-width="1.1"/>
-  <circle cx="228" cy="188" r="2" fill="#ffffff"/>
-  <circle cx="268" cy="142" r="4.5" fill="none" stroke="#ffffff" stroke-width="1.1"/>
-  <circle cx="268" cy="142" r="2" fill="#ffffff"/>
-  <circle cx="268" cy="142" r="8" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="0.6"/>
-  <circle cx="214" cy="56" r="6" fill="none" stroke="#2C3E6B" stroke-width="1.4"/>
-  <circle cx="214" cy="56" r="2.6" fill="#2C3E6B"/>
-  <circle cx="214" cy="56" r="11" fill="none" stroke="rgba(44,62,107,0.32)" stroke-width="0.7"/>
-  <circle cx="236" cy="82" r="4" fill="none" stroke="#2C3E6B" stroke-width="1"/>
-  <circle cx="236" cy="82" r="1.8" fill="#2C3E6B"/>
-  <circle cx="94" cy="104" r="6" fill="none" stroke="#2C3E6B" stroke-width="1.4"/>
-  <circle cx="94" cy="104" r="2.6" fill="#2C3E6B"/>
-  <circle cx="94" cy="104" r="11" fill="none" stroke="rgba(44,62,107,0.32)" stroke-width="0.7"/>
-  <path class="conn" d="M100,100 Q154,58 208,58"/>
-  <path class="conn" d="M216,62 Q232,158 242,280"/>
-  <path class="conn" d="M238,86 Q252,112 266,138"/>
-  <text class="lbl-af" x="252" y="250" text-anchor="middle">Africa</text>
-  <text class="lbl-hi" x="240" y="76" text-anchor="middle">Europe</text>
-  <text class="lbl-hi" x="200" y="54" text-anchor="end">UK</text>
-  <text class="lbl-hi" x="72" y="122" text-anchor="middle">USA</text>
-  <text class="lbl" x="252" y="293" text-anchor="start">Johannesburg</text>
-  <text class="lbl" x="293" y="209" text-anchor="start">Nairobi</text>
-  <text class="lbl" x="216" y="185" text-anchor="end">Lagos</text>
-  <text class="lbl" x="276" y="140" text-anchor="start">Cairo</text>
-  <text class="lbl" x="222" y="53" text-anchor="start">London</text>
-</svg>
-    </div>
+    <div class="hero-tag">Africa · Europe · UK · USA</div>
   </div>
 </section>
 
@@ -397,81 +373,79 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   </div>
 </div>
 
+<!-- ── About ── -->
 <section class="about fade" id="about">
-  <svg class="shoe-prints-bg" viewBox="0 0 240 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
-    <g fill="#2C3E6B" opacity="0.042">
-      <g transform="translate(150,35) rotate(-8)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(82,105) rotate(10) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(148,178) rotate(-7)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(80,248) rotate(9) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(152,320) rotate(-9)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(78,392) rotate(11) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(150,462) rotate(-6)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(82,534) rotate(8) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(148,606) rotate(-10)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(80,678) rotate(7) scale(-1,1)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-      <g transform="translate(152,750) rotate(-8)"><ellipse cx="0" cy="4" rx="10" ry="16"/><ellipse cx="-3" cy="-12" rx="6.5" ry="8"/><ellipse cx="-9" cy="-21" rx="3.2" ry="2.4"/><ellipse cx="-4" cy="-23" rx="3.2" ry="2.4"/><ellipse cx="2" cy="-22" rx="3" ry="2.2"/><ellipse cx="7" cy="-20" rx="2.6" ry="2"/><ellipse cx="10" cy="-17" rx="2.2" ry="1.8"/></g>
-    </g>
-  </svg>
-  <div class="about-grid">
+  <div class="about-inner">
     <div class="about-text">
       <div class="section-label">About Archer Africa</div>
       <h2 class="section-title">Where internationalisation becomes <em>real</em></h2>
       <p>Archer Africa curates programmes rooted in African innovation ecosystems, connecting participants with entrepreneurs, researchers, policymakers and cultural leaders. We partner with universities, graduate schools, and executive education programmes to design and deliver immersive study experiences.</p>
-      <p>At a time when higher education is increasingly global, many programmes remain <strong>theoretical or inaccessible</strong> to students studying remotely. Archer Africa bridges this gap.</p>
-      <p>We create learning journeys that allow students, whether on-campus, evening, executive education, or online, to experience global learning firsthand.</p>
-    </div>
-    <div class="about-pillars">
-      <div class="pillar"><div class="pillar-num">01</div><div class="pillar-text"><h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 4 10 14.5 14.5 0 0 0-4 10 14.5 14.5 0 0 0-4-10 14.5 14.5 0 0 0 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Real-World Contexts</h4><p>Bring academic ideas into living environments where complex challenges and solutions unfold in real time.</p></div></div>
-      <div class="pillar"><div class="pillar-num">02</div><div class="pillar-text"><h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 11h6"/></svg>Connect Online Learners</h4><p>Bring distance and hybrid students into the life of their institution through shared immersive experience.</p></div></div>
-      <div class="pillar"><div class="pillar-num">03</div><div class="pillar-text"><h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Deepen Partnerships</h4><p>Move beyond formal agreements toward active global collaborations between institutions.</p></div></div>
-      <div class="pillar"><div class="pillar-num">04</div><div class="pillar-text"><h4><svg class="pillar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9C8674" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Build Global Networks</h4><p>Students form lasting professional networks across borders, institutions, and industries.</p></div></div>
+      <a href="about.html" class="read-more-link">Read More →</a>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
+<!-- ── Services ── -->
 <section class="services-pill-section fade" id="services">
+
+  <!-- Split header: title left, description + stats right -->
   <div class="services-pill-header">
     <div class="services-pill-header-left">
       <div class="section-label">What We Offer</div>
       <h2 class="section-title">Experiences tailored to<br>your <em>institution's ambitions</em></h2>
     </div>
-    <div class="services-pill-header-right"><p>Every programme is co-designed with partner universities and aligned to specific academic goals and internationalisation strategies.</p></div>
+    <div class="services-pill-header-right">
+      <p class="services-pill-header-sub">Every programme is co-designed with partner universities and aligned to specific academic goals and internationalisation strategies. We work with institutions across Africa, Europe, the UK, and the USA.</p>
+      <div class="services-header-stats">
+        </div>
+    </div>
   </div>
-  <div class="pill-cards-list">
-    <div class="pill-row"><div class="pill-num-circle">1</div><div class="pill-card" onclick="openDetail(0)"><div class="pill-card-body"><div class="pill-card-for">MBA · Graduate · Executive</div><div class="pill-card-name">Global Innovation Immersion</div><div class="pill-card-desc">Students engage with African startup ecosystems, venture builders, and innovation hubs — meeting entrepreneurs, investors, and technology leaders.</div><div class="pill-card-themes"><span class="pill-card-theme">Entrepreneurship</span><span class="pill-card-theme">Fintech</span><span class="pill-card-theme">Social Innovation</span><span class="pill-card-theme">Emerging Markets</span></div></div><div class="pill-card-arrow">→</div></div></div>
-    <div class="pill-row"><div class="pill-num-circle">2</div><div class="pill-card" onclick="openDetail(1)"><div class="pill-card-body"><div class="pill-card-for">Policy · Urban · Sustainability</div><div class="pill-card-name">Cities, Climate &amp; Urban Africa</div><div class="pill-card-desc">Students explore how African cities respond to climate change, urbanisation, and infrastructure challenges through field visits and expert conversations.</div><div class="pill-card-themes"><span class="pill-card-theme">Climate Adaptation</span><span class="pill-card-theme">Urban Innovation</span><span class="pill-card-theme">Sustainable Development</span></div></div><div class="pill-card-arrow">→</div></div></div>
-    <div class="pill-row"><div class="pill-num-circle">3</div><div class="pill-card" onclick="openDetail(2)"><div class="pill-card-body"><div class="pill-card-for">Economics · International Relations</div><div class="pill-card-name">Africa in the Global Economy</div><div class="pill-card-desc">Students engage with policymakers, economists, and industry leaders to understand Africa's evolving role in global trade, finance, and development.</div><div class="pill-card-themes"><span class="pill-card-theme">Regional Trade</span><span class="pill-card-theme">Economic Transformation</span><span class="pill-card-theme">Global Partnerships</span></div></div><div class="pill-card-arrow">→</div></div></div>
-    <div class="pill-row"><div class="pill-num-circle">4</div><div class="pill-card" onclick="openDetail(3)"><div class="pill-card-body"><div class="pill-card-for">Executive MBA · Executive Education</div><div class="pill-card-name">Leadership in Emerging Markets</div><div class="pill-card-desc">Senior professionals engage with business leaders and policy innovators navigating rapidly changing economic and regulatory environments across the continent.</div><div class="pill-card-themes"><span class="pill-card-theme">Leadership in Complexity</span><span class="pill-card-theme">Cross-Cultural Strategy</span><span class="pill-card-theme">Innovation</span></div></div><div class="pill-card-arrow">→</div></div></div>
-    <div class="pill-row"><div class="pill-num-circle">5</div><div class="pill-card" onclick="openDetail(4)"><div class="pill-card-body"><div class="pill-card-for">Online · Hybrid · Distance</div><div class="pill-card-name">Global Classroom</div><div class="pill-card-desc">Students who typically interact only virtually come together for a powerful shared immersive experience, building professional networks and deepening institutional connection.</div><div class="pill-card-themes"><span class="pill-card-theme">Cohort Cohesion</span><span class="pill-card-theme">Network Building</span><span class="pill-card-theme">Institutional Engagement</span></div></div><div class="pill-card-arrow">→</div></div></div>
+
+  <div class="services-layout">
+    <div class="pill-cards-list">
+      <div class="pill-row"><div class="pill-num-circle">1</div><div class="pill-card" onclick="openDetail(0)"><div class="pill-card-body"><div class="pill-card-for">MBA · Graduate · Executive</div><div class="pill-card-name">Global Innovation Immersion</div><div class="pill-card-desc">Students engage with African startup ecosystems, venture builders, and innovation hubs — meeting entrepreneurs, investors, and technology leaders.</div><div class="pill-card-themes"><span class="pill-card-theme">Entrepreneurship</span><span class="pill-card-theme">Fintech</span><span class="pill-card-theme">Social Innovation</span><span class="pill-card-theme">Emerging Markets</span></div></div><div class="pill-card-arrow">→</div></div></div>
+      <div class="pill-row"><div class="pill-num-circle">2</div><div class="pill-card" onclick="openDetail(1)"><div class="pill-card-body"><div class="pill-card-for">Policy · Urban · Sustainability</div><div class="pill-card-name">Cities, Climate &amp; Urban Africa</div><div class="pill-card-desc">Students explore how African cities respond to climate change, urbanisation, and infrastructure challenges through field visits and expert conversations.</div><div class="pill-card-themes"><span class="pill-card-theme">Climate Adaptation</span><span class="pill-card-theme">Urban Innovation</span><span class="pill-card-theme">Sustainable Development</span></div></div><div class="pill-card-arrow">→</div></div></div>
+      <div class="pill-row"><div class="pill-num-circle">3</div><div class="pill-card" onclick="openDetail(2)"><div class="pill-card-body"><div class="pill-card-for">Economics · International Relations</div><div class="pill-card-name">Africa in the Global Economy</div><div class="pill-card-desc">Students engage with policymakers, economists, and industry leaders to understand Africa's evolving role in global trade, finance, and development.</div><div class="pill-card-themes"><span class="pill-card-theme">Regional Trade</span><span class="pill-card-theme">Economic Transformation</span><span class="pill-card-theme">Global Partnerships</span></div></div><div class="pill-card-arrow">→</div></div></div>
+      <div class="pill-row"><div class="pill-num-circle">4</div><div class="pill-card" onclick="openDetail(3)"><div class="pill-card-body"><div class="pill-card-for">Executive MBA · Executive Education</div><div class="pill-card-name">Leadership in Emerging Markets</div><div class="pill-card-desc">Senior professionals engage with business leaders and policy innovators navigating rapidly changing economic and regulatory environments across the continent.</div><div class="pill-card-themes"><span class="pill-card-theme">Leadership in Complexity</span><span class="pill-card-theme">Cross-Cultural Strategy</span><span class="pill-card-theme">Innovation</span></div></div><div class="pill-card-arrow">→</div></div></div>
+      <div class="pill-row"><div class="pill-num-circle">5</div><div class="pill-card" onclick="openDetail(4)"><div class="pill-card-body"><div class="pill-card-for">Online · Hybrid · Distance</div><div class="pill-card-name">Global Classroom</div><div class="pill-card-desc">Students who typically interact only virtually come together for a powerful shared immersive experience, building professional networks and deepening institutional connection.</div><div class="pill-card-themes"><span class="pill-card-theme">Cohort Cohesion</span><span class="pill-card-theme">Network Building</span><span class="pill-card-theme">Institutional Engagement</span></div></div><div class="pill-card-arrow">→</div></div></div>
+    </div>
+
+    <div class="services-right">
+      <div class="services-img-placeholder">
+        <img src="images/What we offer.jpg" alt="An immersive learning moment in Africa"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="services-img-placeholder-inner" style="display:none">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <p>Suggested image:<br>Students in conversation with an African entrepreneur or academic — candid, warm, portrait orientation</p>
+        </div>
+      </div>
+      <p class="services-img-caption">Africa · Where learning becomes lived experience</p>
+    </div>
   </div>
 </section>
 
+<!-- ── Why Africa ── -->
 <section class="why-africa fade" id="why-africa">
-  <div class="why-grid">
+  <div class="why-grid-trimmed">
     <div class="why-left">
       <div class="section-label">Why Africa</div>
       <h2 class="section-title">Where global ideas meet <em>lived realities</em><span class="title-bulb"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 5C10.86 5 7.5 8.36 7.5 12.5c0 2.72 1.4 5.12 3.5 6.52V21.5c0 .28.22.5.5.5h7c.28 0 .5-.22.5-.5v-2.48C20.6 17.62 22 15.22 22 12.5 22 8.36 18.64 5 15 5Z" fill="#2C3E6B" fill-opacity="0.11" stroke="#2C3E6B" stroke-width="1.15" stroke-linejoin="round"/><line x1="11.5" y1="22" x2="18.5" y2="22" stroke="#2C3E6B" stroke-width="1.1" stroke-linecap="round"/><line x1="12.2" y1="24" x2="17.8" y2="24" stroke="#2C3E6B" stroke-width="1.1" stroke-linecap="round"/><line x1="13" y1="26" x2="17" y2="26" stroke="#2C3E6B" stroke-width="0.9" stroke-linecap="round"/><line x1="15" y1="1.5" x2="15" y2="3.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><line x1="6.2" y1="4.2" x2="7.6" y2="5.6" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><line x1="23.8" y1="4.2" x2="22.4" y2="5.6" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><line x1="2.5" y1="12.5" x2="4.5" y2="12.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><line x1="25.5" y1="12.5" x2="27.5" y2="12.5" stroke="#2C3E6B" stroke-width="1" stroke-linecap="round" opacity="0.45"/><path d="M13.5 17.5c0-1.2.5-2.2 1.2-3 .4-.46.9-.96 1.2-1.5.3-.54.26-1.2-.12-1.9" stroke="#2C3E6B" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.5"/></svg></span></h2>
       <p>Africa is one of the most dynamic regions shaping the future of the global economy, innovation, and leadership. Rapidly growing cities, entrepreneurial ecosystems, and cultural movements are redefining conversations about technology, sustainability, and development.</p>
-      <p>Yet despite its importance, many students studying in Europe and North America have limited opportunities to engage meaningfully with African contexts during their academic journeys.</p>
-      <blockquote>"Africa is not simply a destination. It is a place where students encounter the complexity and creativity that define our interconnected world."</blockquote>
+      <a href="why-africa.html" class="read-more-link">Read More →</a>
     </div>
-    <div class="why-right">
-      <div class="why-point"><div class="why-dot"></div><div><h4>Expand Beyond Traditional Destinations</h4><p>Strengthen internationalisation strategies by offering global learning opportunities outside the conventional circuit.</p></div></div>
-      <div class="why-point"><div class="why-dot"></div><div><h4>Engage Emerging Markets</h4><p>Expose students to entrepreneurial ecosystems and diverse leadership contexts increasingly central to global conversations.</p></div></div>
-      <div class="why-point"><div class="why-dot"></div><div><h4>Build Meaningful Partnerships</h4><p>Connect with African research institutions and universities to build active, reciprocal partnerships across the continent.</p></div></div>
-      <div class="why-point"><div class="why-dot"></div><div><h4>Foster Cross-Cultural Understanding</h4><p>Africa challenges assumptions and reveals new ways of thinking about leadership, innovation, and global collaboration.</p></div></div>
+    <div class="why-right-image">
+      <img src="images/African-Revolution.jpg" alt="Africa — a continent of possibility">
+      <p class="why-img-caption">Africa · A continent of possibility</p>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ── Work With Us: How We Work (dark) + Contact (surface) ── -->
+<!-- ── Work With Us ── -->
 <div id="work-with-us">
-
   <section class="how-we-work fade">
     <div class="how-we-work-header">
       <div class="how-we-work-header-left">
@@ -479,95 +453,185 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
         <h2 class="section-title">A partnership built on<br><em>co-design and clarity</em></h2>
         <p class="how-intro">We know that universities need confidence before committing to international programmes. Our process is designed to be transparent, collaborative, and strategically aligned from the very first conversation.</p>
       </div>
+
       <div class="how-we-work-skyline">
-<svg viewBox="0 0 420 195" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs><style>.sb{fill:rgba(74,96,152,0.13);stroke:#4A6098;stroke-width:0.9;stroke-linejoin:round}.sw{fill:rgba(180,200,255,0.45)}.sd{stroke:rgba(74,96,152,0.4);stroke-width:0.45;fill:none}.sg{stroke:#4A6098;stroke-width:0.9;fill:none}</style></defs>
-  <line x1="0" y1="166" x2="420" y2="166" stroke="#4A6098" stroke-width="1.1"/>
-  <rect x="0" y="166" width="420" height="7" fill="rgba(74,96,152,0.06)"/>
-  <line x1="0" y1="170" x2="420" y2="170" stroke="rgba(74,96,152,0.25)" stroke-width="0.45" stroke-dasharray="14 9"/>
-  <rect class="sb" x="6" y="124" width="40" height="42"/><rect class="sb" x="4" y="118" width="44" height="7"/><rect class="sb" x="8" y="113" width="9" height="6"/><rect class="sb" x="21" y="113" width="9" height="6"/><rect class="sb" x="34" y="113" width="9" height="6"/>
-  <rect class="sw" x="10" y="128" width="6" height="5"/><rect class="sw" x="19" y="128" width="6" height="5"/><rect class="sw" x="28" y="128" width="6" height="5"/><rect class="sw" x="37" y="128" width="5" height="5"/>
-  <rect class="sw" x="10" y="137" width="6" height="5"/><rect class="sw" x="19" y="137" width="6" height="5"/><rect class="sw" x="28" y="137" width="6" height="5"/><rect class="sw" x="37" y="137" width="5" height="5"/>
-  <rect class="sw" x="10" y="146" width="6" height="5"/><rect class="sw" x="19" y="146" width="6" height="5"/><rect class="sw" x="28" y="146" width="6" height="5"/><rect class="sw" x="37" y="146" width="5" height="5"/>
-  <rect class="sw" x="10" y="155" width="6" height="5"/><rect class="sw" x="19" y="155" width="6" height="5"/><rect class="sw" x="28" y="155" width="6" height="5"/><rect class="sw" x="37" y="155" width="5" height="5"/>
-  <rect class="sb" x="48" y="86" width="34" height="80"/><rect class="sb" x="54" y="68" width="22" height="20"/><rect class="sb" x="58" y="54" width="14" height="16"/><rect class="sb" x="62" y="42" width="6" height="14"/>
-  <line class="sg" x1="65" y1="42" x2="65" y2="26"/><circle cx="65" cy="25" r="2.2" fill="rgba(74,96,152,0.45)" stroke="#4A6098" stroke-width="0.8"/>
-  <line class="sd" x1="62" y1="86" x2="62" y2="166"/><line class="sd" x1="69" y1="86" x2="69" y2="166"/><line class="sd" x1="76" y1="86" x2="76" y2="166"/>
-  <line class="sd" x1="48" y1="96" x2="82" y2="96"/><line class="sd" x1="48" y1="106" x2="82" y2="106"/><line class="sd" x1="48" y1="116" x2="82" y2="116"/><line class="sd" x1="48" y1="126" x2="82" y2="126"/><line class="sd" x1="48" y1="136" x2="82" y2="136"/><line class="sd" x1="48" y1="146" x2="82" y2="146"/><line class="sd" x1="48" y1="156" x2="82" y2="156"/>
-  <rect class="sw" x="50" y="88" width="10" height="7"/><rect class="sw" x="72" y="88" width="9" height="7"/><rect class="sw" x="50" y="108" width="10" height="7"/><rect class="sw" x="63" y="108" width="5" height="7"/><rect class="sw" x="72" y="108" width="9" height="7"/><rect class="sw" x="50" y="128" width="10" height="7"/><rect class="sw" x="72" y="128" width="9" height="7"/><rect class="sw" x="63" y="148" width="5" height="7"/><rect class="sw" x="56" y="70" width="5" height="4"/><rect class="sw" x="64" y="70" width="5" height="4"/><rect class="sw" x="60" y="56" width="4" height="4"/>
-  <rect class="sb" x="84" y="24" width="52" height="142"/>
-  <line class="sd" x1="97" y1="24" x2="97" y2="166"/><line class="sd" x1="110" y1="24" x2="110" y2="166"/><line class="sd" x1="123" y1="24" x2="123" y2="166"/>
-  <line class="sd" x1="84" y1="38" x2="136" y2="38"/><line class="sd" x1="84" y1="52" x2="136" y2="52"/><line class="sd" x1="84" y1="66" x2="136" y2="66"/><line class="sd" x1="84" y1="80" x2="136" y2="80"/><line class="sd" x1="84" y1="94" x2="136" y2="94"/><line class="sd" x1="84" y1="108" x2="136" y2="108"/><line class="sd" x1="84" y1="122" x2="136" y2="122"/><line class="sd" x1="84" y1="136" x2="136" y2="136"/><line class="sd" x1="84" y1="150" x2="136" y2="150"/>
-  <rect class="sw" x="86" y="26" width="9" height="10"/><rect class="sw" x="112" y="26" width="9" height="10"/><rect class="sw" x="86" y="54" width="9" height="10"/><rect class="sw" x="99" y="54" width="9" height="10"/><rect class="sw" x="112" y="68" width="9" height="10"/><rect class="sw" x="86" y="68" width="9" height="10"/><rect class="sw" x="99" y="82" width="9" height="10"/><rect class="sw" x="112" y="96" width="9" height="10"/><rect class="sw" x="86" y="96" width="9" height="10"/><rect class="sw" x="99" y="110" width="9" height="10"/><rect class="sw" x="112" y="110" width="9" height="10"/><rect class="sw" x="86" y="124" width="9" height="10"/><rect class="sw" x="112" y="138" width="9" height="10"/><rect class="sw" x="99" y="138" width="9" height="10"/><rect class="sw" x="86" y="152" width="9" height="10"/>
-  <rect class="sb" x="82" y="20" width="56" height="5"/><rect class="sb" x="90" y="12" width="8" height="9"/><rect class="sb" x="102" y="10" width="6" height="11"/>
-  <line class="sg" x1="105" y1="10" x2="105" y2="2"/>
-  <rect class="sb" x="138" y="68" width="48" height="98"/>
-  <line class="sd" x1="148" y1="68" x2="148" y2="164"/><line class="sd" x1="162" y1="68" x2="162" y2="164"/><line class="sd" x1="176" y1="68" x2="176" y2="164"/>
-  <rect class="sb" x="136" y="62" width="52" height="7"/><polygon class="sb" points="136,62 188,62 162,44"/><circle class="sb" cx="162" cy="56" r="5"/>
-  <rect class="sw" x="142" y="76" width="9" height="12"/><rect class="sw" x="155" y="76" width="9" height="12"/><rect class="sw" x="168" y="76" width="9" height="12"/>
-  <rect class="sw" x="142" y="96" width="9" height="8"/><rect class="sw" x="155" y="96" width="9" height="8"/><rect class="sw" x="168" y="96" width="9" height="8"/>
-  <rect class="sw" x="142" y="110" width="9" height="8"/><rect class="sw" x="155" y="110" width="9" height="8"/><rect class="sw" x="168" y="110" width="9" height="8"/>
-  <rect class="sw" x="142" y="124" width="9" height="8"/><rect class="sw" x="155" y="124" width="9" height="8"/><rect class="sw" x="168" y="124" width="9" height="8"/>
-  <rect class="sw" x="142" y="138" width="9" height="8"/><rect class="sw" x="155" y="138" width="9" height="8"/><rect class="sw" x="168" y="138" width="9" height="8"/>
-  <rect class="sw" x="155" y="150" width="16" height="14"/>
-  <rect class="sb" x="188" y="50" width="30" height="116"/><rect class="sb" x="193" y="34" width="20" height="18"/><rect class="sb" x="198" y="22" width="10" height="14"/>
-  <polygon class="sb" points="196,22 203,4 210,22"/>
-  <line class="sd" x1="188" y1="50" x2="218" y2="50"/><line class="sd" x1="193" y1="34" x2="213" y2="34"/>
-  <rect class="sw" x="191" y="56" width="5" height="4"/><rect class="sw" x="199" y="56" width="5" height="4"/><rect class="sw" x="207" y="56" width="5" height="4"/>
-  <rect class="sw" x="191" y="64" width="5" height="4"/><rect class="sw" x="199" y="64" width="5" height="4"/><rect class="sw" x="207" y="64" width="5" height="4"/>
-  <rect class="sw" x="191" y="72" width="5" height="4"/><rect class="sw" x="199" y="72" width="5" height="4"/>
-  <rect class="sw" x="191" y="80" width="5" height="4"/><rect class="sw" x="207" y="80" width="5" height="4"/>
-  <rect class="sw" x="199" y="88" width="5" height="4"/><rect class="sw" x="191" y="88" width="5" height="4"/>
-  <rect class="sw" x="207" y="96" width="5" height="4"/><rect class="sw" x="199" y="96" width="5" height="4"/>
-  <rect class="sw" x="191" y="104" width="5" height="4"/>
-  <rect class="sw" x="191" y="112" width="5" height="4"/><rect class="sw" x="207" y="112" width="5" height="4"/>
-  <rect class="sw" x="199" y="120" width="5" height="4"/>
-  <rect class="sw" x="191" y="128" width="5" height="4"/><rect class="sw" x="199" y="128" width="5" height="4"/>
-  <rect class="sw" x="207" y="136" width="5" height="4"/><rect class="sw" x="191" y="136" width="5" height="4"/>
-  <rect class="sw" x="199" y="144" width="5" height="4"/>
-  <rect class="sw" x="191" y="152" width="5" height="4"/><rect class="sw" x="207" y="152" width="5" height="4"/>
-  <rect class="sw" x="195" y="38" width="5" height="3"/><rect class="sw" x="203" y="38" width="5" height="3"/><rect class="sw" x="199" y="26" width="4" height="3"/>
-  <rect class="sb" x="220" y="54" width="50" height="112"/>
-  <line class="sd" x1="220" y1="66" x2="270" y2="66"/><line class="sd" x1="220" y1="78" x2="270" y2="78"/><line class="sd" x1="220" y1="90" x2="270" y2="90"/><line class="sd" x1="220" y1="102" x2="270" y2="102"/><line class="sd" x1="220" y1="114" x2="270" y2="114"/><line class="sd" x1="220" y1="126" x2="270" y2="126"/><line class="sd" x1="220" y1="138" x2="270" y2="138"/><line class="sd" x1="220" y1="150" x2="270" y2="150"/>
-  <rect class="sw" x="223" y="57" width="7" height="7"/><rect class="sw" x="234" y="57" width="7" height="7"/><rect class="sw" x="245" y="57" width="7" height="7"/><rect class="sw" x="256" y="57" width="7" height="7"/>
-  <rect class="sw" x="223" y="69" width="7" height="7"/><rect class="sw" x="234" y="69" width="7" height="7"/><rect class="sw" x="245" y="69" width="7" height="7"/><rect class="sw" x="256" y="69" width="7" height="7"/>
-  <rect class="sw" x="223" y="81" width="7" height="7"/><rect class="sw" x="234" y="81" width="7" height="7"/><rect class="sw" x="245" y="81" width="7" height="7"/><rect class="sw" x="256" y="81" width="7" height="7"/>
-  <rect class="sw" x="223" y="93" width="7" height="7"/><rect class="sw" x="234" y="93" width="7" height="7"/><rect class="sw" x="245" y="93" width="7" height="7"/><rect class="sw" x="256" y="93" width="7" height="7"/>
-  <rect class="sw" x="223" y="105" width="7" height="7"/><rect class="sw" x="234" y="105" width="7" height="7"/><rect class="sw" x="245" y="105" width="7" height="7"/><rect class="sw" x="256" y="105" width="7" height="7"/>
-  <rect class="sw" x="223" y="117" width="7" height="7"/><rect class="sw" x="234" y="117" width="7" height="7"/><rect class="sw" x="245" y="117" width="7" height="7"/><rect class="sw" x="256" y="117" width="7" height="7"/>
-  <rect class="sw" x="223" y="129" width="7" height="7"/><rect class="sw" x="234" y="129" width="7" height="7"/><rect class="sw" x="245" y="129" width="7" height="7"/><rect class="sw" x="256" y="129" width="7" height="7"/>
-  <rect class="sw" x="223" y="141" width="7" height="7"/><rect class="sw" x="234" y="141" width="7" height="7"/><rect class="sw" x="245" y="141" width="7" height="7"/><rect class="sw" x="256" y="141" width="7" height="7"/>
-  <rect class="sw" x="223" y="153" width="7" height="7"/><rect class="sw" x="234" y="153" width="7" height="7"/><rect class="sw" x="245" y="153" width="7" height="7"/><rect class="sw" x="256" y="153" width="7" height="7"/>
-  <rect class="sb" x="218" y="50" width="54" height="5"/><rect class="sb" x="226" y="44" width="12" height="7"/><rect class="sb" x="244" y="42" width="8" height="9"/>
-  <line class="sg" x1="248" y1="42" x2="248" y2="34"/><rect class="sb" x="258" y="46" width="6" height="5"/>
-  <rect class="sb" x="272" y="82" width="24" height="84"/>
-  <line class="sd" x1="282" y1="82" x2="282" y2="166"/><line class="sd" x1="272" y1="94" x2="296" y2="94"/><line class="sd" x1="272" y1="106" x2="296" y2="106"/><line class="sd" x1="272" y1="118" x2="296" y2="118"/><line class="sd" x1="272" y1="130" x2="296" y2="130"/><line class="sd" x1="272" y1="142" x2="296" y2="142"/><line class="sd" x1="272" y1="154" x2="296" y2="154"/>
-  <rect class="sw" x="274" y="84" width="5" height="8"/><rect class="sw" x="284" y="84" width="5" height="8"/>
-  <rect class="sw" x="274" y="96" width="5" height="8"/><rect class="sw" x="284" y="96" width="5" height="8"/>
-  <rect class="sw" x="274" y="108" width="5" height="8"/><rect class="sw" x="284" y="108" width="5" height="8"/>
-  <rect class="sw" x="274" y="120" width="5" height="8"/><rect class="sw" x="284" y="120" width="5" height="8"/>
-  <rect class="sw" x="274" y="132" width="5" height="8"/><rect class="sw" x="284" y="132" width="5" height="8"/>
-  <rect class="sw" x="274" y="144" width="5" height="8"/><rect class="sw" x="284" y="144" width="5" height="8"/>
-  <rect class="sw" x="274" y="156" width="5" height="8"/><rect class="sw" x="284" y="156" width="5" height="8"/>
-  <rect class="sb" x="270" y="78" width="28" height="5"/>
-  <line class="sg" x1="284" y1="78" x2="284" y2="66"/><circle cx="284" cy="65" r="2" fill="rgba(74,96,152,0.4)" stroke="#4A6098" stroke-width="0.8"/>
-  <rect class="sb" x="298" y="110" width="42" height="56"/><rect class="sb" x="296" y="104" width="46" height="7"/><rect class="sb" x="302" y="98" width="10" height="7"/><rect class="sb" x="316" y="98" width="10" height="7"/><rect class="sb" x="330" y="98" width="8" height="7"/>
-  <rect class="sw" x="302" y="114" width="8" height="6"/><rect class="sw" x="313" y="114" width="8" height="6"/><rect class="sw" x="324" y="114" width="8" height="6"/><rect class="sw" x="333" y="114" width="5" height="6"/>
-  <rect class="sw" x="302" y="124" width="8" height="6"/><rect class="sw" x="313" y="124" width="8" height="6"/><rect class="sw" x="324" y="124" width="8" height="6"/><rect class="sw" x="333" y="124" width="5" height="6"/>
-  <rect class="sw" x="302" y="134" width="8" height="6"/><rect class="sw" x="313" y="134" width="8" height="6"/><rect class="sw" x="324" y="134" width="8" height="6"/><rect class="sw" x="333" y="134" width="5" height="6"/>
-  <rect class="sw" x="302" y="144" width="8" height="6"/><rect class="sw" x="313" y="144" width="8" height="6"/><rect class="sw" x="324" y="144" width="8" height="6"/><rect class="sw" x="333" y="144" width="5" height="6"/>
-  <rect class="sw" x="302" y="154" width="8" height="6"/><rect class="sw" x="313" y="154" width="8" height="6"/><rect class="sw" x="324" y="154" width="8" height="6"/>
-  <rect class="sb" x="342" y="100" width="34" height="66"/><rect class="sb" x="340" y="94" width="38" height="7"/><polygon class="sb" points="340,94 376,94 358,76"/>
-  <rect class="sw" x="345" y="104" width="6" height="5"/><rect class="sw" x="355" y="104" width="6" height="5"/><rect class="sw" x="365" y="104" width="6" height="5"/>
-  <rect class="sw" x="345" y="114" width="6" height="5"/><rect class="sw" x="355" y="114" width="6" height="5"/><rect class="sw" x="365" y="114" width="6" height="5"/>
-  <rect class="sw" x="345" y="124" width="6" height="5"/><rect class="sw" x="355" y="124" width="6" height="5"/><rect class="sw" x="365" y="124" width="6" height="5"/>
-  <rect class="sw" x="345" y="134" width="6" height="5"/><rect class="sw" x="355" y="134" width="6" height="5"/><rect class="sw" x="365" y="134" width="6" height="5"/>
-  <rect class="sw" x="345" y="144" width="6" height="5"/><rect class="sw" x="355" y="144" width="6" height="5"/><rect class="sw" x="365" y="144" width="6" height="5"/>
-  <rect class="sw" x="345" y="154" width="6" height="5"/><rect class="sw" x="355" y="154" width="6" height="5"/>
-  <rect class="sb" x="378" y="126" width="40" height="40"/><rect class="sb" x="376" y="120" width="44" height="7"/><rect class="sb" x="382" y="115" width="10" height="6"/><rect class="sb" x="396" y="115" width="10" height="6"/>
-  <rect class="sw" x="381" y="130" width="7" height="5"/><rect class="sw" x="391" y="130" width="7" height="5"/><rect class="sw" x="401" y="130" width="7" height="5"/><rect class="sw" x="411" y="130" width="5" height="5"/>
-  <rect class="sw" x="381" y="140" width="7" height="5"/><rect class="sw" x="391" y="140" width="7" height="5"/><rect class="sw" x="401" y="140" width="7" height="5"/><rect class="sw" x="411" y="140" width="5" height="5"/>
-  <rect class="sw" x="381" y="150" width="7" height="5"/><rect class="sw" x="391" y="150" width="7" height="5"/><rect class="sw" x="401" y="150" width="7" height="5"/>
+<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<defs>
+  <style>
+    .b{fill:rgba(74,96,152,0.16);stroke:#4A6098;stroke-width:0.8;stroke-linejoin:round}
+    .bl{fill:rgba(74,96,152,0.10);stroke:#4A6098;stroke-width:0.5;stroke-linejoin:round}
+    .w{fill:rgba(180,210,255,0.55)}
+    .wd{fill:rgba(140,175,235,0.35)}
+    .wl{fill:rgba(200,225,255,0.70)}
+    .d{stroke:rgba(74,96,152,0.35);stroke-width:0.4;fill:none}
+    .g{stroke:#4A6098;stroke-width:0.8;fill:none}
+    .g2{stroke:#4A6098;stroke-width:0.5;fill:none}
+    .ac{fill:rgba(74,96,152,0.28);stroke:#4A6098;stroke-width:0.6}
+    .r{fill:rgba(74,96,152,0.22);stroke:#4A6098;stroke-width:0.6}
+    .t{fill:rgba(240,200,100,0.75)}
+    .tg{fill:rgba(74,96,152,0.40)}
+  </style>
+</defs>
+<line x1="0" y1="188" x2="480" y2="188" stroke="#4A6098" stroke-width="1.2"/>
+<rect x="0" y="188" width="480" height="10" fill="rgba(74,96,152,0.07)"/>
+<line x1="0" y1="194" x2="480" y2="194" stroke="rgba(74,96,152,0.2)" stroke-width="0.4" stroke-dasharray="18 10"/>
+<rect class="b" x="2" y="158" width="38" height="30"/>
+<rect class="bl" x="2" y="152" width="38" height="7"/>
+<rect class="w" x="6" y="163" width="7" height="5"/><rect class="w" x="16" y="163" width="7" height="5"/><rect class="w" x="26" y="163" width="7" height="5"/>
+<rect class="w" x="6" y="172" width="7" height="5"/><rect class="w" x="16" y="172" width="7" height="5"/><rect class="w" x="26" y="172" width="7" height="5"/>
+<rect class="b" x="42" y="142" width="24" height="46"/>
+<rect class="bl" x="40" y="137" width="28" height="6"/>
+<line class="g" x1="54" y1="137" x2="54" y2="126"/>
+<rect class="ac" x="51" y="124" width="6" height="4" rx="1"/>
+<rect class="w" x="45" y="148" width="5" height="5"/><rect class="w" x="53" y="148" width="5" height="5"/>
+<rect class="w" x="45" y="157" width="5" height="5"/><rect class="w" x="53" y="157" width="5" height="5"/>
+<rect class="w" x="45" y="166" width="5" height="5"/><rect class="w" x="53" y="166" width="5" height="5"/>
+<rect class="w" x="45" y="175" width="5" height="10"/>
+<rect class="b" x="68" y="72" width="46" height="116"/>
+<line class="d" x1="79" y1="72" x2="79" y2="188"/><line class="d" x1="90" y1="72" x2="90" y2="188"/><line class="d" x1="101" y1="72" x2="101" y2="188"/>
+<line class="d" x1="68" y1="84" x2="114" y2="84"/><line class="d" x1="68" y1="96" x2="114" y2="96"/><line class="d" x1="68" y1="108" x2="114" y2="108"/><line class="d" x1="68" y1="120" x2="114" y2="120"/><line class="d" x1="68" y1="132" x2="114" y2="132"/><line class="d" x1="68" y1="144" x2="114" y2="144"/><line class="d" x1="68" y1="156" x2="114" y2="156"/><line class="d" x1="68" y1="168" x2="114" y2="168"/>
+<rect class="wl" x="70" y="74" width="8" height="9"/><rect class="wl" x="81" y="74" width="8" height="9"/><rect class="wd" x="92" y="74" width="8" height="9"/><rect class="wl" x="103" y="74" width="8" height="9"/>
+<rect class="wd" x="70" y="86" width="8" height="9"/><rect class="wl" x="81" y="86" width="8" height="9"/><rect class="wl" x="92" y="86" width="8" height="9"/><rect class="wd" x="103" y="86" width="8" height="9"/>
+<rect class="wl" x="70" y="98" width="8" height="9"/><rect class="wd" x="81" y="98" width="8" height="9"/><rect class="wl" x="92" y="98" width="8" height="9"/><rect class="wl" x="103" y="98" width="8" height="9"/>
+<rect class="wd" x="70" y="110" width="8" height="9"/><rect class="wl" x="81" y="110" width="8" height="9"/><rect class="wd" x="92" y="110" width="8" height="9"/><rect class="wl" x="103" y="110" width="8" height="9"/>
+<rect class="wl" x="70" y="122" width="8" height="9"/><rect class="wl" x="81" y="122" width="8" height="9"/><rect class="wl" x="92" y="122" width="8" height="9"/><rect class="wd" x="103" y="122" width="8" height="9"/>
+<rect class="w" x="70" y="134" width="8" height="9"/><rect class="wd" x="81" y="134" width="8" height="9"/><rect class="wl" x="92" y="134" width="8" height="9"/><rect class="w" x="103" y="134" width="8" height="9"/>
+<rect class="w" x="70" y="146" width="8" height="9"/><rect class="wl" x="81" y="146" width="8" height="9"/><rect class="w" x="92" y="146" width="8" height="9"/><rect class="wl" x="103" y="146" width="8" height="9"/>
+<rect class="bl" x="66" y="68" width="50" height="5"/><rect class="bl" x="74" y="60" width="34" height="9"/><rect class="bl" x="80" y="52" width="22" height="9"/>
+<line class="g" x1="91" y1="52" x2="91" y2="36"/>
+<circle cx="91" cy="35" r="2.5" fill="rgba(74,96,152,0.5)" stroke="#4A6098" stroke-width="0.8"/>
+<circle cx="91" cy="35" r="1.2" class="t"/>
+<rect class="b" x="117" y="94" width="42" height="94"/><rect class="b" x="121" y="78" width="34" height="17"/><rect class="b" x="126" y="62" width="24" height="17"/>
+<rect class="bl" x="115" y="90" width="46" height="5"/>
+<rect class="w" x="120" y="98" width="6" height="7"/><rect class="w" x="129" y="98" width="6" height="7"/><rect class="w" x="138" y="98" width="6" height="7"/><rect class="w" x="147" y="98" width="6" height="7"/>
+<rect class="wl" x="120" y="109" width="6" height="7"/><rect class="wd" x="129" y="109" width="6" height="7"/><rect class="wl" x="138" y="109" width="6" height="7"/><rect class="wl" x="147" y="109" width="6" height="7"/>
+<rect class="wd" x="120" y="120" width="6" height="7"/><rect class="wl" x="129" y="120" width="6" height="7"/><rect class="wd" x="138" y="120" width="6" height="7"/><rect class="wl" x="147" y="120" width="6" height="7"/>
+<rect class="wl" x="120" y="131" width="6" height="7"/><rect class="wl" x="129" y="131" width="6" height="7"/><rect class="w" x="138" y="131" width="6" height="7"/><rect class="wd" x="147" y="131" width="6" height="7"/>
+<rect class="w" x="120" y="142" width="6" height="7"/><rect class="wl" x="129" y="142" width="6" height="7"/><rect class="wl" x="138" y="142" width="6" height="7"/><rect class="w" x="147" y="142" width="6" height="7"/>
+<rect class="w" x="120" y="153" width="6" height="7"/><rect class="wd" x="129" y="153" width="6" height="7"/><rect class="w" x="138" y="153" width="6" height="7"/><rect class="wl" x="147" y="153" width="6" height="7"/>
+<rect class="wl" x="120" y="164" width="6" height="7"/><rect class="wl" x="129" y="164" width="6" height="7"/><rect class="wd" x="138" y="164" width="6" height="7"/><rect class="w" x="147" y="164" width="6" height="7"/>
+<rect class="wl" x="120" y="175" width="6" height="10"/><rect class="wl" x="135" y="175" width="10" height="10"/>
+<rect class="wl" x="124" y="81" width="5" height="6"/><rect class="wl" x="132" y="81" width="5" height="6"/><rect class="wl" x="140" y="81" width="5" height="6"/>
+<rect class="w" x="129" y="65" width="5" height="6"/><rect class="wl" x="137" y="65" width="5" height="6"/>
+<rect class="bl" x="133" y="56" width="6" height="7"/>
+<line class="g" x1="136" y1="56" x2="136" y2="44"/>
+<circle cx="136" cy="43" r="2" fill="rgba(74,96,152,0.45)" stroke="#4A6098" stroke-width="0.7"/>
+<rect class="b" x="162" y="110" width="28" height="78"/>
+<rect class="bl" x="160" y="104" width="32" height="7"/>
+<rect class="b" x="165" y="88" width="22" height="18"/>
+<rect class="bl" x="163" y="84" width="26" height="5"/>
+<line class="d" x1="170" y1="84" x2="170" y2="188"/><line class="d" x1="176" y1="84" x2="176" y2="188"/><line class="d" x1="182" y1="84" x2="182" y2="188"/>
+<rect class="wl" x="164" y="91" width="5" height="5"/><rect class="wd" x="171" y="91" width="5" height="5"/><rect class="wl" x="178" y="91" width="5" height="5"/>
+<rect class="w" x="164" y="112" width="5" height="6"/><rect class="wl" x="171" y="112" width="5" height="6"/><rect class="w" x="178" y="112" width="5" height="6"/>
+<rect class="wl" x="164" y="122" width="5" height="6"/><rect class="wd" x="171" y="122" width="5" height="6"/><rect class="wl" x="178" y="122" width="5" height="6"/>
+<rect class="wd" x="164" y="132" width="5" height="6"/><rect class="wl" x="171" y="132" width="5" height="6"/><rect class="w" x="178" y="132" width="5" height="6"/>
+<rect class="wl" x="164" y="142" width="5" height="6"/><rect class="w" x="171" y="142" width="5" height="6"/><rect class="wl" x="178" y="142" width="5" height="6"/>
+<rect class="w" x="164" y="152" width="5" height="6"/><rect class="wl" x="171" y="152" width="5" height="6"/><rect class="wd" x="178" y="152" width="5" height="6"/>
+<rect class="wl" x="164" y="162" width="5" height="6"/><rect class="wl" x="171" y="162" width="5" height="6"/><rect class="w" x="178" y="162" width="5" height="6"/>
+<rect class="w" x="164" y="172" width="5" height="13"/><rect class="w" x="172" y="178" width="10" height="7"/>
+<polygon class="bl" points="165,84 187,84 176,62"/>
+<line class="g" x1="176" y1="62" x2="176" y2="46"/>
+<rect class="ac" x="173" y="44" width="6" height="4" rx="1"/>
+<rect class="b" x="195" y="108" width="68" height="80"/>
+<rect class="bl" x="193" y="102" width="72" height="7"/><rect class="bl" x="197" y="96" width="64" height="7"/><rect class="bl" x="201" y="91" width="56" height="6"/>
+<polygon class="bl" points="201,91 257,91 229,68"/>
+<circle class="w" cx="229" cy="81" r="5"/>
+<rect class="r" x="198" y="109" width="5" height="79"/><rect class="r" x="208" y="109" width="5" height="79"/><rect class="r" x="218" y="109" width="5" height="79"/><rect class="r" x="228" y="109" width="5" height="79"/><rect class="r" x="238" y="109" width="5" height="79"/><rect class="r" x="248" y="109" width="5" height="79"/><rect class="r" x="258" y="109" width="5" height="79"/>
+<rect class="wl" x="200" y="115" width="8" height="10"/><rect class="wl" x="213" y="115" width="8" height="10"/><rect class="wl" x="226" y="115" width="8" height="10"/><rect class="wl" x="239" y="115" width="8" height="10"/><rect class="wl" x="252" y="115" width="8" height="10"/>
+<rect class="wd" x="200" y="130" width="8" height="10"/><rect class="wl" x="213" y="130" width="8" height="10"/><rect class="wd" x="226" y="130" width="8" height="10"/><rect class="wl" x="239" y="130" width="8" height="10"/><rect class="wd" x="252" y="130" width="8" height="10"/>
+<rect class="wl" x="200" y="145" width="8" height="10"/><rect class="wd" x="213" y="145" width="8" height="10"/><rect class="wl" x="226" y="145" width="8" height="10"/><rect class="wd" x="239" y="145" width="8" height="10"/><rect class="wl" x="252" y="145" width="8" height="10"/>
+<rect class="wl" x="220" y="162" width="18" height="26" rx="9"/>
+<ellipse class="bl" cx="229" cy="68" rx="12" ry="8"/>
+<line class="g2" x1="229" y1="60" x2="229" y2="46"/>
+<circle cx="229" cy="45" r="2" class="tg"/>
+<rect class="b" x="266" y="118" width="36" height="70"/>
+<rect class="bl" x="264" y="113" width="40" height="6"/>
+<rect class="b" x="270" y="96" width="28" height="23"/>
+<rect class="bl" x="268" y="91" width="32" height="6"/>
+<line class="d" x1="275" y1="91" x2="275" y2="188"/><line class="d" x1="284" y1="91" x2="284" y2="188"/><line class="d" x1="293" y1="91" x2="293" y2="188"/>
+<line class="d" x1="266" y1="100" x2="302" y2="100"/><line class="d" x1="266" y1="120" x2="302" y2="120"/><line class="d" x1="266" y1="130" x2="302" y2="130"/><line class="d" x1="266" y1="140" x2="302" y2="140"/><line class="d" x1="266" y1="150" x2="302" y2="150"/><line class="d" x1="266" y1="160" x2="302" y2="160"/><line class="d" x1="266" y1="170" x2="302" y2="170"/>
+<rect class="wl" x="268" y="93" width="5" height="6"/><rect class="wd" x="276" y="93" width="5" height="6"/><rect class="wl" x="285" y="93" width="5" height="6"/>
+<rect class="wl" x="268" y="121" width="5" height="7"/><rect class="w" x="276" y="121" width="5" height="7"/><rect class="wl" x="285" y="121" width="5" height="7"/><rect class="wd" x="294" y="121" width="5" height="7"/>
+<rect class="wd" x="268" y="131" width="5" height="7"/><rect class="wl" x="276" y="131" width="5" height="7"/><rect class="w" x="285" y="131" width="5" height="7"/><rect class="wl" x="294" y="131" width="5" height="7"/>
+<rect class="wl" x="268" y="141" width="5" height="7"/><rect class="wd" x="276" y="141" width="5" height="7"/><rect class="wl" x="285" y="141" width="5" height="7"/><rect class="w" x="294" y="141" width="5" height="7"/>
+<rect class="w" x="268" y="151" width="5" height="7"/><rect class="wl" x="276" y="151" width="5" height="7"/><rect class="wd" x="285" y="151" width="5" height="7"/><rect class="wl" x="294" y="151" width="5" height="7"/>
+<rect class="wl" x="268" y="161" width="5" height="7"/><rect class="w" x="276" y="161" width="5" height="7"/><rect class="wl" x="285" y="161" width="5" height="7"/><rect class="wd" x="294" y="161" width="5" height="7"/>
+<rect class="wd" x="268" y="171" width="5" height="7"/><rect class="wl" x="276" y="171" width="5" height="7"/><rect class="w" x="285" y="171" width="5" height="7"/><rect class="w" x="294" y="171" width="5" height="7"/>
+<rect class="wl" x="276" y="178" width="10" height="10"/>
+<rect class="ac" x="272" y="87" width="8" height="5" rx="1"/><rect class="ac" x="284" y="87" width="8" height="5" rx="1"/>
+<line class="g2" x1="276" y1="87" x2="276" y2="78"/><line class="g2" x1="290" y1="87" x2="290" y2="80"/>
+<rect class="ac" x="286" y="76" width="8" height="4" rx="1"/>
+<rect class="b" x="306" y="52" width="52" height="136"/>
+<line class="d" x1="318" y1="52" x2="318" y2="188"/><line class="d" x1="330" y1="52" x2="330" y2="188"/><line class="d" x1="342" y1="52" x2="342" y2="188"/><line class="d" x1="354" y1="52" x2="354" y2="188"/>
+<line class="d" x1="306" y1="64" x2="358" y2="64"/><line class="d" x1="306" y1="76" x2="358" y2="76"/><line class="d" x1="306" y1="88" x2="358" y2="88"/><line class="d" x1="306" y1="100" x2="358" y2="100"/><line class="d" x1="306" y1="112" x2="358" y2="112"/><line class="d" x1="306" y1="124" x2="358" y2="124"/><line class="d" x1="306" y1="136" x2="358" y2="136"/><line class="d" x1="306" y1="148" x2="358" y2="148"/><line class="d" x1="306" y1="160" x2="358" y2="160"/><line class="d" x1="306" y1="172" x2="358" y2="172"/>
+<rect class="wl" x="308" y="54" width="9" height="9"/><rect class="wd" x="319" y="54" width="9" height="9"/><rect class="wl" x="331" y="54" width="9" height="9"/><rect class="wl" x="344" y="54" width="9" height="9"/>
+<rect class="wd" x="308" y="66" width="9" height="9"/><rect class="wl" x="319" y="66" width="9" height="9"/><rect class="wl" x="331" y="66" width="9" height="9"/><rect class="wd" x="344" y="66" width="9" height="9"/>
+<rect class="wl" x="308" y="78" width="9" height="9"/><rect class="wl" x="319" y="78" width="9" height="9"/><rect class="wd" x="331" y="78" width="9" height="9"/><rect class="wl" x="344" y="78" width="9" height="9"/>
+<rect class="w" x="308" y="90" width="9" height="9"/><rect class="wl" x="319" y="90" width="9" height="9"/><rect class="wl" x="331" y="90" width="9" height="9"/><rect class="wd" x="344" y="90" width="9" height="9"/>
+<rect class="wl" x="308" y="102" width="9" height="9"/><rect class="wd" x="319" y="102" width="9" height="9"/><rect class="wl" x="331" y="102" width="9" height="9"/><rect class="wl" x="344" y="102" width="9" height="9"/>
+<rect class="wd" x="308" y="114" width="9" height="9"/><rect class="wl" x="319" y="114" width="9" height="9"/><rect class="wd" x="331" y="114" width="9" height="9"/><rect class="wl" x="344" y="114" width="9" height="9"/>
+<rect class="wl" x="308" y="126" width="9" height="9"/><rect class="wl" x="319" y="126" width="9" height="9"/><rect class="wd" x="331" y="126" width="9" height="9"/><rect class="w" x="344" y="126" width="9" height="9"/>
+<rect class="w" x="308" y="138" width="9" height="9"/><rect class="wd" x="319" y="138" width="9" height="9"/><rect class="wl" x="331" y="138" width="9" height="9"/><rect class="wl" x="344" y="138" width="9" height="9"/>
+<rect class="wl" x="308" y="150" width="9" height="9"/><rect class="wl" x="319" y="150" width="9" height="9"/><rect class="w" x="331" y="150" width="9" height="9"/><rect class="wd" x="344" y="150" width="9" height="9"/>
+<rect class="wd" x="308" y="162" width="9" height="9"/><rect class="wl" x="319" y="162" width="9" height="9"/><rect class="wl" x="331" y="162" width="9" height="9"/><rect class="w" x="344" y="162" width="9" height="9"/>
+<rect class="w" x="308" y="174" width="9" height="12"/><rect class="wl" x="331" y="174" width="18" height="12"/>
+<rect class="bl" x="304" y="48" width="56" height="5"/><rect class="bl" x="310" y="40" width="44" height="9"/><rect class="bl" x="318" y="30" width="28" height="11"/>
+<polygon class="bl" points="316,30 346,30 332,14"/>
+<line class="g" x1="332" y1="14" x2="332" y2="2"/>
+<circle cx="332" cy="1.5" r="2" fill="rgba(74,96,152,0.55)" stroke="#4A6098" stroke-width="0.8"/>
+<circle cx="332" cy="1.5" r="1" class="t"/>
+<ellipse class="ac" cx="348" cy="40" rx="5" ry="3"/>
+<line class="g2" x1="348" y1="40" x2="350" y2="36"/>
+<rect class="b" x="362" y="100" width="44" height="88"/>
+<rect class="bl" x="360" y="94" width="48" height="7"/>
+<rect class="b" x="368" y="80" width="30" height="21"/>
+<rect class="bl" x="366" y="76" width="34" height="5"/>
+<rect class="wl" x="365" y="82" width="6" height="7"/><rect class="wd" x="374" y="82" width="6" height="7"/><rect class="wl" x="383" y="82" width="6" height="7"/>
+<rect class="w" x="365" y="103" width="6" height="7"/><rect class="wl" x="374" y="103" width="6" height="7"/><rect class="wd" x="383" y="103" width="6" height="7"/><rect class="wl" x="392" y="103" width="6" height="7"/>
+<rect class="wl" x="365" y="114" width="6" height="7"/><rect class="wd" x="374" y="114" width="6" height="7"/><rect class="wl" x="383" y="114" width="6" height="7"/><rect class="w" x="392" y="114" width="6" height="7"/>
+<rect class="wd" x="365" y="125" width="6" height="7"/><rect class="wl" x="374" y="125" width="6" height="7"/><rect class="wl" x="383" y="125" width="6" height="7"/><rect class="wd" x="392" y="125" width="6" height="7"/>
+<rect class="wl" x="365" y="136" width="6" height="7"/><rect class="w" x="374" y="136" width="6" height="7"/><rect class="wd" x="383" y="136" width="6" height="7"/><rect class="wl" x="392" y="136" width="6" height="7"/>
+<rect class="w" x="365" y="147" width="6" height="7"/><rect class="wl" x="374" y="147" width="6" height="7"/><rect class="wl" x="383" y="147" width="6" height="7"/><rect class="wd" x="392" y="147" width="6" height="7"/>
+<rect class="wl" x="365" y="158" width="6" height="7"/><rect class="wd" x="374" y="158" width="6" height="7"/><rect class="wl" x="383" y="158" width="6" height="7"/><rect class="w" x="392" y="158" width="6" height="7"/>
+<rect class="w" x="365" y="169" width="6" height="7"/><rect class="wl" x="374" y="169" width="6" height="7"/><rect class="wd" x="383" y="169" width="6" height="7"/><rect class="wl" x="392" y="169" width="6" height="7"/>
+<rect class="wl" x="372" y="178" width="12" height="10"/>
+<rect class="r" x="370" y="73" width="10" height="8" rx="2"/>
+<line class="g2" x1="375" y1="72" x2="375" y2="64"/>
+<rect class="ac" x="386" y="73" width="8" height="5" rx="1"/>
+<rect class="b" x="408" y="140" width="34" height="48"/>
+<rect class="bl" x="406" y="135" width="38" height="6"/>
+<rect class="w" x="411" y="144" width="6" height="7"/><rect class="w" x="420" y="144" width="6" height="7"/><rect class="w" x="429" y="144" width="6" height="7"/>
+<rect class="wl" x="411" y="155" width="6" height="7"/><rect class="wd" x="420" y="155" width="6" height="7"/><rect class="wl" x="429" y="155" width="6" height="7"/>
+<rect class="wl" x="411" y="166" width="6" height="7"/><rect class="w" x="420" y="166" width="6" height="7"/><rect class="wl" x="429" y="166" width="6" height="7"/>
+<rect class="wl" x="416" y="177" width="10" height="11"/>
+<rect class="b" x="444" y="112" width="32" height="76"/>
+<rect class="bl" x="442" y="107" width="36" height="6"/>
+<rect class="b" x="448" y="92" width="20" height="16"/>
+<rect class="bl" x="446" y="87" width="24" height="6"/>
+<line class="d" x1="453" y1="87" x2="453" y2="188"/><line class="d" x1="461" y1="87" x2="461" y2="188"/><line class="d" x1="469" y1="87" x2="469" y2="188"/>
+<rect class="wl" x="449" y="94" width="5" height="6"/><rect class="wd" x="457" y="94" width="5" height="6"/><rect class="wl" x="465" y="94" width="5" height="6"/>
+<rect class="wd" x="446" y="113" width="5" height="7"/><rect class="wl" x="454" y="113" width="5" height="7"/><rect class="wd" x="462" y="113" width="5" height="7"/><rect class="wl" x="470" y="113" width="5" height="7"/>
+<rect class="wl" x="446" y="123" width="5" height="7"/><rect class="w" x="454" y="123" width="5" height="7"/><rect class="wl" x="462" y="123" width="5" height="7"/><rect class="wd" x="470" y="123" width="5" height="7"/>
+<rect class="wd" x="446" y="133" width="5" height="7"/><rect class="wl" x="454" y="133" width="5" height="7"/><rect class="w" x="462" y="133" width="5" height="7"/><rect class="wl" x="470" y="133" width="5" height="7"/>
+<rect class="wl" x="446" y="143" width="5" height="7"/><rect class="wd" x="454" y="143" width="5" height="7"/><rect class="wl" x="462" y="143" width="5" height="7"/><rect class="w" x="470" y="143" width="5" height="7"/>
+<rect class="w" x="446" y="153" width="5" height="7"/><rect class="wl" x="454" y="153" width="5" height="7"/><rect class="wd" x="462" y="153" width="5" height="7"/><rect class="wl" x="470" y="153" width="5" height="7"/>
+<rect class="wl" x="446" y="163" width="5" height="7"/><rect class="wl" x="454" y="163" width="5" height="7"/><rect class="w" x="462" y="163" width="5" height="7"/><rect class="wd" x="470" y="163" width="5" height="7"/>
+<rect class="wd" x="446" y="173" width="5" height="7"/><rect class="wl" x="454" y="173" width="5" height="7"/><rect class="wl" x="462" y="173" width="5" height="7"/><rect class="wl" x="470" y="173" width="5" height="7"/>
+<rect class="wl" x="452" y="179" width="12" height="9"/>
+<polygon class="bl" points="448,87 468,87 458,72"/>
+<line class="g" x1="458" y1="72" x2="458" y2="58"/>
+<rect class="ac" x="455" y="56" width="6" height="4" rx="1"/>
+<line stroke="rgba(74,96,152,0.5)" stroke-width="0.7" x1="56" y1="188" x2="56" y2="178"/><circle cx="56" cy="177" r="2" class="t"/>
+<line stroke="rgba(74,96,152,0.5)" stroke-width="0.7" x1="156" y1="188" x2="156" y2="178"/><circle cx="156" cy="177" r="2" class="t"/>
+<line stroke="rgba(74,96,152,0.5)" stroke-width="0.7" x1="260" y1="188" x2="260" y2="178"/><circle cx="260" cy="177" r="2" class="t"/>
+<line stroke="rgba(74,96,152,0.5)" stroke-width="0.7" x1="360" y1="188" x2="360" y2="178"/><circle cx="360" cy="177" r="2" class="t"/>
+<line stroke="rgba(74,96,152,0.5)" stroke-width="0.7" x1="440" y1="188" x2="440" y2="178"/><circle cx="440" cy="177" r="2" class="t"/>
+<ellipse fill="rgba(74,96,152,0.18)" stroke="rgba(74,96,152,0.35)" stroke-width="0.5" cx="134" cy="184" rx="7" ry="6"/>
+<line stroke="rgba(74,96,152,0.4)" stroke-width="0.7" x1="134" y1="190" x2="134" y2="188"/>
+<ellipse fill="rgba(74,96,152,0.18)" stroke="rgba(74,96,152,0.35)" stroke-width="0.5" cx="302" cy="184" rx="7" ry="6"/>
+<line stroke="rgba(74,96,152,0.4)" stroke-width="0.7" x1="302" y1="190" x2="302" y2="188"/>
+<ellipse fill="rgba(74,96,152,0.18)" stroke="rgba(74,96,152,0.35)" stroke-width="0.5" cx="402" cy="184" rx="7" ry="6"/>
+<line stroke="rgba(74,96,152,0.4)" stroke-width="0.7" x1="402" y1="190" x2="402" y2="188"/>
 </svg>
       </div>
     </div>
@@ -647,13 +711,12 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
       </div>
     </div>
   </section>
-
-</div><!-- end #work-with-us -->
+</div>
 
 <footer>
   <div class="footer-top">
     <div class="footer-brand"><h3>Archer Africa</h3><p>International academic experiences rooted in Africa and connected to the world.</p></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#why-africa">Why Africa</a></li><li><a href="#work-with-us">How We Work</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="why-africa.html">Why Africa</a></li><li><a href="#work-with-us">How We Work</a></li></ul></div>
     <div class="footer-col"><h4>Programmes</h4><ul><li><a href="#services">Study Tours</a></li><li><a href="#services">Executive Education</a></li><li><a href="#services">Online Learners</a></li><li><a href="#services">Institutional</a></li></ul></div>
     <div class="footer-col"><h4>Partner</h4><ul><li><a href="#contact">Work With Us</a></li><li><a href="#contact">Contact</a></li></ul></div>
   </div>
@@ -663,6 +726,7 @@ footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
   </div>
 </footer>
 
+<!-- Programme Detail Panel -->
 <div class="prog-detail" id="progDetail">
   <div class="prog-detail-backdrop" onclick="closeDetail()"></div>
   <div class="prog-detail-panel">
@@ -704,14 +768,25 @@ function openDetail(i){
 }
 function closeDetail(){document.getElementById('progDetail').classList.remove('open');document.body.style.overflow='';}
 function submitForm(){document.getElementById('contactForm').style.display='none';document.getElementById('formSuccess').classList.add('show');}
+
 const nav=document.getElementById('navbar');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+
 const fades=document.querySelectorAll('.fade');
 fades.forEach(f=>new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:0.08}).observe(f));
+
 let menuOpen=false;
 function toggleMobile(){menuOpen=!menuOpen;document.getElementById('mobileMenu').classList.toggle('open',menuOpen);}
 function closeMobile(){menuOpen=false;document.getElementById('mobileMenu').classList.remove('open');}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});
+
+const slides=document.querySelectorAll('.hero-slide');
+let current=0;
+setInterval(()=>{
+  slides[current].classList.remove('active');
+  current=(current+1)%slides.length;
+  slides[current].classList.add('active');
+},3000);
 </script>
 </body>
 </html>

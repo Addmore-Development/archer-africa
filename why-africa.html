@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Africa — Archer Africa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FAF8F4;
+  --ink:#1A1814;
+  --warm-mid:#6B5E4E;
+  --accent:#2C3E6B;
+  --accent-light:#4A6098;
+  --border:#E2DDD6;
+  --surface:#F3EFE8;
+  --hero-brown:#f5ecdecc;      /* dark chocolate brown */
+  --hero-text:#F5EFE8;
+}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);font-weight:300;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:'Outfit',sans-serif}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;background:rgba(250,248,244,0.96);border-bottom:0.5px solid var(--border);backdrop-filter:blur(8px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:0.08em;color:var(--ink)}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-mid);transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-back{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.6rem 1.4rem;border:0.5px solid var(--ink);color:var(--ink);background:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
+.nav-back:hover{background:var(--ink);color:var(--cream)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:1px;background:var(--ink)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--ink);letter-spacing:0.02em}
+
+/* Page Hero — no stats */
+.page-hero{padding:10rem 4rem 6rem;background:var(--hero-brown);border-bottom:0.5px solid var(--border);position:relative;overflow:hidden;text-align:center;display:flex;flex-direction:column;align-items:center}
+.page-hero-inner{max-width:700px}
+.page-eyebrow{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+.page-eyebrow::before{content:'';width:32px;height:0.5px;background:var(--accent)}
+.page-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.06;letter-spacing:-0.01em;margin-bottom:2rem;color:var(--ink)}
+.page-headline em{font-style:italic;color:var(--accent)}
+.page-hero-sub{font-size:1.05rem;line-height:1.9;color:var(--warm-mid);max-width:52ch;font-weight:300;margin:0 auto}
+
+/* Shared */
+.section-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
+.section-label::before{content:'';width:32px;height:0.5px;background:var(--accent)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.12;letter-spacing:-0.01em;margin-bottom:1.5rem}
+.section-title em{font-style:italic;color:var(--accent)}
+hr.divider{border:none;border-top:0.5px solid var(--border)}
+
+/* Four Reasons — now first */
+.reasons-section{background:var(--surface);padding:7rem 4rem}
+.reasons-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;margin-top:4rem}
+.reason-card{background:var(--cream);border:0.5px solid var(--border);overflow:hidden;transition:border-color 0.25s,box-shadow 0.25s}
+.reason-card:hover{border-color:var(--accent);box-shadow:0 8px 32px rgba(44,62,107,0.08)}
+.reason-card-title{padding:1.5rem 2rem 1.2rem;border-bottom:0.5px solid var(--border)}
+.reason-card-title h3{font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);font-weight:400}
+.reason-card-image{width:100%;height:240px;overflow:hidden;position:relative}
+.reason-card-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;filter:grayscale(10%)}
+.reason-card:hover .reason-card-image img{transform:scale(1.04)}
+.reason-card-body{padding:1.8rem 2rem}
+.reason-card-body p{font-size:0.9rem;line-height:1.8;color:var(--warm-mid);font-weight:300}
+.reason-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.2rem}
+.reason-tag{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.65rem;border:0.5px solid var(--border);color:var(--warm-mid)}
+
+/* Intro prose — now second */
+.intro-prose{padding:7rem 4rem}
+.intro-inner{max-width:720px;margin:0 auto}
+.intro-inner p{font-size:1rem;line-height:1.9;color:var(--warm-mid);margin-bottom:1.5rem;font-weight:300}
+.intro-inner p strong{color:var(--ink);font-weight:400}
+.intro-inner blockquote{border-left:2px solid var(--accent);padding:1rem 0 1rem 2rem;margin:2.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;line-height:1.45;color:var(--ink)}
+
+/* CTA */
+.wa-cta{background:var(--surface);padding:7rem 4rem;text-align:center}
+.wa-cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem}
+.wa-cta h2 em{font-style:italic;color:var(--accent)}
+.wa-cta p{font-size:1rem;line-height:1.8;color:var(--warm-mid);max-width:48ch;margin:0 auto 3rem;font-weight:300}
+.btn-primary{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2.2rem;background:var(--ink);color:var(--cream);border:none;transition:all 0.2s;cursor:pointer}
+.btn-primary:hover{background:var(--accent)}
+
+footer{background:var(--ink);color:var(--cream);padding:5rem 4rem 3rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;padding-bottom:3rem;border-bottom:0.5px solid rgba(255,255,255,0.1)}
+.footer-brand h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;margin-bottom:1rem}
+.footer-brand p{font-size:0.85rem;line-height:1.8;color:rgba(250,248,244,0.45);font-weight:300;max-width:30ch}
+.footer-col h4{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-light);margin-bottom:1.2rem;font-weight:400}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:0.7rem}
+.footer-col a{font-size:0.85rem;color:rgba(250,248,244,0.45);transition:color 0.2s;font-weight:300}
+.footer-col a:hover{color:var(--cream)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.75rem;letter-spacing:0.08em;color:rgba(250,248,244,0.3)}
+
+.fade{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .page-hero{padding:8rem 1.5rem 5rem}
+  .intro-prose,.reasons-section,.wa-cta{padding:5rem 1.5rem}
+  .reasons-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="index.html#services" onclick="closeMobile()">What We Offer</a>
+  <a href="index.html#work-with-us" onclick="closeMobile()">Work With Us</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Archer<span>Africa</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#services">What We Offer</a></li>
+    <li><a href="index.html#work-with-us">Work With Us</a></li>
+  </ul>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+  <button class="nav-hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Hero — stats removed -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Why Africa</div>
+    <h1 class="page-headline">Where global ideas meet <em>lived realities</em></h1>
+    <p class="page-hero-sub">Africa is not simply a destination. It is a place where students encounter the complexity, creativity, and dynamism that define our interconnected world.</p>
+  </div>
+</section>
+
+<!-- Four Reasons — now first -->
+<section class="reasons-section fade">
+  <div class="section-label">Four Reasons to Choose Africa</div>
+  <h2 class="section-title">What students encounter<br>that <em>reshapes their thinking</em></h2>
+
+  <div class="reasons-grid">
+    <div class="reason-card">
+      <div class="reason-card-title">
+        <h3>Innovation Ecosystems Unlike Any Other</h3>
+      </div>
+      <div class="reason-card-image">
+        <img src="images/Innovation Ecosystems Unlike Any Other.jpg" alt="Innovation Ecosystems — vibrant African city">
+      </div>
+      <div class="reason-card-body">
+        <p>Africa is home to some of the world's most creative problem-solvers, operating in contexts that demand genuine innovation. From mobile-first fintech to off-grid energy solutions, African entrepreneurs are building companies that produce a form of ingenuity that offers lessons for leaders everywhere.</p>
+        <div class="reason-tags">
+          <span class="reason-tag">Fintech</span>
+          <span class="reason-tag">Frugal innovation</span>
+          <span class="reason-tag">Tech hubs</span>
+          <span class="reason-tag">Venture ecosystems</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-card-title">
+        <h3>The Frontline of Climate Adaptation</h3>
+      </div>
+      <div class="reason-card-image">
+        <img src="images/The Frontline of Climate Adaptation.jpg" alt="Climate Adaptation — African urban infrastructure">
+      </div>
+      <div class="reason-card-body">
+        <p>African cities are navigating climate challenges that will define urban governance globally for the next century — rapid urbanisation, water scarcity, heat, and infrastructure gaps. For students in public policy, urban studies, and sustainability, there is no richer classroom.</p>
+        <div class="reason-tags">
+          <span class="reason-tag">Climate adaptation</span>
+          <span class="reason-tag">Urban governance</span>
+          <span class="reason-tag">Infrastructure</span>
+          <span class="reason-tag">Community resilience</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-card-title">
+        <h3>A Rapidly Transforming Economy</h3>
+      </div>
+      <div class="reason-card-image">
+        <img src="images/A Rapidly Transforming Economy.jpg" alt="Transforming Economy — African business professionals">
+      </div>
+      <div class="reason-card-body">
+        <p>Africa's economies are undergoing transformation at a pace that commands global attention. Regional integration through the African Continental Free Trade Area is reshaping trade relationships. For students in economics, international relations, and global strategy, engagement with these dynamics is essential.</p>
+        <div class="reason-tags">
+          <span class="reason-tag">AfCFTA</span>
+          <span class="reason-tag">Regional integration</span>
+          <span class="reason-tag">Development finance</span>
+          <span class="reason-tag">Trade policy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-card-title">
+        <h3>A Different Model of Leadership</h3>
+      </div>
+      <div class="reason-card-image">
+        <img src="images/A Different Model of Leadership.jpg" alt="Leadership — African leader speaking or mentoring">
+      </div>
+      <div class="reason-card-body">
+        <p>African leadership traditions — including ubuntu, a philosophy of collective humanity and interdependence — offer a genuine counterpoint to individualistic Western frameworks. Executive participants consistently describe their African programmes as among the most influential leadership experiences of their careers.</p>
+        <div class="reason-tags">
+          <span class="reason-tag">Ubuntu leadership</span>
+          <span class="reason-tag">Cross-cultural strategy</span>
+          <span class="reason-tag">Stakeholder complexity</span>
+          <span class="reason-tag">Executive learning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- The Case for Africa — now second -->
+<section class="intro-prose fade">
+  <div class="intro-inner">
+    <div class="section-label">The Case for Africa</div>
+    <h2 class="section-title">A continent at the<br><em>centre of global conversations</em></h2>
+    <p>Despite its importance to global conversations about technology, sustainability, leadership, and economic development, Africa remains underrepresented in the international learning experiences offered by universities in Europe and North America.</p>
+    <p>Students graduate from world-class programmes having studied African economies as case studies, but rarely having engaged directly with the entrepreneurs, policymakers, and innovators actually shaping those economies. Archer Africa changes this.</p>
+    <blockquote>"The most important things I learned during my MBA, I learned in Johannesburg — not in the classroom."</blockquote>
+    <p>Africa offers students a rare opportunity to encounter complexity that can't be adequately conveyed in a case study — and to develop the global fluency that defines leaders equipped for the century ahead.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="wa-cta fade">
+  <h2>Bring your students to<br>the <em>centre of the world</em></h2>
+  <p>Start a conversation about what an Africa-based programme could look like for your institution and your students.</p>
+  <a href="index.html#contact"><button class="btn-primary">Partner With Us</button></a>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><h3>Archer Africa</h3><p>International academic experiences rooted in Africa and connected to the world.</p></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="why-africa.html">Why Africa</a></li><li><a href="index.html#work-with-us">How We Work</a></li></ul></div>
+    <div class="footer-col"><h4>Programmes</h4><ul><li><a href="index.html#services">Study Tours</a></li><li><a href="index.html#services">Executive Education</a></li><li><a href="index.html#services">Online Learners</a></li><li><a href="index.html#services">Institutional</a></li></ul></div>
+    <div class="footer-col"><h4>Partner</h4><ul><li><a href="index.html#contact">Work With Us</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Archer Africa. All rights reserved.</p>
+    <p>Johannesburg, South Africa</p>
+  </div>
+</footer>
+
+<script>
+const fades=document.querySelectorAll('.fade');
+fades.forEach(f=>new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:0.08}).observe(f));
+let menuOpen=false;
+function toggleMobile(){menuOpen=!menuOpen;document.getElementById('mobileMenu').classList.toggle('open',menuOpen);}
+function closeMobile(){menuOpen=false;document.getElementById('mobileMenu').classList.remove('open');}
+</script>
+</body>
+</html>
